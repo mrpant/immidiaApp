@@ -1,0 +1,54 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar class="custom-toolbar">
+     <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure>  -->
+     <img class="" src="img/logo.png" style="height: 32px;
+    width: 32px; margin-left: 14px; position: absolute;"/>
+      <ion-title style="padding-left:50px;">Immidia</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content style="background: white;">
+
+    <div *ngIf="isLogin == true" class="" style="background-color: #465c78;background-size:cover;height: 220px;">
+     
+      <div  class="div-st-user" style="margin-bottom: 10px">
+       <img src="{{userDetails?.image}}"  height="125px" width="125px" >
+        <div class="spcer" style="height: 1px"></div>
+        <p> {{userDetails?.firstName}}&nbsp;{{userDetails?.lastName}} </p>
+        
+        <p>{{userDetails?.mailId}}</p>
+        <!-- <div class="spcer" style="height: 20px"></div> -->
+        </div>
+    </div>
+
+
+    <ion-list>
+     <span  *ngFor="let p of pages">
+      <button menuClose ion-item  *ngIf="p.isLogin == true" (click)="openPage(p)" >
+     
+        <ion-icon ios="{{p.icon}}" md="{{p.md}}" ></ion-icon>&nbsp;{{p.title}}
+      
+      </button>
+      </span>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+
+<style type="text/css">
+.toolbar-content-ios img{
+  top:20px;
+}
+.toolbar-content-md img{
+  top:10px;
+}
+</style>
+
+
+
+
+

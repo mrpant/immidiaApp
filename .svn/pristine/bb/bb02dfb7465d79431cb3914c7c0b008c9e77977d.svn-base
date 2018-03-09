@@ -1,0 +1,69 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">JET ENQUIRY</ion-title>
+              <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+         </div>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="box1 static">
+    
+        <ion-list>
+            <ion-item>
+              <ion-label><ion-icon name="person"></ion-icon></ion-label>
+              <ion-input [(ngModel)]="name" type="text"  placeholder="Name" ></ion-input>
+            </ion-item>           
+            <ion-item>
+              <ion-label><ion-icon name="mail"></ion-icon></ion-label>
+              <ion-input [(ngModel)]="email" type="email" required placeholder="Email" ></ion-input>
+            </ion-item>  
+            <ion-item>
+              <ion-label><ion-icon name="call"></ion-icon></ion-label>
+              <ion-input [(ngModel)]="phone" type="number" required placeholder="Phone No." ></ion-input>
+            </ion-item>          
+            <ion-item class="input-group">
+                <ion-label>
+                    <ion-icon name="people"></ion-icon>
+                </ion-label>
+                 <ion-input [(ngModel)]="guest"  type="number" placeholder="Guest"></ion-input>
+                <ion-note item-end>
+                    <button ion-button clear color="dark" (click)="decrementGuestCounter();">
+                        <ion-icon name="remove"></ion-icon>
+                    </button>
+                    <button ion-button clear color="dark" (click)="incrementGuestCounter();">
+                        <ion-icon name="add"></ion-icon>
+                    </button>
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                <ion-label><ion-icon name="calendar" style="margin-right: 5px"></ion-icon></ion-label>
+                <ion-datetime [(ngModel)]="_date"  placeholder="Date" displayFormat="MMM DD YYYY" [(ngModel)]="_date"></ion-datetime>
+            </ion-item>
+
+            <ion-item>
+              <ion-label><ion-icon name="pin"></ion-icon></ion-label>
+              <ion-input [(ngModel)]="from" type="text" required placeholder="From" ></ion-input>
+            </ion-item> 
+            <ion-item>
+              <ion-label><ion-icon name="pin"></ion-icon></ion-label>
+              <ion-input [(ngModel)]="to" type="text" required placeholder="To" ></ion-input>
+            </ion-item> 
+             <ion-item>
+              <ion-label><ion-icon name="call"></ion-icon></ion-label>
+              <ion-textarea  [(ngModel)]="request" placeholder="Request For.." ></ion-textarea>
+            </ion-item> 
+
+                  
+        </ion-list>
+        
+        <button ion-button block color="dark" (click)="submitQuery();" >Submit Query</button>
+   
+        
+    </div>
+</ion-content>

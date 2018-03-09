@@ -1,0 +1,46 @@
+<ion-content class="card-background-page">
+    <div padding>
+        <h4 text-uppercase>Your personal information</h4>
+        <div class="box">
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-3><img src="{{userDetails?.image}}"  alt=""></ion-col>
+                    <ion-col col-9>
+                        <h5 class="profile-title">{{userDetails.firstName}} {{userDetails.lastName}} </h5>
+                        <p>Contact No: {{userDetails.contactNumber}}</p>
+                        <p>Email: {{userDetails.mailId}}</p>
+                        <p>Address: {{userDetails.address}}</p>
+                        <button ion-button small color="dark" (click)="editProfile();">Edit</button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+        <h4 text-uppercase>Your traveller's information</h4>
+        <button ion-button block color="light" icon-left (click)="onButtonClick()" >
+            <ion-icon name="add"></ion-icon> <span>Add co-traveller</span>
+        </button>
+        <!-- <div class="box" text-center>
+        </div> -->
+        <div class="box1" margin-top *ngIf="buttonClicked">
+            <p>Your name as on passport</p>
+            <ion-list>
+                <ion-item>
+                    <ion-select interface="popover" >
+                      <ion-option selected>Mr.</ion-option>
+                      <ion-option >Mrs.</ion-option>
+                      <ion-option >Ms.</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label><ion-icon name="person"></ion-icon></ion-label>
+                  <ion-input type="text" placeholder="First Name"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label><ion-icon name="person"></ion-icon></ion-label>
+                  <ion-input type="text" placeholder="Last Name"></ion-input>
+                </ion-item>
+            </ion-list>
+            <button ion-button block color="dark">Submit</button>
+        </div>
+    </div>
+</ion-content>

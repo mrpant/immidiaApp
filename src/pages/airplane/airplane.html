@@ -1,0 +1,65 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+       <!--  <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">AIRPLANE</ion-title>
+        <div class="right-hdr">
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+         </div>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="box1">
+        <ion-list>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                <ion-select interface="popover" [(ngModel)]="country" placeholder="Country/Country Area">
+                    <ion-option value="nes">USA</ion-option>
+                    <ion-option value="n64">UAE</ion-option>
+                    <ion-option value="ps">France</ion-option>
+                    <ion-option value="genesis">Italy</ion-option>
+                    <ion-option value="saturn">Germany</ion-option>
+                    <ion-option value="snes">Russia</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                <ion-select interface="popover" [(ngModel)]="state" placeholder="State/Sub Area">
+                    <ion-option value="dl">Delhi</ion-option>
+                    <ion-option value="up">Uttar Pradesh</ion-option>
+                    <ion-option value="hp">Himachal Pradesh</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item class="input-group">
+                <ion-label>
+                    <ion-icon name="people"></ion-icon>
+                </ion-label>
+                <ion-input type="number" placeholder="Guest"></ion-input>
+                <ion-note item-end>
+                    <button ion-button clear color="dark">
+                        <ion-icon name="remove"></ion-icon>
+                    </button>
+                    <button ion-button clear color="dark">
+                        <ion-icon name="add"></ion-icon>
+                    </button>
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="car"></ion-icon>
+                </ion-label>
+                <ion-select interface="popover" [(ngModel)]="city" placeholder="Car Type">
+                    <ion-option value="motor">Motor</ion-option>
+                    <ion-option value="sail">Sail</ion-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+        <button ion-button block color="dark">See the Selection</button>
+    </div>
+</ion-content>

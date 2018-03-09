@@ -1,0 +1,25 @@
+<ion-content class="card-background-page">
+    <div padding>
+        <h4 text-uppercase>Your settings</h4>
+        
+        <div class="box1" margin-vertical >
+            <p>Change Password</p>
+            <ion-list>
+                <!-- <ion-item>
+                    <ion-label><ion-icon name="lock"></ion-icon></ion-label>
+                    <ion-input type="password" [(ngModel)]="currentPassword" placeholder="Current password"></ion-input>
+                </ion-item> -->
+                <ion-item>
+                    <ion-label><ion-icon name="lock"></ion-icon></ion-label>
+                  <ion-input type="password" [(ngModel)]="newPassword" placeholder="New password"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label><ion-icon name="lock"></ion-icon></ion-label>
+                  <ion-input type="password" [(ngModel)]="confirmPassword" placeholder="Confirm password"></ion-input>
+                </ion-item>
+            </ion-list>
+            <button ion-button block color="dark" (click)="submitForm();">Submit</button>
+        </div>
+        
+    </div>
+</ion-content>

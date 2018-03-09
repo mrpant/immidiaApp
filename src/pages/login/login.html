@@ -1,0 +1,47 @@
+<<!-- ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <figure class="logo"><img src="img/logo.png" alt="" /> </figure>
+        <ion-title class="center">LOGIN</ion-title>
+    </ion-navbar>
+</ion-header> -->
+<ion-content>
+    <div class="box1">
+         <button ion-button style="    position: absolute;
+    top: -14px;
+    right: -10px;
+    background: #000;
+    width: 20px;
+    height: 26px;" (click)="dismiss();">
+              <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
+        </button>
+        <p class="center">
+            <a href="javascript:void(0);" (click)="facebookLogin();"><img src="img/fb-login.png" alt="" /></a>
+        </p>
+        <p class="center">
+            <a href="javascript:void(0);" (click)="googleLogin();"><img src="img/google-plus-login.png" alt="" /></a>
+        </p>
+        <p class="center or">OR</p>
+
+        <ion-list>
+            <ion-item>
+              <ion-label><ion-icon name="mail"></ion-icon></ion-label>
+              <ion-input type="email" [(ngModel)]="mailId" placeholder="Email Address"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label><ion-icon name="lock"></ion-icon></ion-label>
+              <ion-input type="password" [(ngModel)]="password" placeholder="Password"></ion-input>
+            </ion-item>
+        </ion-list>
+        
+        <!-- <input type="text" value="Email Address" class="input email" name="">
+        <input type="text" value="Password" class="input password" name=""> -->
+        <button ion-button block color="dark" (click)="loginSubmit(mailId,password)">login</button>
+        <p text-center padding-top>
+            <a href="javascript:void(0);" class="forgot" (click)="goForget();">Forgot your password?</a>
+        </p>
+        <h3 text-center><a href="javascript:void(0);" class="forgot" (click)="goSignUp();">Don’t have an account? Sign up</a></h3>
+    </div>
+</ion-content>

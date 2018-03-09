@@ -1,0 +1,29 @@
+<ion-header class="header" color="dark">
+ <ion-toolbar >
+    <ion-title>
+      IMMIDIA
+    </ion-title>
+     <ion-buttons end>
+   <button ion-button (click)="dismiss()" icon-only clear><ion-icon name="close"></ion-icon>       
+      </button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content style="background:none;">
+<div class="modal">
+<ion-list>
+   <ion-item>
+    <ion-label floating>Enter Phone Number</ion-label>
+    <ion-input  type="text" value="+971 56 446 5203"  readonly></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating></ion-label>
+    <ion-textarea  rows="4" placeholder = "Enter your message...- Our GSM team will contact you. We are here for you 24/7! Team IMMIDA - Instant Luxury Experiences."></ion-textarea>
+  </ion-item>
+</ion-list>
+  <button ion-button block color="dark" (click)="sendSms();">Submit</button>
+  <p class="text-center"> We'll contact you soon</p>
+    <button ion-button block clear color="dark" ><ion-icon ios="ios-call" md="md-call"></ion-icon>Call Us Now&nbsp;&nbsp;<a href="tel:801230214" class="forget">801230214</a></button>
+
+  </div>
+</ion-content>

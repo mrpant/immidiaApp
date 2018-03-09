@@ -1,0 +1,353 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">JET ENQUIRY</ion-title>
+        <div class="right-hdr">
+            <span>
+                <a href="#">
+                    <ion-icon name="text" (click)="queryForm($event)"></ion-icon>
+                </a>
+            </span>
+            <span>
+                <a href="#">
+                    <ion-icon name="person" (click)="presentModal($event)"></ion-icon>
+                </a>
+            </span>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="box1 static form2 pt-0">
+        <ion-grid>
+            <ion-list *ngIf="!nextform">
+                <form [formGroup]="jetForm" (ngSubmit)="onSubmit(jetForm)">
+                <ion-row justify-content-start align-items-center class="py-1">
+                        <ion-col>
+                                <span *ngIf="jetForm.controls['jetCityFrom'].hasError('required') && jetForm.controls['jetCityFrom'].touched">*</span>
+                            </ion-col>
+                    <ion-col class="pl-0">
+                        
+                        <ion-icon name="pin"></ion-icon>
+                    </ion-col>
+                    <ion-col>
+                        <ion-input [formControl]="jetForm.controls['jetCityFrom']" [(ngModel)]="jetCityFrom" name= "jetCityFrom" type="text"  placeholder="From : city, state"></ion-input>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row justify-content-start align-items-center class="py-1">
+                        <ion-col>
+                                <span *ngIf="jetForm.controls['jetCityTo'].hasError('required') && jetForm.controls['jetCityTo'].touched" >*</span>
+                            </ion-col>
+                    <ion-col class="pl-0">
+                        <ion-icon name="pin"></ion-icon>
+                    </ion-col>
+                    <ion-col>
+                        <ion-input [formControl]="jetForm.controls['jetCityTo']" [(ngModel)]="jetCityTo" name= "jetCityTo" type="text"  placeholder="To : city, state"></ion-input>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row justify-content-start align-items-center class="py-1">
+                    
+                    <ion-col class="pl-0">
+                        <ion-icon name="ios-repeat"></ion-icon>
+                    </ion-col>
+                    <ion-col>
+                        <span class="selectbox">
+                            <select [formControl]="jetForm.controls['jetType']"  [(ngModel)]="jetType" name="jetType" >
+                                <option value="Small Jet" selected="true">Small Jet</option>
+                                <option value="Medium Jet">Medium Jet</option>
+                                <option value="Long Range Jet">Long Range Jet</option>
+                                <option value="Large Airliner">Large Airliner</option>
+                                <option value="Helicopter">Helicopter</option>
+                            </select>
+                        </span>
+                    </ion-col>
+                </ion-row>
+                <ion-row justify-content-start align-items-center class="py-1">
+                        
+                    <ion-col class="pl-0">
+                        <ion-icon name="ios-repeat"></ion-icon>
+                    </ion-col>
+                    <ion-col>
+                        
+                        <span class="selectbox" >
+                            <select [formControl]="jetForm.controls['jetRoundType']" [(ngModel)]="jetRoundType" name="jetRoundType"   (change)="selectTrip($event,jetRoundType)" >
+                                <option value="One Way" selected="true">One Way</option>
+                                <option value="Round Trip">Round Trip</option>
+                            </select>
+                        </span>
+                    </ion-col>
+                </ion-row>
+
+
+                <ion-row justify-content-start align-items-center class="form-group">
+                   <!--      <ion-col>
+                                <span *ngIf="jetForm.controls['email'].hasError('jetDepDate') && jetForm.controls['jetDepDate'].touched" >*</span>
+                            </ion-col> -->
+                    <ion-col class="pl-0">
+                        <ion-label>
+                            <ion-icon name="calendar"></ion-icon>&nbsp;&nbsp;&nbsp;Departure
+                        </ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-datetime [formControl]="jetForm.controls['jetDepDate']" [disabled]="isDisabledArrival" [(ngModel)]="jetDepDate" name="jetDepDate" placeholder=" " displayFormat="MMM DD YYYY" (change)="onSelectYachtArrivalDateChange(arrivalDate);"
+                            [min]="departureDate" max="2050-12-01"></ion-datetime>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row justify-content-start align-items-center class="form-group" *ngIf="roundTrip">
+                        <!-- <ion-col>
+                                <span *ngIf="jetForm.controls['jetArrDate'].hasError('required') && jetForm.controls['jetArrDate'].touched" >*</span>
+                            </ion-col> -->
+                    <ion-col class="pl-0">
+                        <ion-label>
+                            <ion-icon name="calendar"></ion-icon>&nbsp;&nbsp;&nbsp;Arrival
+                        </ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-datetime  [formControl]="jetForm.controls['jetArrDate']"  [disabled]="isDisabledArrival" [(ngModel)]="jetArrDate"  name="jetArrDate"placeholder=" " displayFormat="MMM DD YYYY" (change)="onSelectYachtArrivalDateChange(arrivalDate);"
+                            [min]="departureDate" max="2050-12-01"></ion-datetime>
+                    </ion-col>
+                </ion-row>
+                <ion-row justify-content-start align-items-center class="py-1">
+
+                    <ion-col class="pl-0">
+                        <ion-icon name="ios-repeat"></ion-icon>
+                    </ion-col>
+                    <ion-col>
+                        <span class="selectbox">
+                            <select [formControl]="jetForm.controls['jetdepartuetime']" [(ngModel)]="jetdepartuetime" name="jetdepartuetime" >
+                                <option value="">Departure Time</option>
+                                <option value="09:00" selected="true">09:00</option>
+                                <option value="09:15">09:15</option>
+                    <option value="09:30">09:30</option>
+                    <option value="09:45">09:45</option>
+                    <option value="10:00">10:00</option>
+                    <option value="10:15">10:15</option>
+                    <option value="10:30">10:30</option>
+                    <option value="10:45">10:45</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:15">11:15</option>
+                    <option value="11:30">11:30</option>
+                    <option value="11:45">11:45</option>
+                    <option value="12:00">12:00</option>
+                    <option value="12:15">12:15</option>
+                    <option value="12:30">12:30</option>
+                    <option value="12:45">12:45</option>
+                    <option value="13:00">13:00</option>
+                    <option value="13:15">13:15</option>
+                    <option value="13:30">13:30</option>
+                    <option value="13:45">13:45</option>
+                    <option value="14:00">14:00</option>
+                    <option value="14:15">14:15</option>
+                    <option value="14:30">14:30</option>
+                    <option value="14:45">14:45</option>
+                    <option value="15:00">15:00</option>
+                    <option value="15:15">15:15</option>
+                    <option value="15:30">15:30</option>
+                    <option value="15:45">15:45</option>
+                    <option value="16:00">16:00</option>
+                    <option value="16:15">16:15</option>
+                    <option value="16:30">16:30</option>
+                    <option value="16:45">16:45</option>
+                    <option value="17:00">17:00</option>
+                    <option value="17:15">17:15</option>
+                    <option value="17:30">17:30</option>
+                    <option value="17:45">17:45</option>
+                    <option value="18:00">18:00</option>
+                    <option value="18:15">18:15</option>
+                    <option value="18:30">18:30</option>
+                    <option value="19:00">19:00</option>
+                    <option value="19:15">19:15</option>
+                    <option value="19:30">19:30</option>
+                    <option value="19:45">19:45</option>
+                    <option value="20:00">20:00</option>
+                    <option value="20:15">20:15</option>
+                    <option value="20:30">20:30</option>
+                    <option value="20:45">20:45</option>
+                    <option value="21:00">21:00</option>
+                    <option value="21:15">21:15</option>
+                    <option value="21:30">21:30</option>
+                    <option value="21:45">21:45</option>
+                    <option value="22:00">22:00</option>
+                    <option value="22:15">22:15</option>
+                    <option value="22:30">22:30</option>
+                    <option value="22:45">22:45</option>
+                    <option value="23:00">23:00</option>
+                    <option value="23:15">23:15</option>
+                    <option value="23:30">23:30</option>
+                    <option value="23:45">23:45</option>
+                            </select>
+                        </span>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row justify-content-start align-items-center class="py-1" *ngIf="roundTrip">
+                   
+                    <ion-col class="pl-0">
+                        <ion-icon name="ios-repeat"></ion-icon>
+                    </ion-col>
+                    <ion-col>
+
+                        <span class="selectbox">
+                            <select [formControl]="jetForm.controls['arrivaljettime']" [(ngModel)]="arrivaljettime"  name="Arrival Time" >
+                                <option value="">Arrival Time</option>
+                               
+                                <option value="09:00" selected="true">09:00</option>
+                                <option value="09:15">09:15</option>
+                    <option value="09:30">09:30</option>
+                    <option value="09:45">09:45</option>
+                    <option value="10:00">10:00</option>
+                    <option value="10:15">10:15</option>
+                    <option value="10:30">10:30</option>
+                    <option value="10:45">10:45</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:15">11:15</option>
+                    <option value="11:30">11:30</option>
+                    <option value="11:45">11:45</option>
+                    <option value="12:00">12:00</option>
+                    <option value="12:15">12:15</option>
+                    <option value="12:30">12:30</option>
+                    <option value="12:45">12:45</option>
+                    <option value="13:00">13:00</option>
+                    <option value="13:15">13:15</option>
+                    <option value="13:30">13:30</option>
+                    <option value="13:45">13:45</option>
+                    <option value="14:00">14:00</option>
+                    <option value="14:15">14:15</option>
+                    <option value="14:30">14:30</option>
+                    <option value="14:45">14:45</option>
+                    <option value="15:00">15:00</option>
+                    <option value="15:15">15:15</option>
+                    <option value="15:30">15:30</option>
+                    <option value="15:45">15:45</option>
+                    <option value="16:00">16:00</option>
+                    <option value="16:15">16:15</option>
+                    <option value="16:30">16:30</option>
+                    <option value="16:45">16:45</option>
+                    <option value="17:00">17:00</option>
+                    <option value="17:15">17:15</option>
+                    <option value="17:30">17:30</option>
+                    <option value="17:45">17:45</option>
+                    <option value="18:00">18:00</option>
+                    <option value="18:15">18:15</option>
+                    <option value="18:30">18:30</option>
+                    <option value="19:00">19:00</option>
+                    <option value="19:15">19:15</option>
+                    <option value="19:30">19:30</option>
+                    <option value="19:45">19:45</option>
+                    <option value="20:00">20:00</option>
+                    <option value="20:15">20:15</option>
+                    <option value="20:30">20:30</option>
+                    <option value="20:45">20:45</option>
+                    <option value="21:00">21:00</option>
+                    <option value="21:15">21:15</option>
+                    <option value="21:30">21:30</option>
+                    <option value="21:45">21:45</option>
+                    <option value="22:00">22:00</option>
+                    <option value="22:15">22:15</option>
+                    <option value="22:30">22:30</option>
+                    <option value="22:45">22:45</option>
+                    <option value="23:00">23:00</option>
+                    <option value="23:15">23:15</option>
+                    <option value="23:30">23:30</option>
+                    <option value="23:45">23:45</option>
+                            </select>
+                        </span>
+                    </ion-col>
+                </ion-row>
+
+
+
+                <ion-item class="input-group" no-padding>
+                        <!-- <ion-col>
+                                <span *ngIf="jetForm.controls['no_of_passanger'].hasError('required') && jetForm.controls['no_of_passanger'].touched" >*</span>
+                            </ion-col> -->
+                    <ion-label>
+                        <ion-icon name="people"></ion-icon>
+                    </ion-label>
+                    <ion-input [formControl]="jetForm.controls['no_of_passanger']" [(ngModel)]="no_of_passanger" type="number" name="no_of_passanger"  placeholder="Guest"></ion-input>
+                    <ion-note item-end>
+                        <button ion-button clear color="dark" (click)="decrementGuestCounter();">
+                            <ion-icon name="remove"></ion-icon>
+                        </button>
+                        <button ion-button clear color="dark" (click)="incrementGuestCounter();">
+                            <ion-icon name="add"></ion-icon>
+                        </button>
+                    </ion-note>
+                </ion-item>
+
+                <button ion-button block color="dark" [disabled]="!jetForm.valid" type="submit">Next &nbsp; &nbsp; &nbsp;<ion-icon name="ios-arrow-forward-outline"></ion-icon></button>
+                <!-- <button ion-button block color="dark" (click)="submitQueryNext();">Next &nbsp; &nbsp; &nbsp;<ion-icon name="ios-arrow-forward-outline"></ion-icon></button> -->
+                </form>
+            </ion-list>
+        </ion-grid>
+        <!-- Next Page-->
+        <ion-grid>
+            <ion-list *ngIf="nextform">
+               
+                <ion-item>
+                    <ion-label>
+                   
+                        <ion-icon name="person"></ion-icon>
+                    </ion-label>
+                    <ion-input   [(ngModel)]="firstname" type="text" placeholder="First Name"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>
+                           
+                        <ion-icon name="person"></ion-icon>
+                    </ion-label>
+                    <ion-input [(ngModel)]="lastname" type="text" placeholder="Last Name"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>
+                           
+                        <ion-icon name="mail"></ion-icon>
+                    </ion-label>
+                    <ion-input  [(ngModel)]="email" name="email" type="email"  placeholder="Email"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>
+                       
+                        <ion-icon name="call"></ion-icon>
+                    </ion-label>
+                    <ion-input   [(ngModel)]="phone" type="number" name="phone" placeholder="Phone"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    
+                    <ion-textarea  [(ngModel)]="SpecialRequest" placeholder="Comment"></ion-textarea>
+                </ion-item>
+
+                <ion-row justify-content-start align-items-center class="py-1">     
+                        <ion-col></ion-col>
+
+                        <ion-col>
+                            <span class="selectbox">
+                                <select  [(ngModel)]="jet_advertising" name="jet_advertising" >
+                                    <option value="Source" selected="true">Source</option>
+                                    <option value="Advertising">Advertising</option>
+                                    <option value="Personal Referral">Personal Referral</option>
+                                    <option value="Article">Article</option>
+                                    <option value="E-Mail">E-Mail</option>
+                                    <option value="Facebook/Twitter">Facebook/Twitter</option>
+                                </select>
+                            </span>
+                        </ion-col>
+                    </ion-row>
+    
+
+                <button ion-button block color="dark" (click)="submitQueryPrev();"><ion-icon name="ios-arrow-back-outline"></ion-icon> &nbsp; &nbsp; &nbsp;Previous</button>
+                <!-- <button ion-button block color="dark" (click)="submitQuery();">Book Now</button> -->
+                <button ion-button block color="dark" (click)="submitQuery();" >Book Now</button>
+               
+            </ion-list>
+        </ion-grid>
+    </div>
+</ion-content>

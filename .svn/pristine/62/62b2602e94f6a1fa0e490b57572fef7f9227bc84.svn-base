@@ -1,0 +1,130 @@
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { Modal1Page} from '../modal/modal1';
+import {Events} from 'ionic-angular';
+import * as $ from 'jquery';
+import { LoginPage } from '../login/login';
+import { ProfilePage } from '../profile/profile';
+import { ServiceProvider } from '../../providers/service/service';
+import { ModalController , ViewController  } from 'ionic-angular';
+import { BooknowPage } from '../booknow/booknow';
+import { DatePipe } from '@angular/common';
+
+@Component({
+  selector: 'page-jet_enquiry',
+  templateUrl: 'jet_enquiry.html'
+})
+export class Jet_enquiryPage {
+
+  public guest:number;
+  public name:string;
+  public email:string;
+  public phone:number;
+  public _date:any;
+  public from:string;
+  public to:string;
+  public request:string;
+  public pageCounter:number;
+
+    constructor(public navCtrl: NavController, public serviceVar : ServiceProvider, public events: Events, public modalCtrl: ModalController, public datepipe: DatePipe) {
+      this.guest = 1;
+      this._date = new Date().toISOString();
+    
+    }
+
+      ngOnInit() {
+    this.callAllSubscribe(this.events);
+      this._date = this.datepipe.transform(this._date, 'yyyy-MM-dd');
+   }
+
+     callAllSubscribe(events){
+       events.subscribe('jetQueryEvent', object => { 
+       
+           if(this.pageCounter <= 1){
+               this.navCtrl.setRoot(BooknowPage);
+           }
+            this.pageCounter++;
+       });
+       
+      }
+
+
+  presentModal(){
+
+    if(this.serviceVar.isLogin){
+      this.navCtrl.push(ProfilePage);
+    }else{
+      this.navCtrl.push(LoginPage);
+      this.serviceVar.loginCurrentPages = Jet_enquiryPage;
+    }
+    
+  }
+
+   queryForm(){
+ 
+          let modal = this.modalCtrl.create(Modal1Page);
+          modal.present();
+      
+  }
+
+  submitQuery(){
+
+
+     if(this.email == null ){
+        this.serviceVar.openAlert("Alert!!","Email Id Could not be Blank");
+        return false;
+      }
+      if(this.phone==null ){
+        this.serviceVar.openAlert("Alert!!","Phone Number Could not be Blank");
+        return false;
+      }
+      if(this.from==null ){
+        this.serviceVar.openAlert("Alert!!","Departure City Could not be Blank");
+        return false;
+      }
+      if(this.to == null){
+        
+          this.serviceVar.openAlert("Alert!!","Arrival City Could not be Blank");
+          return false;
+        
+      }
+    
+
+    let queryData = {
+     'name': this.name,
+     'mailId' : this.email,
+     'contactNumber' : this.phone,
+     'date' : this._date,
+     'destinationFrom' : this.from,
+     'destinationTo' : this.to,
+     'noOfPersons': this.guest,
+     'request' : this.request,
+     'sourceUrl' : 'immidia.co'
+    }
+          this.pageCounter = 1;
+    this.serviceVar.jetQuery(queryData);
+  }
+
+
+  public event = {
+    month: '1990-02-19',
+    timeStarts: '07:00',
+  }
+
+
+ 
+
+
+ incrementGuestCounter(){
+       this.guest++;
+  }
+
+  decrementGuestCounter(){
+    if(this.guest > 1){
+      this.guest--;
+    }
+  }
+
+
+
+}

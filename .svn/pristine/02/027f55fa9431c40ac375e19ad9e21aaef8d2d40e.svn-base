@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "E:\\Immidia\\immidia_mobile_version\\immidia\\platforms\\android\\build\\intermediates\\res\\merged\\release\\drawable-hdpi\\ic_action_previous_item.png",
+        "source": "E:\\Immidia\\immidia_mobile_version\\immidia\\platforms\\android\\res\\drawable-hdpi\\ic_action_previous_item.png"
+    },
+    {
+        "merged": "E:\\Immidia\\immidia_mobile_version\\immidia\\platforms\\android\\build\\intermediates\\res\\merged\\release\\drawable-hdpi\\ic_action_remove.png",
+        "source": "E:\\Immidia\\immidia_mobile_version\\immidia\\platforms\\android\\res\\drawable-hdpi\\ic_action_remove.png"
+    },
+    {
+        "merged": "E:\\Immidia\\immidia_mobile_version\\immidia\\platforms\\android\\build\\intermediates\\res\\merged\\release\\drawable-hdpi\\ic_action_next_item.png",
+        "source": "E:\\Immidia\\immidia_mobile_version\\immidia\\platforms\\android\\res\\drawable-hdpi\\ic_action_next_item.png"
+    }
+]

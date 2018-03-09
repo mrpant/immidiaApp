@@ -1,0 +1,13 @@
+dependencies: \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/Immidia/Immidia-Prefix.pch \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/Immidia/Plugins/cordova-plugin-network-information/CDVConnection.m \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/Immidia/Plugins/cordova-plugin-network-information/CDVConnection.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVPlugin.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVPluginResult.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVAvailability.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVAvailabilityDeprecated.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/NSMutableArray+QueueAdditions.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVCommandDelegate.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVInvokedUrlCommand.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVWebViewEngineProtocol.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/Immidia/Plugins/cordova-plugin-network-information/CDVReachability.h

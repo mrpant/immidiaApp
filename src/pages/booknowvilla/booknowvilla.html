@@ -1,0 +1,69 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">Book Villa</ion-title>
+        <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="box1 static">
+        <ion-list>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+               <ion-select interface="popover" id="country" [(ngModel)]="country" (ionChange)="onSelectVillaCountryChange($event)" placeholder="Country">
+                    <ion-option *ngFor="let c of villaCountry" [value]="c?.id">{{c?.countryName}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+               <ion-select interface="popover" id="state" [(ngModel)]="state" placeholder="State" (ionChange)="onSelectVillaStateChange($event)">
+                   <ion-option *ngFor="let s of villaState" [value]="s?.id">{{s?.stateName}}</ion-option>
+
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                <ion-select interface="popover" id="destinationCity" [(ngModel)]="destinationCity" placeholder="Destination" (ionChange)="onSelectVillaDestinationCityChange($event)">
+                    <ion-option *ngFor="let c of villaCity" [value]="c?.id">{{c?.name}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="calendar" style="margin-right: 5px"></ion-icon></ion-label>
+                <ion-datetime [(ngModel)]="checkIn" (ionChange)="onSelectVillaCheckInChange(checkIn)" placeholder="Checkin" displayFormat="MMM DD YYYY" [min]="checkIn"  max="2050-12-01"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="calendar" style="margin-right: 5px"></ion-icon></ion-label>
+                <ion-datetime [(ngModel)]="checkOut" placeholder="Checkout" displayFormat="MMM DD YYYY" (ionChange)="onSelectVillaCheckOutChange(checkOut)" [min]="checkOut"  max="2050-12-01"></ion-datetime>
+            </ion-item>
+            <ion-item class="input-group">
+                <ion-label>
+                    <ion-icon name="people"></ion-icon>
+                </ion-label>
+                 <ion-input [(ngModel)]="guest"  type="number" placeholder="Guest"></ion-input>
+                <ion-note item-end>
+                    <button ion-button clear color="dark" (click)="decrementGuestCounter();">
+                        <ion-icon name="remove"></ion-icon>
+                    </button>
+                    <button ion-button clear color="dark" (click)="incrementGuestCounter();">
+                        <ion-icon name="add"></ion-icon>
+                    </button>
+                </ion-note>
+            </ion-item>
+        </ion-list>
+        <button ion-button block color="dark" (click)="submitVillaForm();">Search</button>
+    </div>
+</ion-content>

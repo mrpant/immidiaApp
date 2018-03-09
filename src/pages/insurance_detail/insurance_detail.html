@@ -1,0 +1,106 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">INSURANCE POLICY</ion-title>
+          <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <h5 class="title">Deductible ( {{carDetails.deductible}} {{getCurrency(carDetails.currencyId)}} On Hold)<br>
+    <small>Will be collected by the service provider at the time of delivery</small></h5>
+    <div class="accordion bg-accordion">
+        <ion-list no-margin>
+            <ion-item class="chk-box">
+                <ion-label text-uppercase>Driver 1</ion-label>
+                <ion-checkbox [(ngModel)]="driOneChecked" (ionChange)="driONEChecked(driOneChecked)"></ion-checkbox>
+            </ion-item>
+        </ion-list>
+        <div class="acc-item" text-wrap [ngClass]="{active: isGroupShown(0)}">
+            <h2 class="acc-title" (click)="toggleGroup(0)">AGE BETWEEN 25 AND 70 YEARS<ion-icon color="success" [name]="isGroupShown(0) ? 'arrow-up' : 'arrow-down'"></ion-icon></h2>
+            <div class="acc-content" *ngIf="isGroupShown(0)">
+                <div class="box1 static1">
+                    <ion-list>
+                        <ion-item>
+                            <ion-label>
+                                <ion-icon name="person"></ion-icon>
+                            </ion-label>
+                            <ion-input type="text" placeholder="Name" [(ngModel)]="driverOneName"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>
+                                <ion-icon name="calendar"></ion-icon>
+                            </ion-label>
+                          
+                             <ion-datetime [(ngModel)]="driverOneDOB" placeholder="DOB" displayFormat="MMM DD YYYY" ></ion-datetime>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>
+                                <ion-icon name="calendar"></ion-icon>
+                            </ion-label>
+                             <ion-datetime [(ngModel)]="driverOneLicenseIssue" placeholder="License Issue" displayFormat="MMM DD YYYY" ></ion-datetime>
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </div>
+        </div>
+        <ion-list no-margin>
+            <ion-item class="chk-box">
+                <ion-label text-uppercase>Driver 2</ion-label>
+                 <ion-checkbox [(ngModel)]="driTwoChecked" (ionChange)="driTWOChecked(driTwoChecked)"></ion-checkbox>
+            </ion-item>
+        </ion-list>
+        <div class="acc-item" text-wrap [ngClass]="{active: isGroupShown(1)}">
+            <h2 class="acc-title" (click)="toggleGroup(1)">AGE BETWEEN 25 AND 70 YEARS<ion-icon color="success" [name]="isGroupShown(1) ? 'arrow-up' : 'arrow-down'"></ion-icon></h2>
+            <div class="acc-content" *ngIf="isGroupShown(1)">
+                <div class="box1 static1">
+                     <ion-list>
+                        <ion-item>
+                            <ion-label>
+                                <ion-icon name="person"></ion-icon>
+                            </ion-label>
+                            <ion-input type="text" placeholder="Name" [(ngModel)]="driverTwoName"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>
+                                <ion-icon name="calendar"></ion-icon>
+                            </ion-label>
+                           
+                             <ion-datetime [(ngModel)]="driverTwoDOB" placeholder="DOB" displayFormat="MMM DD YYYY" ></ion-datetime>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>
+                                <ion-icon name="calendar"></ion-icon>
+                            </ion-label>
+                             <ion-datetime [(ngModel)]="driverTwoLicenseIssue" placeholder="License Issue" displayFormat="MMM DD YYYY" ></ion-datetime>
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div margin-top>
+        <ion-grid no-padding>
+           <ion-row>
+                <ion-col col-12>
+                    <button ion-button small block color="dark" class="square" icon-left>
+                        <ion-icon name="cart"></ion-icon>{{getCurrency(carDetails?.currencyId)}} {{carFilterParams.price | number:'1.2-2'}}</button>
+                </ion-col>
+                <ion-col col-6>
+                    <button ion-button small block color="dark" class="square" icon-left (click)="goBack()">
+                        <ion-icon name="arrow-back"></ion-icon> Back</button>
+                </ion-col>
+                <ion-col col-6>
+                    <button ion-button small block color="dark" class="square" icon-right (click)="submitFormInsurance();">Next
+                        <ion-icon name="arrow-forward"></ion-icon>
+                    </button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

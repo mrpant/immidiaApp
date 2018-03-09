@@ -1,0 +1,48 @@
+<!-- <ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <figure class="logo"><img src="img/logo.png" alt="" /> </figure>
+        <ion-title class="center">ENQUIRY</ion-title>
+              <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+         </div>
+    </ion-navbar>
+</ion-header> -->
+<ion-content>
+    <div class="box1 static">
+                   <button ion-button style="float: right;background: #000;" (click)="dismiss();">
+                    <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
+                    </button>
+              <p>Country :  <strong>{{yachtFilterParams.countryName}}</strong></p>
+              <p>State :  <strong>{{yachtFilterParams.stateName}}</strong></p>
+              <p>Route Type :  <strong>{{yachtFilterParams.routeType == 1 ? 'One way' : 'Return'}}</strong></p>
+              <p>Days :  <strong>{{yachtFilterParams.days}}</strong></p>
+              <p>Jouney Date :  <strong>{{yachtFilterParams.departureDate}}</strong></p>
+              <p>Departure Port :  <strong>{{yachtFilterParams.departureCityName}}</strong></p>
+              <p>Arrival Port :  <strong>{{yachtFilterParams.arrivalCityName}}</strong></p>
+              <p>Number Of Guest :  <strong>{{yachtFilterParams.guest}}</strong></p>
+
+              <p>--------------- User Information--------------</p>
+                <p>Customer Name :  <strong>{{userDetails.firstName}} {{userDetails.lastName}}</strong></p>
+
+                <p>Email :  <strong>{{userDetails.mailId}}</strong></p>
+                <p>Contact :  <strong>{{userDetails.contactNumber}}</strong></p>
+               
+          
+        <ion-list>
+             <ion-item>
+              <ion-label><ion-icon name="call"></ion-icon></ion-label>
+              <ion-textarea  [(ngModel)]="msg" placeholder="Request For.." ></ion-textarea>
+            </ion-item> 
+
+                  
+        </ion-list>
+        
+        <button ion-button block color="dark" (click)="submitQuery();" >Submit Query</button>
+   
+        
+    </div>
+</ion-content>

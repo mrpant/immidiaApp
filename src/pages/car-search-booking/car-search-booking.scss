@@ -1,0 +1,80 @@
+.list-block{
+    margin: 0 0 13px;
+    padding:0px;
+    list-style-type: none;
+    li{
+        margin:0 0 10px;
+       a{
+        text-decoration: none;
+        color:#8e8a8a;
+        font-size: 12px;
+        }
+        ion-icon{
+            vertical-align: middle;
+            margin: 0 5px 0 0;
+        }
+        &.distance{
+            margin: 0px;
+            position:relative;
+            &:before{
+                position: absolute;
+                left:50%;
+                transform: translateY(-50%);
+                margin-left: -28px;
+                top:-5px;
+                content: '';
+                width:8px;
+                height:8px;
+                border-radius: 50%;
+                border:1px solid #8e8a8a;
+            }
+            ion-icon{
+                margin-left: -40px;
+                font-size:20px;
+                color:#8e8a8a;
+            }
+            ion-icon + ion-icon{
+                font-size: 15px;
+            }
+        }
+    }
+    
+}
+
+.ion-page{
+   .content{
+    &.alt{
+  
+.car-info{
+    h3{
+        margin: 0px;
+    }
+    h3, p{
+        display: inline-block;
+    }
+}
+.contact-us{
+    .form{
+        .item{
+            &.full-width{ 
+                margin: 0px;             
+                .checkbox{
+                    display: inline-block;
+                    margin: 0px 5px 0 0;                  
+                    vertical-align: middle;
+                }
+                .item-inner{
+                    border: none;
+                    ion-label{
+                        margin:0px;
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+}
+}
+}

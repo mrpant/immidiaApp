@@ -1,0 +1,56 @@
+page-jet-detail {
+    .header .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{
+        position: relative!important;
+    }
+    .alt2{
+        .slides{
+            height: auto;
+        }
+    }   
+    .content{
+        background:transparent;
+        .table-responsive{
+            width: 100%;   
+            margin-bottom:15px;        
+            .table{
+                width:100%;
+                margin-top:10px;
+                &.table-striped{
+                    tbody{
+                        tr{
+                            td{
+                                padding: 5px;
+                                font-size:12px;
+                            }
+                        }
+                       tr:nth-child(2n+1)>td{
+                           background: #e9ebeb;
+                       }
+                       tr:nth-child(2n)>td{
+                           background: #f6f6f6;
+                       }
+                    }
+                }
+            }
+        }
+    }
+
+    .center-block{
+            display: block;
+            margin-right: 19%;
+            margin-left: 20%;
+            margin-top: 6%;
+        .btn{
+            display: block;
+            vertical-align: middle;
+            padding: 12px 30px;
+            font-size: 100%;
+            line-height: 18px;
+            color:#000;
+            text-transform: uppercase;
+            background-color: #A18F61;
+            text-decoration: none;
+            text-align: center;
+        }
+    }
+}

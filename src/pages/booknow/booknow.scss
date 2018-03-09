@@ -1,0 +1,6 @@
+page-booknow {
+	.card-background-page { background:url(../img/bg-inner.jpg) no-repeat center; background-size: cover;
+		.card { position: relative;}
+		.card-title { font-size: 20px; text-transform: uppercase; text-align: center; width: 100%; color: #fff;  text-shadow: 1px 1px 1px #000; position: absolute; top: 10%; left: 0; right: 0; transform: translateY(-50%); -moz-transform: translateY(-50%); -webkit-transform: translateY(-50%);}
+	}
+}

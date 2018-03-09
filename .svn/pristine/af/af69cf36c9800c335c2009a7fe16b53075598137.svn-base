@@ -1,0 +1,121 @@
+.list-inline{    
+    list-style-type:none;
+    margin: 0px;
+    padding: 0px;
+    li{
+        display: inline-block;
+        a{
+            text-decoration: none;
+        }
+    }
+}
+.ion-page {
+    font-family: 'Poppins', sans-serif;
+    .content{
+        hr{
+            background: #31384d;
+            height:2px;
+            width:100%;
+        }
+        .selected{
+           border:1px solid #a18f61;
+        }
+        .content-block{
+            &.alt{
+                max-width:100%;
+                width:80px;
+                float:right;
+            }
+        }
+        h1,h2,h4,h5,h6{        
+            font-weight: 400;
+            margin-top: 0px
+        }  
+        h2{
+            font-size: 2.2rem;
+        }
+        h3{
+            font-size: 1.8rem;
+            }
+        h4{
+        font-size: 1.5rem;
+        }
+        h6{
+            font-size: 1.1rem;
+            margin:0px;
+            }
+        p{
+            color:#484848;   
+            margin-top: 0;
+            margin-bottom: 16px;                               
+        &.price{
+            font-size: 22px;
+            line-height: 26px;
+            margin-bottom: 31px;          
+        }
+        .currency{
+            font-size: 20px;
+            line-height: 24px;           
+        }
+        } 
+        &.no-background{
+            background: #fff !important;
+        }
+        .row-border{
+            border-bottom: 2px solid #0a0a0a;
+        }
+        .list-inline{            
+            li{
+            padding: 0 5px 0 0;
+                a{
+                    font-size: 12px;
+                    color:#000;
+                    ion-icon{
+                        color:#8f8f8f;
+                        padding:0 5px 0 0;
+                        font-size: 20px;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+        .pagination{
+            padding: 0px;   
+            background: #a18f61;
+            text-transform: uppercase;
+            color:#fff;
+            ion-col{
+                padding: 0px;
+            }
+            span{
+                font-size: 14px;
+                line-height: 18px;
+                margin:0;
+            }
+            .border-left{
+                border-left:2px solid #77673d;
+            }            
+            ion-icon{ 
+                background: #fff;               
+                padding: 20px 10px;
+                vertical-align: middle;
+                color:#77673d;
+            }
+            .btn-prev{
+                ion-icon{               
+                    float: left;
+                }
+            }
+            .btn-next{
+                ion-icon{
+                    background: #000;
+                    float: right;
+                    color:#fff;
+                }
+            }
+        }
+    }
+}
+.content{
+    background: #fff !important;
+}

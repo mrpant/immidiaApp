@@ -1,0 +1,65 @@
+@font-face {
+  font-family: "Flaticon";
+  src: url("../assets/fonts/Flaticon.eot?39m2i2");
+  src: url("../assets/fonts/Flaticon.eot?39m2i2#iefix") format("embedded-opentype"),
+       url("../assets/fonts/Flaticon.ttf?39m2i2") format("truetype"),
+       url("../assets/fonts/Flaticon.woff?39m2i2") format("woff"),
+       url("../assets/fonts/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Flaticon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin makeIcon($arg, $val) {
+  .flat-#{$arg}:before ,
+  .ion-ios-flat-#{$arg}:before ,
+  .ion-ios-flat-#{$arg}-outline:before ,
+  .ion-md-flat-#{$arg}:before ,
+  .ion-md-flat-#{$arg}-outline:before  {
+    content: $val;
+    font-size: 26px;
+  }
+}
+
+
+
+@include makeIcon(location, "\f100");
+@include makeIcon(pin, "\f101");
+@include makeIcon(days, "\f102");
+@include makeIcon(human, "\f103");
+@include makeIcon(avatar, "\f104");
+@include makeIcon(house, "\f105");
+@include makeIcon(building, "\f106");
+@include makeIcon(shower, "\f107");
+@include makeIcon(gps, "\f108");
+@include makeIcon(fan, "\f109");
+@include makeIcon(fuel, "\f10a");
+@include makeIcon(gearshift, "\f10b");
+@include makeIcon(user, "\f10c");
+@include makeIcon(person, "\f10d");
+@include makeIcon(speedometer, "\f10e");
+@include makeIcon(shopping, "\e910");
+@include makeIcon(ion-ios-cart, "\f10f");
+@include makeIcon(menu, "\f110");
+@include makeIcon(bed, "\f111");
+@include makeIcon(sleeping, "\f112");
+@include makeIcon(yacht, "\f113");
+@include makeIcon(boat, "\f114");
+
+

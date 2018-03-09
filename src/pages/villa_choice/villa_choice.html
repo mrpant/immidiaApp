@@ -1,0 +1,134 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">Villa</ion-title>
+         <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+   <ion-slides pager class="slider" >
+        <ion-slide>
+            <img [src]="imageUrl+villaDetails?.banner[0].banner.substring(2)" alt="" />
+        </ion-slide>
+        <ion-slide>
+            <img [src]="imageUrl+villaDetails?.banner[1].banner.substring(2)" alt="" />
+        </ion-slide>
+        <ion-slide>
+            <img [src]="imageUrl+villaDetails?.banner[2].banner.substring(2)" alt="" />
+        </ion-slide>
+    </ion-slides>
+    <!--close slider-->
+    <div padding>
+        <h2 class="pd-left-rgt0 line font-size20">Your Choice</h2>
+        <div class="detail-box">
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-4>
+                        VILLA
+                    </ion-col>
+                    <ion-col col-8>
+                       {{villaDetails?.villaName}}
+                        <br>{{getCurrency(villaDetails?.currencyId)}} {{villaFilterParams.price | number:'1.2-2'}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-7>
+                        CHECK IN
+                    </ion-col>
+                    <ion-col col-5>
+                        {{villaFilterParams.checkIn}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-7>
+                        CHECK OUT
+                    </ion-col>
+                    <ion-col col-5>
+                        {{villaFilterParams.checkOut}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-7>
+                        DESTINATION
+                    </ion-col>
+                    <ion-col col-5>
+                        {{villaFilterParams.destinationCityName}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-7>
+                        VAT
+                    </ion-col>
+                    <ion-col col-5>
+                       {{getCurrency(villaDetails?.currencyId)}} {{ villaFilterParams.price * villaDetails.vat * 0.01 | number :'1.2-2'}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-7>
+                        CITY TAX
+                    </ion-col>
+                    <ion-col col-5>
+                   {{getCurrency(villaDetails?.currencyId)}} {{ villaFilterParams.price * villaDetails.cityTax * 0.01 | number :'1.2-2'}}
+                        
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-7>
+                        SERVICE TAX
+                    </ion-col>
+                    <ion-col col-5>
+                    {{getCurrency(villaDetails?.currencyId)}} {{ villaFilterParams.price * villaDetails.serviceTax * 0.01 | number :'1.2-2'}}
+                        
+                    </ion-col>
+                </ion-row>
+                 <ion-row>
+                    <ion-col col-7>
+                        FOOD AND BEVERAGEs
+                    </ion-col>
+                    <ion-col col-5>
+                   {{getCurrency(villaDetails?.currencyId)}} {{villaCartAmount | number :'1.2-2'}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-7>
+                        TRANSACTION cHARGES
+                    </ion-col>
+                    <ion-col col-5>
+                      {{getCurrency(villaDetails?.currencyId)}}  {{transactionFee | number :'1.2-2'}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-7>
+                        SUBTOTAL
+                    </ion-col>
+                    <ion-col col-5>
+                        {{getCurrency(villaDetails?.currencyId)}} {{villaSubTotal | number :'1.2-2'}}
+                    </ion-col>
+                </ion-row>
+                 <ion-row>
+                    <ion-col col-7>
+                        TOTAL
+                    </ion-col>
+                    <ion-col col-5>
+                       {{getCurrency(villaDetails?.currencyId)}} {{villaTotal | number :'1.2-2'}}
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-list class="chk-box">
+                <ion-item>
+                    <ion-label>I ACCEPT THE CONTRACT TERMS</ion-label>
+                 <ion-checkbox [(ngModel)]="paymentChecked" (ionChange)="isPay(paymentChecked)"></ion-checkbox>
+                </ion-item>
+            </ion-list>
+          <a href="#" (click)="goToContract();">Click to read the contract.</a>
+            <button ion-button block color="dark" class="mrg10" (click)="submitOrder();">Submit Request</button>
+        </div>
+    </div>
+</ion-content>
+<span class="home-bg"><img src="img/circle-home-bg.png"  alt=""/> </span>

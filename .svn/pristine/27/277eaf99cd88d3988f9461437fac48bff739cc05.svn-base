@@ -1,0 +1,125 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">Book YACHT</ion-title>
+        <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+         </div>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="box1 static">
+        <ion-list>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                <ion-select interface="popover" id="country" [(ngModel)]="country" (ionChange)="onSelectYachtCountryChange($event)" placeholder="Country">
+                    <ion-option *ngFor="let c of yachtCountry" [value]="c?.countryId">{{c?.countryName}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                <ion-select interface="popover" id="state" [(ngModel)]="state" placeholder="State" (ionChange)="onSelectYachtStateChange($event)">
+                   <ion-option *ngFor="let s of yachtState" [value]="s?.stateId">{{s?.stateName}}</ion-option>
+
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="flat-boat"></ion-icon>
+                </ion-label>
+                <ion-select interface="popover" [(ngModel)]="yachtType" placeholder="Yacht Type" (ionChange)="validateSuperYacht($event);">
+                         <ion-option  value ="0">Sail</ion-option>   
+                         <ion-option  value ="1">Motor</ion-option>
+                          <ion-option value ="2">Super Yacht</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="clock" style="margin-right: 5px"></ion-icon> </ion-label>
+                    <ion-select interface="popover" id="days" [(ngModel)]="daysId" placeholder="Duration" (ionChange)="onSelectYachtDaysChange($event)" >
+                       <ion-option *ngFor="let d of daysArray" [value]="d?.id">{{d?.name}}</ion-option>
+                    </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="calendar" style="margin-right: 5px"></ion-icon> Date</ion-label>
+                <ion-datetime [(ngModel)]="departureDate" (ionChange)="onSelectYachtDepartureDateChange(departureDate)" placeholder="Departure Date"   displayFormat="MMM DD YYYY" [min]="departureDate"   max="2050-12-01"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="calendar" style="margin-right: 5px"></ion-icon></ion-label>
+                <ion-datetime [disabled] ="isDisabledArrival" [(ngModel)]="arrivalDate"   placeholder="Arrival Date" displayFormat="MMM DD YYYY" (ionChange)="onSelectYachtArrivalDateChange(arrivalDate);" [min]="departureDate"  max="2050-12-01"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon ios="ios-repeat" md="md-repeat"></ion-icon>
+                </ion-label>
+                <ion-select interface="popover" [(ngModel)]="routeType" placeholder="One Way/Return">
+                    <ion-option value="1">One Way</ion-option>
+                    <ion-option value="0">Return</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                <ion-select interface="popover" id="departureCity" [(ngModel)]="departureCity" placeholder="Departure Port" (ionChange)="onSelectYachtDepartureCityChange($event);">
+                    <ion-option *ngFor="let c of yachtDepartureCity" [value]="c?.cityId">{{c?.cityName}}</ion-option>
+                </ion-select>
+            </ion-item>
+
+             <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                <ion-select interface="popover" id="arrivalCity" [(ngModel)]="arrivalCity" placeholder="Arrival Port" (ionChange)="onSelectYachtArrivalCityChange($event)">
+                    <ion-option *ngFor="let c of yachtArrivalCity" [value]="c?.id">{{c?.cityName}}</ion-option>
+                </ion-select>
+            </ion-item>
+            
+            <!-- <ion-item>
+                <ion-label>
+                    <ion-icon name="subway"></ion-icon>
+                </ion-label>
+                <ion-select  placeholder="Arrival Port">
+                    <ion-option>New Delhi</ion-option>
+                    
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="clock" style="margin-right: 5px"></ion-icon> Departure Time</ion-label>
+                <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="clock" style="margin-right: 5px"></ion-icon> Arrival Time</ion-label>
+                <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime>
+            </ion-item> -->
+
+            <ion-item class="input-group">
+                <ion-label>
+                    <ion-icon name="people"></ion-icon>
+                </ion-label>
+                <ion-input [(ngModel)]="guest"  type="number" placeholder="Guest"></ion-input>
+                <ion-note item-end>
+                    <button ion-button clear color="dark" (click)="decrementGuestCounter();">
+                        <ion-icon name="remove"></ion-icon>
+                    </button>
+                    <button ion-button clear color="dark" (click)="incrementGuestCounter();">
+                        <ion-icon name="add"></ion-icon>
+                    </button>
+                </ion-note>
+            </ion-item>
+        </ion-list>
+        <button ion-button block color="dark" (click)="submitYachtForm();">Search</button>
+    </div>
+</ion-content>

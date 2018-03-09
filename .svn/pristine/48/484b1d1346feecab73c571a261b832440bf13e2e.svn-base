@@ -1,0 +1,8 @@
+dependencies: \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/CordovaLib_Prefix.pch \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVPluginResult.m \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVPluginResult.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVAvailability.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVAvailabilityDeprecated.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Private/CDVJSON_private.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Private/CDVDebug.h

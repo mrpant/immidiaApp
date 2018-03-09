@@ -1,0 +1,29 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <figure class="logo"><img src="img/logo.png" alt="" /> </figure>
+        <ion-title class="center">Forgot Password</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="box1">
+        <p>Forgot your password?
+            <br> Please enter your email ID. We will send you an access code to recover your password.
+        </p>
+
+        <ion-list>
+            <ion-item>
+              <ion-label><ion-icon name="mail"></ion-icon></ion-label>
+              <ion-input type="email" [(ngModel)]="email" placeholder="Email Address"></ion-input>
+            </ion-item>  
+            
+        </ion-list>
+
+        <!-- <input type="text" value="Email Address" class="input email" name=""> -->
+        <button ion-button block color="dark" (click)="submitForm();">Get new password</button>
+         <h3> <a href="javscript:void(0);" class="forgot"  (click)="goLogin();">Login here</a></h3>
+
+    </div>
+</ion-content>
