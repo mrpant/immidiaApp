@@ -1,6 +1,8 @@
 import { Component,ViewChild,ViewChildren,QueryList } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Slides } from 'ionic-angular';
+import { Jet_enquiryPage } from '../jet_enquiry/jet_enquiry';
+import { ServiceProvider } from '../../providers/service/service';
 /**
  * Generated class for the JetDetailPage page.
  *
@@ -14,7 +16,11 @@ import { Slides } from 'ionic-angular';
 })
 export class JetDetailPage {
   @ViewChildren(Slides) slides: QueryList<Slides>;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  jetDetails : any;
+  imageUrl:String;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public serviceVar : ServiceProvider) {
+      this.jetDetails = navParams.get('jetDetails');
+      this.imageUrl = serviceVar.IMAGE_PATH;
   }
 
   ionViewDidLoad() {
@@ -24,4 +30,9 @@ export class JetDetailPage {
    console.log("INEDX="+index+"arg="+arg);
    this.slides.toArray()[index].slideTo(arg,500);
   }
+
+  goInfo(){
+    this.navCtrl.push(Jet_enquiryPage);
+  }
+
 }

@@ -23,7 +23,14 @@ declare var $: any;
 export class CarSearchListPage {
 
   public selectedClass = false;
+  carDetails:any;
+  additionalDetails:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController,public serviceVar : ServiceProvider) {
+    this.carDetails = {
+      chauffeurDetails : navParams.get('chauffeurDetails'),
+      response : navParams.get('response')
+    };
+
   }
 
   ionViewDidLoad() {
@@ -47,14 +54,29 @@ export class CarSearchListPage {
 
   }
   nextPage(){
-    this.navCtrl.push(CarSearchBookingPage);
+    if(this.additionalDetails != null){
+    this.navCtrl.push(CarSearchBookingPage,{"carDetails":this.carDetails,'additionalDetails':this.additionalDetails});
+    }else{
+      this.serviceVar.openAlert("Message","PLease Select Car First");
+      return false;
+    }
   }
   previosPage(){
     this.navCtrl.push(CarSearchPage);
   }
-  selectCar(thisObj){
+  selectCar(thisObj,name,currency,price){
     console.log(thisObj);
     $(".row-car").removeClass('selected')
     $("."+thisObj).addClass('selected')
+    this.additionalDetails = {
+      'image':thisObj,
+      'name':name,
+      'currency':currency,
+      'price':price
+    };
+    
+
+
+
   }
 }

@@ -93,6 +93,12 @@
         input,.datetime-text{
             font-size: 12px;
         }
+        .input_form{
+            width: 100%;
+            border-color: transparent;
+            margin: -10px 0px -10px 0px;
+            background-color: transparent;
+        }
          .item{
             margin-bottom: 10px;
             padding: 0px;
@@ -102,6 +108,36 @@
               ion-label{
                   margin-left:12px;
                   color:#838383;
+                  article.icon{
+                        position: relative;
+                        display: block;
+                        width: 100%;
+                     input{
+                            padding-left: 20px;
+                        
+                     }
+                     ion-icon{
+                        top: 2px;
+                        position: absolute;
+                     }   
+                   } 
+                  /*  article.icon:before{
+                  
+                    font-family: inherit;
+                    content: "\f1e4";
+                    position: absolute;
+                    left: 0;
+                    top:0;
+                    width: 20px;
+                    height: 36px;
+                    color: grey;
+                    font-size: 1.8rem;
+                    background-color: #fff;
+                    border-bottom-left-radius:7px;
+                    text-align: center;
+                    line-height: 36px;
+                    z-index: 9;
+                   } */
 
               }
             } 

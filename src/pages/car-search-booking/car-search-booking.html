@@ -28,11 +28,11 @@
     <ion-row class="car-info">
       <ion-col col-6>
         <div class="content-block">
-          <h3>Class E</h3>          
+          <h3>{{bookingDetails.additionalDetails.name}}</h3>          
           <ul class="list-block">
             <li>
               <a href="#">
-                <ion-icon name="ios-pin"></ion-icon>Nice, France</a>
+                <ion-icon name="ios-pin"></ion-icon>{{bookingDetails.carDetails.chauffeurDetails.from}}</a>
             </li>
             <li class="distance" text-center>
                 <ion-icon name="more"></ion-icon><br/>
@@ -40,26 +40,26 @@
               </li>
             <li>
               <a href="#">
-                <ion-icon name="ios-pin"></ion-icon>Saint-Tropez, France</a>
+                <ion-icon name="ios-pin"></ion-icon>{{bookingDetails.carDetails.chauffeurDetails.to}}</a>
             </li>
           </ul>
           <ul class="list-inline">
             <li>
               <a href="#">
-                <ion-icon name="ios-people"></ion-icon>3</a>
+                <ion-icon name="ios-people"></ion-icon>{{bookingDetails.carDetails.chauffeurDetails.passenger}}</a>
             </li>
             <li>
               <a href="#">
-                <ion-icon name="ios-briefcase"></ion-icon>4</a>
+                <ion-icon name="ios-briefcase"></ion-icon>{{bookingDetails.carDetails.chauffeurDetails.luggage}}</a>
             </li>
           </ul>
         </div>
       </ion-col>
       <ion-col col-6 align-self-end>
           <p class="price" no-margin>
-              <span class="currency">€</span>389.3
+              <span class="currency">{{bookingDetails.additionalDetails.currency}}</span>{{bookingDetails.additionalDetails.price}}
             </p>
-        <img src="img/car_list/car.png">
+        <img src="img/car_list/{{bookingDetails.additionalDetails.image+'.png'}}">
         <h6 text-center>*Actual Vehicle May Very</h6>
       </ion-col>
     </ion-row>
@@ -72,38 +72,38 @@
         <ion-grid>
             <h3 margin-top>Person Making The Reservation</h3>
         <ion-item>
-          <ion-input clearInput type="text" placeholder="First Name"></ion-input>
+          <ion-input clearInput type="text" placeholder="First Name" name="firstName" [value]="userDetails?.firstName"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input clearInput type="text" placeholder="Last Name"></ion-input>
+          <ion-input clearInput type="text" placeholder="Last Name" name="lastName" [value]="userDetails?.lastname"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input clearInput type="tel" placeholder="Phone"></ion-input>
+          <ion-input clearInput type="tel" placeholder="Phone" name="contactNumber" [value]="userDetails?.contactNumber"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input clearInput type="email" placeholder="Email"></ion-input>
+          <ion-input clearInput type="email" placeholder="Email" name="mailId" [value]="userDetails?.mailId"></ion-input>
         </ion-item>
         <h3 no-margin>Person Travelling</h3>
         <ion-item class="full-width">
           <ion-label>
-            <ion-checkbox></ion-checkbox>Same As person Making The Reservation
+            <ion-checkbox [(ngModel)]="isCopy" name="isCopy" (ionChange)="copyData($event)"></ion-checkbox>Same As person Making The Reservation
           </ion-label>
         </ion-item>
         <ion-item>
-          <ion-input clearInput type="text" placeholder="First Name"></ion-input>
+          <ion-input clearInput type="text" placeholder="First Name" name="firstName" [value]="userDetailsCopy?.firstName"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input clearInput type="text" placeholder="Last Name"></ion-input>
+          <ion-input clearInput type="text" placeholder="Last Name" name="lastName" [value]="userDetailsCopy?.lastName"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input clearInput type="tel" placeholder="Phone"></ion-input>
+          <ion-input clearInput type="tel" placeholder="Phone"  name="contactNumber" [value]="userDetailsCopy?.contactNumber"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input clearInput type="email" placeholder="Email"></ion-input>
+          <ion-input clearInput type="email" placeholder="Email" name="mailId" [value]="userDetailsCopy?.mailId"></ion-input>
         </ion-item>
         <ion-item class="full-width">
             <ion-label>
-              <ion-checkbox></ion-checkbox>I Agree To The Terms And Conditions Of The Reservation
+              <ion-checkbox [(ngModel)]="isChecked" name="isCheked"></ion-checkbox>I Agree To The Terms And Conditions Of The Reservation
             </ion-label>
           </ion-item>
         </ion-grid>
@@ -113,7 +113,7 @@
                  <ion-col col-6>    
                    </ion-col>
                    <ion-col col-6 text-center class="border-left btn-next"  (click)="nextStep()">
-                      <span class="inner-wrap">
+                      <span class="inner-wrap" tappable (tap)="payment()">
                           <span class="inner">Next Step</span>
                           <ion-icon name="ios-arrow-forward-outline"></ion-icon></span> 
                  </ion-col>

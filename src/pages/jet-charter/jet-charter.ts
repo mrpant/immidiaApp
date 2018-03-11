@@ -19,7 +19,13 @@ import { LoginPage } from '../login/login';
 })
 export class JetCharterPage {
 
+  chartDetails :any;
+  imageUrl:String;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController,public serviceVar : ServiceProvider) {
+        this.chartDetails = navParams.get('jetObject');
+        this.imageUrl = serviceVar.IMAGE_PATH;
+        console.log(this.chartDetails);
   }
 
   ionViewDidLoad() {
@@ -41,7 +47,7 @@ export class JetCharterPage {
   }
   
 }
-jetdetailPage(evenet){
-  this.navCtrl.push(JetDetailPage);
+jetdetailPage(evenet,data){
+  this.navCtrl.push(JetDetailPage,{"jetDetails":data});
 }
 }

@@ -28,31 +28,31 @@
 <ion-content class="alt2">
   <ion-slides>
     <ion-slide>
-      <img src="img/thumb/banner.jpg" />
+      <img src="{{imageUrl+jetDetails.banner[0].banner.replace('../','')}}" />
     </ion-slide>
     <ion-slide>
-      <img src="img/thumb/thumbnail1.jpg" />
+      <img src="{{imageUrl+jetDetails.banner[1].banner.replace('../','')}}" />
     </ion-slide>
     <ion-slide>
-      <img src="img/thumb/thumbnail2.jpg" />
+      <img src="{{imageUrl+jetDetails.banner[2].banner.replace('../','')}}" />
     </ion-slide>
     <ion-slide>
-        <img src="img/thumb/thumbnail3.jpg" />
+        <img src="{{imageUrl+jetDetails.banner[3].banner.replace('../','')}}" />
     </ion-slide>
   </ion-slides>
   <ion-grid no-padding style="    top: -7px;position: relative;z-index: 999;">
       <ion-row>
           <ion-col col-3>
-              <img src="img/thumb/banner.jpg" (click)="goToSlide(0,0)"/>
+              <img src="{{imageUrl+jetDetails.banner[0].banner.replace('../','')}}" (click)="goToSlide(0,0)"/>
           </ion-col>
           <ion-col col-3>
-              <img src="img/thumb/thumbnail2.jpg" (click)="goToSlide(0,1)"/>
+              <img src="{{imageUrl+jetDetails.banner[1].banner.replace('../','')}}" (click)="goToSlide(0,1)"/>
           </ion-col>
           <ion-col col-3>
-              <img src="img/thumb/thumbnail3.jpg" (click)="goToSlide(0,2)"/>
+              <img src="{{imageUrl+jetDetails.banner[2].banner.replace('../','')}}" (click)="goToSlide(0,2)"/>
           </ion-col>
           <ion-col col-3>
-              <img src="img/thumb/thumbnail4.jpg" (click)="goToSlide(0,3)"/>
+              <img src="{{imageUrl+jetDetails.banner[3].banner.replace('../','')}}" (click)="goToSlide(0,3)"/>
           </ion-col>
       </ion-row>
   </ion-grid>
@@ -62,10 +62,10 @@
       <table class="table table-striped">
         <tr>
           <td>
-            Manufactuer:
+            Manufactuer: 
           </td>
           <td>
-            Bomburdler
+              {{jetDetails.JET_DETAILS.manufacturer}}
           </td>
         </tr>
         <tr>
@@ -73,7 +73,7 @@
             Model :
           </td>
           <td>
-            Challander 605
+              {{jetDetails.JET_DETAILS.model}}
           </td>
         </tr>
         <tr>
@@ -81,7 +81,7 @@
             Classification:
           </td>
           <td>
-            Large Range Jet
+              {{jetDetails.JET_DETAILS.class}}
           </td>
         </tr>
         <tr>
@@ -89,7 +89,7 @@
             Seats :
           </td>
           <td>
-            10
+              {{jetDetails.JET_DETAILS.seats}}
           </td>
         </tr>
         <tr>
@@ -97,7 +97,7 @@
             Range :
           </td>
           <td>
-            4077 nm
+              {{jetDetails.JET_DETAILS.jetRange}}
           </td>
         </tr>
         <tr>
@@ -105,7 +105,7 @@
             Average Cost per flying hour :
           </td>
           <td>
-            $6953
+              {{jetDetails.JET_DETAILS.avgCost}}
           </td>
         </tr>
         <tr>
@@ -113,7 +113,7 @@
             Interier Height :
           </td>
           <td>
-            1.8 m
+              {{jetDetails.JET_DETAILS.interiorHeight}}
           </td>
         </tr>
         <tr>
@@ -121,7 +121,7 @@
             Interier Width :
           </td>
           <td>
-            2.49m
+              {{jetDetails.JET_DETAILS.interiorWidth}}
           </td>
         </tr>
         <tr>
@@ -129,13 +129,13 @@
             Luggage Capacity :
           </td>
           <td>
-            115 cu.ft.
+              {{jetDetails.JET_DETAILS.luggageCapacity}}
           </td>
         </tr>
       </table>
       <div class="center-block">
-          <a class="btn btn-primary" href="#">request quote
-          </a>
+          <button class="btn btn-primary" tappable (tap)="goInfo()" >request quote
+          </button>
         </div>
     </div>
     

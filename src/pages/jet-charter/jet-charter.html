@@ -22,11 +22,11 @@
 
 
 <ion-content class="card-background-page">
-  <ion-card *ngFor ="jet of chartDetails" class="ride-deatil-card" (click)="jetdetailPage($event)">
-          <img src="img/jet_charter/banner1.jpg" />
+  <ion-card *ngFor ="let jet of chartDetails" class="ride-deatil-card" tappable (tap)="jetdetailPage($event,jet)">
+          <img src="{{imageUrl+jet.banner[0].banner.replace('../','')}}" />
           <div class="card-title ride-card-title underline">
-              {{jet.JET_DETAILS.jetName}}
-              A319 / <small>145 Passengers</small>
+            
+                {{jet.JET_DETAILS.jetName}} / <small>{{jet.JET_DETAILS.numberOfPassengers}} Passengers</small>
           </div>
   </ion-card>
 <!--   <ion-card class="ride-deatil-card" (click)="jetdetailPage($event)">
@@ -44,4 +44,7 @@
   <ion-card class="ride-deatil-card" (click)="jetdetailPage($event)">
       <img src="img/jet_charter/banner4.jpg" />
       <div class="card-title ride-card-title underline">
-        3440-6
+        3440-600 / <small>420 Passengers</small>
+      </div>
+  </ion-card> -->
+</ion-content>

@@ -40,4 +40,34 @@ export class RideDetailsPage {
     this.navCtrl.push(ProfilePage);
   }else{
     this.navCtrl.push(LoginPage);
-    th
+    this.serviceVar.loginCurrentPages = RideDetailsPage;
+  }
+  
+}
+jetcharterPage(evenet,type){
+
+  return new Promise(resolve => {
+    this.http.get(this.serviceVar.API_URL+'access=true&action=get_jet_fleet_data&jetType='+type)
+       .timeout(3000)
+      .map(res => res.json())
+      .subscribe(data => {
+      if(data.status == true){
+         setTimeout(()=>{
+          this.navCtrl.push(JetCharterPage,{"jetObject":data.data});
+         },1000)
+      console.log(data);
+      }
+        ////console.log(JSON.stringify(this.yachtCountry));
+        resolve(data.data);
+      },
+      error =>{
+        
+          
+      });
+  });
+
+
+}
+
+
+}

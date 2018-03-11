@@ -13,6 +13,10 @@ import { ProfilePage } from '../profile/profile';
 import { Events } from 'ionic-angular';
 import { ServiceProvider } from '../../providers/service/service';
 import { CarSearchListPage } from '../car-search-list/car-search-list';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/timeout';
+
 /**
  * Generated class for the CarSearchPage page.
  *
@@ -55,7 +59,17 @@ export class CarSearchPage {
   departureDate: any;
   public checked = false;
   @ViewChild(DirectionsMapDirective) vc: DirectionsMapDirective;
-  constructor(private mapsAPILoader: MapsAPILoader,
+  destiDetails : any;
+  arrDetails :any;
+  passenger :any;
+  luggage:any;
+  pickup_data_time:any;
+  pickup_comments_one:any;
+  hours:any;
+
+
+
+  constructor(private http: Http,private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
     private gmapsApi: GoogleMapsAPIWrapper,
     private _elementRef: ElementRef, private zone: NgZone, public navCtrl: NavController, public serviceVar: ServiceProvider, public events: Events, public modalCtrl: ModalController, public datepipe: DatePipe) {
@@ -63,13 +77,15 @@ export class CarSearchPage {
     this.duration = 0.0;
     this.carCountry = this.serviceVar.carCountry;
     this.callAllSubscribe(events);
-    this.departureDate = new Date().toISOString();
+    this.pickup_data_time = new Date().toISOString();
+    this.luggage ="1";
+    this.passenger = "1";
 
   }
 
-  ionViewDidLoad() {
+ /*  ionViewDidLoad() {
     console.log('ionViewDidLoad CarSearchPage');
-  }
+  } */
 
 
 
@@ -93,7 +109,7 @@ export class CarSearchPage {
   }
 
 
-  ngOnInit() {
+  ionViewDidLoad() {
 
 
 
@@ -172,9 +188,11 @@ export class CarSearchPage {
           this.vc.origin = { longitude: place.geometry.location.lng(), latitude: place.geometry.location.lat() };
           console.log("Please" + JSON.stringify(this.vc.origin));
           this.vc.originPlaceId = place.place_id;
+          this.destiDetails = this.vc.origin;
         } else {
           this.vc.destination = { longitude: place.geometry.location.lng(), latitude: place.geometry.location.lat() }; // its a example aleatory position
           this.vc.destinationPlaceId = place.place_id;
+          this.arrDetails = this.vc.origin;
         }
 
         if (this.vc.directionsDisplay === undefined) {
@@ -200,6 +218,8 @@ export class CarSearchPage {
   getTime() {
     return this.vc.estimatedTime ? this.vc.estimatedTime : "Not Found";
   }
+
+
 
   getDistance() {
     return this.vc.estimatedDistance ? this.vc.estimatedDistance : "Not Found";
@@ -234,21 +254,123 @@ export class CarSearchPage {
   }
 
 
+   splitString (string, size) {
+    var re = new RegExp('.{1,' + size + '}', 'g');
+    return string.match(re);
+  }
 
-
+   hours_am_pm(time) {
+    var hours = time[0] + time[1];
+    var min = time[2] + time[3];
+    if (hours < 12) {
+        return hours + ':' + min + ' AM';
+    } else {
+        hours=hours - 12;
+        hours=(hours.length < 10) ? '0'+hours:hours;
+        return hours+ ':' + min + ' PM';
+    }
+}
 
   submitService() {
 
 
+    if(this.pickup_comments_one == null ){
+      this.serviceVar.openAlert("Alert!!","Comments Could not be Blank");
+      return false;
+    }
+    if(this.pickup_data_time==null ){
+      this.serviceVar.openAlert("Alert!!","Date & Time Could not be Blank");
+      return false;
+    }
+   
 
-    console.log(this.vc.estimatedTimeInSecond);
-    var time = Math.floor(parseFloat(this.vc.estimatedTimeInSecond) / 60);
-    console.log(time);
-    console.log(this.countryCode);
+   let dataObject = {};
+   var time = Math.floor(parseFloat(this.vc.estimatedTimeInSecond) / 60);
+   dataObject['orig_latitude'] =  this.destiDetails.latitude; 
+   dataObject['orig_longitude'] = this.destiDetails.longitude; 
+   dataObject['dest_latitude'] = this.arrDetails.latitude; 
+   dataObject['dest_longitude'] = this.arrDetails.longitude; 
+   dataObject['estimatedTime'] = time;
+   dataObject['estimatedDistance'] = this.vc.estimatedDistance;
+   dataObject['short_name'] = this.countryCode;
+   dataObject['passenger'] = this.passenger;
+   dataObject['luggage'] = this.luggage;
+   dataObject['pickup_comments_one'] = this.pickup_comments_one;
+   dataObject['hours'] = this.hours;
+   dataObject['isChecked'] = this.checkVal;
+   dataObject['from'] = this.countryStartName;
+   dataObject['to'] = this.countryEndName;
+   
+   
+   
+
+
     if (!isNaN(time) && this.countryCode != "") {
       this.pageCounter = 1;
+      console.log(dataObject);
+      let timeTemp  = this.splitString(this.pickup_data_time,10)[1];
+      let realTime = timeTemp.replace('T','').replace('Z','').split(':');
+      let  defaultTime = Math.floor(this.vc.estimatedTimeInSecond/60);
+      
+      console.log("splict",this.splitString(this.pickup_data_time,10));
+     console.log(this.hours_am_pm(realTime[0]+realTime[1]+realTime[2]));
+     dataObject['pickup_time'] = this.hours_am_pm(realTime[0]+realTime[1]+realTime[2]);
+     dataObject['pickup_date'] = this.splitString(this.pickup_data_time,10)[0];
+     if(this.checkVal){
+     
+     
+      return new Promise(resolve => {
+        this.http.post(this.serviceVar.API_URL+'access=true&action=web_get_chauffeur_list_by_country_by_hours&hours='+this.hours+'&country_code='+this.countryCode+'&pickup_time='+dataObject['pickup_time'],JSON.stringify(dataObject))
+           .timeout(3000)
+          .map(res => res.json())
+          .subscribe(data => {
+          if(data.status == true){
+                 
+            this.navCtrl.push(CarSearchListPage,{"chauffeurDetails":dataObject,"response":data});
+           
+          console.log(data);
+          }else{
+            
+            this.serviceVar.openAlert("Message","Sorry!! PLease Try Again..");
+          }
+            ////console.log(JSON.stringify(this.yachtCountry));
+            resolve(data.data);
+          },
+          error =>{
+            
+              
+          });
+      }); 
 
-      this.serviceVar.getCarChauffureData(time, this.countryCode);
+    }else{
+
+      return new Promise(resolve => {
+        this.http.post(this.serviceVar.API_URL+'access=true&action=web_get_chauffeur_list_by_country_by_hours&time='+defaultTime+'&country_code='+this.countryCode,JSON.stringify(dataObject))
+           .timeout(3000)
+          .map(res => res.json())
+          .subscribe(data => {
+          if(data.status == true){
+                 
+              this.navCtrl.push(CarSearchListPage,{"chauffeurDetails":dataObject,"response":data});
+           
+          console.log(data);
+          }else{
+            
+            this.serviceVar.openAlert("Message","Sorry!! PLease Try Again..");
+          }
+            ////console.log(JSON.stringify(this.yachtCountry));
+            resolve(data.data);
+          },
+          error =>{
+            
+              
+          });
+      }); 
+
+
+    } //end of else
+
+      /* this.serviceVar.getCarChauffureData(time, this.countryCode); */
     } else {
       alert("Please provide valid information");
     }
