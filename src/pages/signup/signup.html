@@ -46,18 +46,21 @@
             <ion-item>
               <ion-label><ion-icon name="pin"></ion-icon></ion-label>
               <ion-select interface="popover" id="country" [(ngModel)]="country" (ionChange)="onSelectUserCountryChange($event)" placeholder="Country">
-                    <ion-option *ngFor="let c of userCountry" [value]="c.id">{{c.name}}</ion-option>
+                  <ion-option value=" " selected="true">Country</ion-option>    
+                <ion-option *ngFor="let c of userCountry" [value]="c.id">{{c.name}}</ion-option>
                 </ion-select>
             </ion-item>
            <!--  <ion-item>
               <ion-label><ion-icon name="pin"></ion-icon></ion-label>
               <ion-select interface="popover" id="state" [(ngModel)]="state" (ionChange)="onSelectUserStateChange($event)" placeholder="State">
-                    <ion-option *ngFor="let s of userState" [value]="s.id">{{s.name}}</ion-option>
+                <ion-option value=" " selected="true">State</ion-option>    
+                <ion-option *ngFor="let s of userState" [value]="s.id">{{s.name}}</ion-option>
                 </ion-select>
             </ion-item> -->
            <!--  <ion-item>
               <ion-label><ion-icon name="pin"></ion-icon></ion-label>
               <ion-select interface="popover" id="city" [(ngModel)]="city"  placeholder="City">
+                <ion-option value=" " selected="true">City</ion-option>    
                     <ion-option *ngFor="let cty of userCity" [value]="cty.id">{{cty.name}}</ion-option>
                 </ion-select>
             </ion-item> -->

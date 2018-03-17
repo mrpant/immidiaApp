@@ -11,7 +11,7 @@
     </div>
   </ion-navbar>
 </ion-header>
-<ion-content class="inner-bg-none">
+<ion-content class="grey-bg">
   <ion-slides pager class="slider">
     <ion-slide>
       <img [src]="imageUrl+carDetails?.banner[0]?.banner.substring(2)" alt="" />
@@ -141,63 +141,87 @@
       </div>
     </div>
   </div>
-  <div class="box1 static1">
+  <div class="box1 static1 form3">
     <ion-list>
+
       <ion-item *ngIf="isQuickFilter == true">
         <ion-label>
           <ion-icon name="calendar" style="margin-right: 5px"></ion-icon>
         </ion-label>
         <ion-datetime [(ngModel)]="departureDate" placeholder="Departure" displayFormat="MMM DD YYYY"></ion-datetime>
       </ion-item>
+
       <ion-item *ngIf="isQuickFilter == true">
         <ion-label>
           <ion-icon name="car"></ion-icon>
         </ion-label>
-        <ion-select interface="popover" id="days" [(ngModel)]="days" placeholder="Hour(s)/Day(s)" (ionChange)="onSelectCarDaysChange($event);">
-          <ion-option *ngFor="let d of carDays" [value]="d.id">{{d.hoursdays}}</ion-option>
-        </ion-select>
+        <div class="selectbox" item-content>
+        <select interface="popover" id="days" [(ngModel)]="days" placeholder="Hour(s)/Day(s)" (ionChange)="onSelectCarDaysChange($event);">
+          <option value=" " selected="true">Hour(s)/Day(s)</option>
+          <option *ngFor="let d of carDays" [value]="d.id">{{d.hoursdays}}</option>
+        </select>
+     </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <ion-icon name="clock"></ion-icon>
+        </ion-label>
+        <div class="selectbox" item-content>
+        <select interface="popover" id="departureHour" [(ngModel)]="departureHour" placeholder="Departure" (ionChange)="onSelectCarDepartureHourChange($event);">
+            <option value=" " selected="true">Departure Hours</option>
+          <option *ngFor="let d of carTime" [value]="d.time">{{d.time}}</option>
+        </select>
+        </div>
       </ion-item>
       <ion-item>
         <ion-label>
           <ion-icon name="clock"></ion-icon>
         </ion-label>
-        <ion-select interface="popover" id="departureHour" [(ngModel)]="departureHour" placeholder="Departure" (ionChange)="onSelectCarDepartureHourChange($event);">
-          <ion-option *ngFor="let d of carTime" [value]="d.time">{{d.time}}</ion-option>
-        </ion-select>
+        <div class="selectbox" item-content>
+        <select interface="popover" id="arrivalHour" [(ngModel)]="arrivalHour" placeholder="Arrival" (ionChange)="onSelectCarArrivalHourChange($event);">
+            <option value=" " selected="true">Arrival</option>
+          <option *ngFor="let a of carTime" [value]="a.time">{{a.time}}</option>
+        </select>
+        </div>
       </ion-item>
-      <ion-item>
-        <ion-label>
-          <ion-icon name="clock"></ion-icon>
-        </ion-label>
-        <ion-select interface="popover" id="arrivalHour" [(ngModel)]="arrivalHour" placeholder="Arrival" (ionChange)="onSelectCarArrivalHourChange($event);">
-          <ion-option *ngFor="let a of carTime" [value]="a.time">{{a.time}}</ion-option>
-        </ion-select>
-      </ion-item>
+
       <ion-item>
         <ion-label>
           <ion-icon name="car"></ion-icon>
         </ion-label>
-        <ion-select interface="popover" id="departureCity" [(ngModel)]="departureCity" placeholder="Departure City" (ionChange)="onSelectDepartureCityChange($event);">
-          <ion-option *ngFor="let c of carCity" [value]="c.id">{{c.cityName}}</ion-option>
-        </ion-select>
+        <div class="selectbox" item-content>
+        <select interface="popover" id="departureCity" [(ngModel)]="departureCity" placeholder="Departure City" (change)="onSelectDepartureCityChange(departureCity);">
+            <option value=" " selected="true">Departure City</option>
+          <option *ngFor="let c of carCity" [value]="c.id">{{c.cityName}}</option>
+        </select>
+</div>
+
       </ion-item>
+
       <ion-item>
         <ion-label>
           <ion-icon name="car"></ion-icon>
         </ion-label>
-        <ion-select interface="popover" id="arrivalCity" [(ngModel)]="arrivalCity" placeholder="Arrival City" (ionChange)="onSelectArrivalCityChange($event);">
-          <ion-option *ngFor="let c of carCity" [value]="c.id">{{c.cityName}}</ion-option>
-        </ion-select>
+        <div class="selectbox" item-content>
+        <select interface="popover" id="arrivalCity" [(ngModel)]="arrivalCity" placeholder="Arrival City" (change)="onSelectArrivalCityChange(arrivalCity);">
+            <option value=" " selected="true">Arrival City</option>
+          <option *ngFor="let c of carCity" [value]="c.id">{{c.cityName}}</option>
+        </select>
+        </div>
       </ion-item>
 
            <ion-item *ngIf="isQuickFilter == true">
                 <ion-label>
                     <ion-icon name="car" style="margin-right: 5px"></ion-icon> 
                 </ion-label>
-                <ion-select interface="popover" [(ngModel)] ="driverType"  placeholder="Type">
-                    <ion-option [value]="1">With Driver</ion-option>
-                    <ion-option [value]="0" >Without Driver</ion-option>
-                </ion-select>
+                <div class="selectbox" item-content>
+                <select interface="popover" [(ngModel)] ="driverType"  placeholder="Type">
+                    <option value=" " selected="true">With Driver</option>
+                    <option [value]="1">With Driver</option>
+                    <option [value]="0" >Without Driver</option>
+                </select>
+                </div>
             </ion-item>
 
 

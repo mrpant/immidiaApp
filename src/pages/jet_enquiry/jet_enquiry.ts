@@ -10,11 +10,7 @@ import { ModalController , ViewController  } from 'ionic-angular';
 import { BooknowPage } from '../booknow/booknow';
 import { DatePipe } from '@angular/common';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-<<<<<<< HEAD
-import { Http , URLSearchParams} from '@angular/http';
-=======
 import { Http } from '@angular/http';
->>>>>>> d72875b8f5fc2bceddef745256f58aefd529238a
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
 
@@ -39,7 +35,7 @@ export class Jet_enquiryPage {
   public jet_advertising:any;
   public pageCounter:number;
   public nextform = false;
-  public roundTrip = true;
+  public roundTrip = false;
   public no_of_passanger : any ;
   public SpecialRequest : String;
   public jetType : any;
@@ -163,18 +159,12 @@ export class Jet_enquiryPage {
    
    
     this.pageCounter = 1;
-
-          let params = new URLSearchParams();
-          for(let key in queryData){
-              params.set(key, queryData[key]) 
-          }
-
+   
           return new Promise(resolve => {
-            this.http.post(this.serviceVar.API_URL+'access=true&action=mail_to_jet&'+params.toString(),{})
+            this.http.post(this.serviceVar.API_URL+'access=true&action=mail_to_jet',JSON.stringify(queryData))
                .timeout(3000)
               .map(res => res.json())
               .subscribe(data => {
-                console.log("data",data);
               if(data.status == true){
                  this.serviceVar.openAlert("Message","Thank you for Contacting to us");
 
@@ -191,7 +181,7 @@ export class Jet_enquiryPage {
               },
               error =>{
                 
-                  console.log(error);
+                  
               });
           });
 
@@ -214,7 +204,7 @@ incrementGuestCounter(){
   }
   selectTrip(event,trip){
     console.log(trip);
-    if(trip==0){
+    if(trip=="One Way"){
       this.roundTrip = false;
     } else {
       this.roundTrip = true;

@@ -29,6 +29,8 @@ export class Limosine_detailPage {
     public limoarrAddress:string;
     public limoarrReq:string;
     public yachtDetails:any;
+    public lm_dep = false;
+    public lm_ar = false; 
 
 
   constructor(public navCtrl: NavController, public serviceVar : ServiceProvider, public events: Events,public navParams:NavParams,public modalCtrl: ModalController) {
@@ -65,10 +67,22 @@ export class Limosine_detailPage {
 
   depChecked(selectedValue:any){
     this.limoDepChecked = selectedValue;
+    console.log(this.limoDepChecked);
+    if(this.limoDepChecked){
+      this.toggleGroup(0);
+    } else {
+      this.toggleGroup(1);
+    }
+    
   }
 
   arrChecked(selectedValue:any){
-    this.limoDepChecked = selectedValue;
+    this.limoArrChecked = selectedValue;
+    if(this.limoArrChecked){
+      this.toggleGroupDrop(1);
+    } else {
+      this.toggleGroupDrop(0);
+    }
   }
 
   
@@ -142,6 +156,19 @@ export class Limosine_detailPage {
       return this.shownGroup === group;
   };
 
+  shownGroupDrop = null;
+
+  toggleGroupDrop(group) {
+    console.log("ISGROUP="+group);
+    if (this.isGroupShownDrop(group)) {
+        this.shownGroupDrop = null;
+    } else {
+        this.shownGroupDrop = group;
+    }
+  };
+  isGroupShownDrop(group) {
+      return this.shownGroupDrop === group;
+  };
 }
 
 

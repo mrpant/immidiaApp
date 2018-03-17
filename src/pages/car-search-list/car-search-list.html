@@ -27,7 +27,7 @@
         <div class="content-block">
             <h4>Class E</h4>
             <p class="price">
-               <span class="currency">{{carDetails.response.data.currency}}  </span>{{carDetails.response.data.classEPrice}}
+               <span class="currency">{{carDetails.response.data.currency}}  </span>{{carDetails.response.data.Class_E_base_price}}
             </p>
             <ul class="list-inline">
                 <li><a href="javascript:void(0)"><ion-icon name="ios-people"></ion-icon>{{carDetails.chauffeurDetails.passenger}}</a></li>
@@ -46,7 +46,7 @@
           <div class="content-block alt">
               <h4>Class S</h4>
               <p class="price">
-                 <span class="currency">{{carDetails.response.data.currency}}  </span>{{carDetails.response.data.classSPrice}}
+                 <span class="currency">{{carDetails.response.data.currency}}  </span>{{carDetails.response.data.Class_S_base_price}}
               </p>
               <ul class="list-inline">
                   <li><a href="javascript:void(0)"><ion-icon name="ios-people"></ion-icon>{{carDetails.chauffeurDetails.passenger}}</a></li>
@@ -60,10 +60,10 @@
     <hr *ngIf="carDetails.response.data.isClass_S  == '1' " >
     <ion-row *ngIf="carDetails.response.data.isClass_SUV  == '1' " justify-content-center align-items-center padding-vertical tappable (tap)="selectCar('car3','Class SUV',carDetails.response.data.currency,carDetails.response.data.Class_SUV_base_price)" class="car3 row-car">
       <ion-col col-6 push-6>
-          <div class="content-block">
+          <div class="content-block alt">
               <h4>Class SUV</h4>
               <p class="price">
-                 <span class="currency">{{carDetails.response.data.currency}}  </span>{{carDetails.response.data.classSUVPrice}}
+                 <span class="currency">{{carDetails.response.data.currency}}  </span>{{carDetails.response.data.Class_SUV_base_price}}
               </p>
               <ul class="list-inline">
                   <li><a href="javascript:void(0)"><ion-icon name="ios-people"></ion-icon>{{carDetails.chauffeurDetails.passenger}}</a></li>
@@ -79,7 +79,7 @@
           <div class="content-block">
               <h4>Class V</h4>
               <p class="price">
-                 <span class="currency">{{carDetails.response.data.currency}}  </span>{{carDetails.response.data.classVPrice}}
+                 <span class="currency">{{carDetails.response.data.currency}}  </span>{{carDetails.response.data.Class_V_base_price}}
               </p>
               <ul class="list-inline">
                 <li><a href="javascript:void(0)"><ion-icon name="ios-people"></ion-icon>{{carDetails.chauffeurDetails.passenger}}</a></li>

@@ -13,3 +13,73 @@ page-yacht_detail {
 }
 
 }
+
+.form3{
+    .list-ios, .list-md, .list-wp{
+        .item-inner{
+            border: 0px;
+        }
+        .item-ios, .item-md, .item-wp{
+            border: 0.5px solid #999;
+            &:first-child{
+                border: 0.5px solid #999;
+            }
+            &:last-child{
+                border: 0.5px solid #999;
+            }
+        }
+        
+    }   
+    .select-ios, .select-md, .select-wp{
+        border:0px;
+    } 
+    .label{
+        color:#999;
+    }
+
+    .selectbox{
+        position: relative;    
+        display:flex;
+        flex:auto;       
+        select { 
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 400;
+            color: #000;          
+            padding: 0px 0px 0px 15px;
+            width:100%;
+            min-width: 100%;
+            border: none;
+            outline: none;
+            height: auto;
+            background: transparent;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            text-overflow: '';
+            text-indent: 0.01px;    
+            text-overflow: '';  
+            option{                    
+                color:#999;                      
+                &:hover{                       
+                    background: #bb9754;
+                }                     
+            }         
+        }
+        &.selectbox:after {
+            top:2px;
+            right:10px;
+            margin: 0px;
+            padding: 0px;
+            border-color:#000;
+            border-style:solid;
+            border-width:0px 1px 1px 0px;
+            transform: rotate(45deg);
+            width:7px;
+            height: 7px;
+            content: "";
+            position: absolute;               
+            pointer-events: none;    
+  
+        }        
+    }
+}

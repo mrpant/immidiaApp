@@ -24,7 +24,7 @@
         <div class="acc-item" text-wrap  [ngClass]="{active: isGroupShown(0)}">
             <h2 class="acc-title" (click)="toggleGroup(0)">Limousine Pickup <ion-icon color="success" [name]="isGroupShown(0) ? 'arrow-up' : 'arrow-down'"></ion-icon></h2>
             <div class="acc-content" *ngIf="isGroupShown(0)">
-                <div class="box1 static1">
+                <div class="box1 static1 form3">
                     <ion-list>
                         <ion-item>
                             <ion-label>
@@ -58,18 +58,19 @@
                             </button>
                         </ion-note>
                     </ion-item>
+
                         <ion-item>
                             <ion-label>
                                 <ion-icon name="watch"></ion-icon>
                             </ion-label>
-                            <ion-select interface="popover" [(ngModel)]="limodepHour" placeholder="Transfer Hour">
-                                <ion-option value="7:00">7:00</ion-option>
-                                <ion-option value="7:30">7:30</ion-option>
-                                <ion-option value="8:00">8:00</ion-option>
-                                <ion-option value="8:30">8:30</ion-option>
-
-                                
-                            </ion-select>
+                            <div class="selectbox" item-content>
+                            <select interface="popover" [(ngModel)]="limodepHour" placeholder="Transfer Hour">
+                                <option value="" selected="true">7:00</option>
+                                <option value="7:30">7:30</option>
+                                <option value="8:00">8:00</option>
+                                <option value="8:30">8:30</option>
+                            </select>
+                        </div>
                         </ion-item>
                     </ion-list>
                 </div>
@@ -81,9 +82,9 @@
                 <ion-checkbox  [(ngModel)]="limoArrChecked" (ionChange)="arrChecked(limoArrChecked)"></ion-checkbox>
             </ion-item>
         </ion-list>
-        <div class="acc-item" text-wrap  [ngClass]="{active: isGroupShown(1)}">
-            <h2 class="acc-title" (click)="toggleGroup(1)">Limousine DropOff <ion-icon color="success" [name]="isGroupShown(1) ? 'arrow-up' : 'arrow-down'"></ion-icon></h2>
-            <div class="acc-content" *ngIf="isGroupShown(1)">
+        <div class="acc-item" text-wrap  [ngClass]="{active: isGroupShownDrop(1)}">
+            <h2 class="acc-title" (click)="toggleGroupDrop(1)">Limousine DropOff <ion-icon color="success" [name]="isGroupShownDrop(1) ? 'arrow-up' : 'arrow-down'"></ion-icon></h2>
+            <div class="acc-content" *ngIf="isGroupShownDrop(1)">
                 <div class="box1 static1">
                     <ion-list>
                               <ion-item>

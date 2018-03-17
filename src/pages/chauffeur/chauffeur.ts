@@ -194,6 +194,7 @@ export class ChauffeurPage  implements OnInit{
               } else {
                   this.vc.destination = { longitude: place.geometry.location.lng(), latitude: place.geometry.location.lat() }; // its a example aleatory position
                   this.vc.destinationPlaceId = place.place_id;
+                   console.log("Please==========="+JSON.stringify(this.vc.destination)); 
               }
   
               if(this.vc.directionsDisplay === undefined){ this.mapsAPILoader.load().then(() => { 

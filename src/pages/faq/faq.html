@@ -14,9 +14,7 @@
 </ion-header>
 <ion-content padding>
    
-            <h2 class="pd-left-rgt0 line font-size20">Frequently Asked Questions</h2>
-
-                
+        <h2 class="pd-left-rgt0 line font-size20">Frequently Asked Questions</h2>               
 
         <div class="accordion">
             <div class="acc-item" *ngFor="let d of specs; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">

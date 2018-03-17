@@ -4,7 +4,7 @@ import {Events} from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import {AlertController} from 'ionic-angular';
-import { ModalController , ViewController  } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import 'rxjs/add/operator/timeout';
 
 /*

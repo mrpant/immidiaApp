@@ -256,6 +256,7 @@ export class Yacht_detailPage {
                  yachtFilterParams.departureCity   = this.departureCity;
                  yachtFilterParams.departureCityName = this.departureCityName;
                  yachtFilterParams.arrivalCityName = this.arrivalCityName;
+                 console.log(this.departureCity);
                  yachtFilterParams.arrivalCity = this.arrivalCity;
 
                   departureCity = this.departureCity;
@@ -381,8 +382,8 @@ export class Yacht_detailPage {
       }
 
       setTimeout(()=>{
-        this.departureCityName = $('#departureCity').text();
-            
+        this.departureCityName = $('#departureCity').val();
+            console.log(this.departureCityName);
       },100);
 
 

@@ -19,17 +19,14 @@
         </div>
     </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content class="black-bg">
     <div class="box1 static form2 pt-0">
         <ion-grid>
             <ion-list *ngIf="!nextform">
                 <form [formGroup]="jetForm" (ngSubmit)="onSubmit(jetForm)">
                 <ion-row justify-content-start align-items-center class="py-1">
-                        <ion-col>
-                                <span *ngIf="jetForm.controls['jetCityFrom'].hasError('required') && jetForm.controls['jetCityFrom'].touched">*</span>
-                            </ion-col>
                     <ion-col class="pl-0">
-                        
+                            <span *ngIf="jetForm.controls['jetCityFrom'].hasError('required') && jetForm.controls['jetCityFrom'].touched">*</span>
                         <ion-icon name="pin"></ion-icon>
                     </ion-col>
                     <ion-col>
@@ -38,10 +35,8 @@
                 </ion-row>
 
                 <ion-row justify-content-start align-items-center class="py-1">
-                        <ion-col>
-                                <span *ngIf="jetForm.controls['jetCityTo'].hasError('required') && jetForm.controls['jetCityTo'].touched" >*</span>
-                            </ion-col>
                     <ion-col class="pl-0">
+                            <span *ngIf="jetForm.controls['jetCityTo'].hasError('required') && jetForm.controls['jetCityTo'].touched" >*</span>
                         <ion-icon name="pin"></ion-icon>
                     </ion-col>
                     <ion-col>
@@ -50,13 +45,13 @@
                 </ion-row>
 
                 <ion-row justify-content-start align-items-center class="py-1">
-                    
                     <ion-col class="pl-0">
                         <ion-icon name="ios-repeat"></ion-icon>
                     </ion-col>
                     <ion-col>
                         <span class="selectbox">
                             <select [formControl]="jetForm.controls['jetType']"  [(ngModel)]="jetType" name="jetType" >
+                                <option value="" selected="true">Small Jet</option>
                                 <option value="Small Jet" selected="true">Small Jet</option>
                                 <option value="Medium Jet">Medium Jet</option>
                                 <option value="Long Range Jet">Long Range Jet</option>
@@ -75,7 +70,7 @@
                         
                         <span class="selectbox" >
                             <select [formControl]="jetForm.controls['jetRoundType']" [(ngModel)]="jetRoundType" name="jetRoundType"   (change)="selectTrip($event,jetRoundType)" >
-                                <option value="One Way" selected="true">One Way</option>
+                                <option value="" selected="true">One Way</option>
                                 <option value="Round Trip">Round Trip</option>
                             </select>
                         </span>
@@ -120,7 +115,7 @@
                     <ion-col>
                         <span class="selectbox">
                             <select [formControl]="jetForm.controls['jetdepartuetime']" [(ngModel)]="jetdepartuetime" name="jetdepartuetime" >
-                                <option value="">Departure Time</option>
+                                <option value="" selected="true">Departure Time</option>
                                 <option value="09:00" selected="true">09:00</option>
                                 <option value="09:15">09:15</option>
                     <option value="09:30">09:30</option>
@@ -194,8 +189,7 @@
 
                         <span class="selectbox">
                             <select [formControl]="jetForm.controls['arrivaljettime']" [(ngModel)]="arrivaljettime"  name="Arrival Time" >
-                                <option value="">Arrival Time</option>
-                               
+                                <option value="" selected="true">Arrival Time</option>                               
                                 <option value="09:00" selected="true">09:00</option>
                                 <option value="09:15">09:15</option>
                     <option value="09:30">09:30</option>
@@ -330,7 +324,7 @@
 
                         <ion-col>
                             <span class="selectbox">
-                                <select  [(ngModel)]="jet_advertising" name="jet_advertising" >
+                                <select  [(ngModel)]="jet_advertising" name="jet_advertising">
                                     <option value="Source" selected="true">Source</option>
                                     <option value="Advertising">Advertising</option>
                                     <option value="Personal Referral">Personal Referral</option>

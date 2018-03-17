@@ -21,6 +21,7 @@ import { ProfilePage } from '../profile/profile';
 import { ChauffeurPage } from '../chauffeur/chauffeur';
 import { Villa_salePage } from '../villa_sale/villa_sale';
 import { RideDetailsPage } from '../ride-details/ride-details';
+import { CarSearchPage } from '../car-search/car-search';
 @Component({
   selector: 'page-first',
   templateUrl: 'first.html'
@@ -220,7 +221,7 @@ export class FirstPage {
 	}
 
 	goToChauffeurDetail(){
-		this.navCtrl.push(ChauffeurPage);	
+		this.navCtrl.push(CarSearchPage);	
 	}
 
 	goToVillaSaleDetail(){

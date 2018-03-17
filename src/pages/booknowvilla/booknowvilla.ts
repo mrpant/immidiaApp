@@ -107,7 +107,7 @@ callAllSubscribe(events){
 
 
   onSelectVillaCountryChange(selectedValue:any){
-  	
+  	console.log(selectedValue);
      this.serviceVar.showLoader('Listing Villa States..');  
      var tempArray = []; 
  		
@@ -126,7 +126,7 @@ callAllSubscribe(events){
     }
 
      setTimeout(()=>{
-        this.countryName = $('#country').text();
+        this.countryName = $('#country option:selected').text();
          this.serviceVar.hideLoader();
     },1000);
 
@@ -137,7 +137,7 @@ callAllSubscribe(events){
   onSelectVillaDestinationCityChange(selectedValue:any){
     this.destinationCity = selectedValue;
      setTimeout(()=>{
-        this.destinationCityName = $('#destinationCity').text();     
+        this.destinationCityName = $('#destinationCity option:selected').text();     
       },100);
   }
 
@@ -176,7 +176,7 @@ callAllSubscribe(events){
     }
 
      setTimeout(()=>{
-        this.stateName = $('#state').text();     
+        this.stateName = $('#state option:selected').text();     
       },100);
    
   }

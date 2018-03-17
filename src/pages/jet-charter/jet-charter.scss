@@ -1,14 +1,21 @@
 page-jet-charter {
     .card-background-page { background:url(../img/bg-inner.jpg) no-repeat center; background-size: cover;
 		.card { position: relative;}
-<<<<<<< HEAD
         .card-title { font-weight: 500;font-size: 16px!important; text-transform: uppercase; text-align: center; 
              color: #fff;  text-shadow: 1px 1px 1px #000;
-              position: absolute; bottom: 30px; left: 15px; right: 15px; 
+              position: absolute; bottom: 30px; left: 0px; right:0px; 
+              &.bg-blue-light{
+                  background: #d2e0ed;
+                  bottom: 25px;
+                  color:#000;
+                  padding: 5px;
+              }
+              span{
+                  &.inner{
+                     padding: 0 15px;
+                  }
+              }
             }
-=======
-		.card-title { font-weight: 500;font-size: 20px!important; text-transform: uppercase; text-align: center; width: 100%; color: #fff;  text-shadow: 1px 1px 1px #000; position: absolute; bottom: 1%; left: 0; right: 0; transform: translateY(-50%); -moz-transform: translateY(-50%); -webkit-transform: translateY(-50%);}
->>>>>>> d72875b8f5fc2bceddef745256f58aefd529238a
     }
     .header .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{
         position: relative!important;
@@ -20,7 +27,7 @@ page-jet-charter {
         margin:0px!important;
         width: 100%!important;
 		img{
-			height: 160px;
+			height: auto;
 		}
     }
     .ride-card-title{
@@ -33,21 +40,13 @@ page-jet-charter {
     .underline::before{
         position: absolute;
         left: 50%;        
-<<<<<<< HEAD
         top: 50%;        
-=======
-        bottom: 50%;        
->>>>>>> d72875b8f5fc2bceddef745256f58aefd529238a
         content: '';        
         background-color: #a18f61;        
         width: 100px;        
         height: 2px;        
         transform: translate(-50%,-50%);        
-<<<<<<< HEAD
-        margin-top: 20px;
-=======
-        margin-bottom: -17px;
->>>>>>> d72875b8f5fc2bceddef745256f58aefd529238a
+        margin-top: 30px;
     }
     .card-title small{
         font-weight: 500!important;

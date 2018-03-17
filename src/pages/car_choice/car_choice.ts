@@ -169,7 +169,7 @@ public driverDetails:any;
           "subtotal": Math.floor(this.carSubTotal),
           "departureDateTime":this.carFilterParams.departureHour,
           "transactionFee": Math.floor(this.transactionFee),
-          "isDriverOne" : (this.driverDetails != null) ? this.driverDetails.isDriverOne : null,
+          "isDriverOne" : (this.driverDetails.isDriverOne != null) ? this.driverDetails.isDriverOne : null,
           "driverOneName" :  (this.driverDetails)?this.driverDetails.driverOneName:null,
           "driverOneDOB" :  (this.driverDetails)?this.driverDetails.driverOneDOB:null,
           "driverOneLicenseIssue" :  (this.driverDetails)?this.driverDetails.driverOneLicenseIssue:null,

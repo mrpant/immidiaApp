@@ -10,10 +10,6 @@ import { ProfilePage } from '../profile/profile';
 import { ModalController } from 'ionic-angular';
 import { Modal1Page} from '../modal/modal1';
 import { DatePipe } from '@angular/common';
-<<<<<<< HEAD
-import { Car_choicePage } from '../car_choice/car_choice';
-=======
->>>>>>> d72875b8f5fc2bceddef745256f58aefd529238a
  
 
 @Component({
@@ -135,23 +131,7 @@ export class Car_detailPage {
              
             
              if(this.pageCounter <= 1){
-
-              if(window.localStorage.getItem('carFilterParams') != null && JSON.parse(window.localStorage.getItem('carFilterParams')).driverType == 0 ){
-                
-                if(this.serviceVar.isLogin == true){
-                  this.navCtrl.push(Car_choicePage);
-                }else{
-                  let loginPage = this.modalCtrl.create(LoginPage); // login validate 
-                  loginPage.present();
-                  this.serviceVar.loginCurrentPages = Car_detailPage;
-                }
-                
-
-              }else{
                 this.navCtrl.push(Insurance_detailPage,{"carMoreDetailsObject":object});
-              }
-
-
               }
                 
                 window.localStorage.setItem('carMoreDetailsObject',JSON.stringify(object));
@@ -236,7 +216,7 @@ export class Car_detailPage {
     this.departureCity  = selectedValue;
 
      setTimeout(()=>{
-        this.departureCityName = $('#departureCity').text();     
+        this.departureCityName = $('#departureCity option:selected').text();     
       },100);
   }
 
@@ -247,7 +227,7 @@ export class Car_detailPage {
       this.arrivalCity  = selectedValue;
 
      setTimeout(()=>{
-        this.arrivalCityName = $('#arrivalCity').text();     
+        this.arrivalCityName = $('#arrivalCity option:selected').text();     
       },100);
   }
 

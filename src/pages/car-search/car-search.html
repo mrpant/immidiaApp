@@ -49,15 +49,12 @@
                 <ion-col>
                     <label for="passengers">Passengers</label>             
                     <span class="selectbox">
-                      <select [(ngModel)]="passenger"  id="passengers" >
-                        <option value="1" selected>01</option>
+                      <select [(ngModel)]="passenger" id="passengers">
+                        <option value=" " selected="true">01</option>
                         <option value="2">02</option>
                         <option value="3">03</option>
-<<<<<<< HEAD
                         <option value="4">04</option>
                         <option value="5">05</option>
-=======
->>>>>>> d72875b8f5fc2bceddef745256f58aefd529238a
                       </select>
                     </span>
                 </ion-col>                                           
@@ -73,14 +70,11 @@
                       <label for="luggage">Luggage</label>             
                       <span class="selectbox">
                         <select [(ngModel)]="luggage"  id="luggage" >
-                          <option value="1" selected>01</option>
+                            <option value=" " selected="true">01</option>
                           <option value="2">02</option>   
                           <option value="3">03</option>
-<<<<<<< HEAD
                           <option value="4">04</option>
                          <option value="5">05</option>
-=======
->>>>>>> d72875b8f5fc2bceddef745256f58aefd529238a
                         </select>
                       </span>
                   </ion-col>                                           
@@ -118,15 +112,9 @@
         </ion-item>
           <ion-item>
             <ion-label><ion-icon name="calendar" style="margin-right: 5px"></ion-icon></ion-label>
-            <ion-datetime [(ngModel)]="pickup_date"  placeholder="Date/Pickup YYYY MM DDD" pickerFormat="YYYY MM DD"  displayFormat="YYYY MM DD"  max="2050-12-01">
+            <ion-datetime [(ngModel)]="pickup_data_time"  placeholder="Date/Pickup Time YYYY MM DD HH:mm A" pickerFormat="YYYY MM DD HH:mm A"  displayFormat="YYYY MM DD HH:mm A"  max="2050-12-01">
             </ion-datetime>
-        </ion-item> 
-        
-        <ion-item>
-          <ion-label><ion-icon name="calendar" style="margin-right: 5px"></ion-icon></ion-label>
-          <ion-datetime displayFormat="HH:mm"  placeholder="Time/Pickup HH:mm A"  [(ngModel)]="pickup_time"></ion-datetime>
-        </ion-item>
-
+        </ion-item>       
         <ion-item class="full-width" text-center>
             <ion-label>
               <ion-checkbox [(ngModel)]="checkVal"  (ionChange)="checkvalue($event)" ></ion-checkbox>As Directed/Hourly
@@ -137,7 +125,8 @@
               <label for="hours">Hours</label>             
                 <span class="selectbox">
                   <select [(ngModel)]="hours">
-                      <option value="2 Hrs" selected>2 Hrs</option>
+                      <option value=" " selected="true">Hours</option>
+                      <option value="2 Hrs">2 Hrs</option>
                       <option value="4 Hrs" >4 Hrs</option>
                       <option value="6 Hrs" >6 Hrs</option>
                       <option value="8 Hrs" >8 Hrs</option>

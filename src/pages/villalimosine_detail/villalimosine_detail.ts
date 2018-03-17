@@ -74,10 +74,20 @@ export class Villalimosine_detailPage {
 
   depChecked(selectedValue:any){
     this.limoDepChecked = selectedValue;
+    if(this.limoDepChecked){
+      this.toggleGroup(1);
+    } else {
+      this.toggleGroup(0);
+    }
   }
 
   arrChecked(selectedValue:any){
-    this.limoDepChecked = selectedValue;
+    this.limoArrChecked = selectedValue;
+    if(this.limoArrChecked){
+      this.toggleGroupDrop(1);
+    } else {
+      this.toggleGroupDrop(0);
+    }
   }
 
   submitFormLimo(){
@@ -146,6 +156,19 @@ export class Villalimosine_detailPage {
       return this.shownGroup === group;
   };
 
+  shownGroupDrop = null;
+
+  toggleGroupDrop(group) {
+    console.log("ISGROUP="+group);
+    if (this.isGroupShownDrop(group)) {
+        this.shownGroupDrop = null;
+    } else {
+        this.shownGroupDrop = group;
+    }
+  };
+  isGroupShownDrop(group) {
+      return this.shownGroupDrop === group;
+  };
 }
 
 

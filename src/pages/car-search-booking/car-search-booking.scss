@@ -72,6 +72,49 @@
                 }
             }
         }
+        .selectbox{
+            position: relative;           
+            select { 
+                font-size: 16px;
+                line-height: 20px;
+                font-weight: 400;
+                color: #fff;          
+                padding: 0px;
+                width:90%;
+               /* min-width: 100%;*/
+                border: none;
+                outline: none;
+                height: auto;
+                background: transparent;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                text-overflow: '';
+                text-indent: 0.01px;    
+                text-overflow: '';  
+                option{                    
+                    color:#999;                      
+                    &:hover{                       
+                        background: #bb9754;
+                    }                     
+                }         
+            }
+            &.selectbox:after {
+                top:2px;
+                right:0px;
+                margin: 0px;
+                padding: 0px;
+                border-color:#fff;
+                border-style:solid;
+                border-width:0px 1px 1px 0px;
+                transform: rotate(45deg);
+                width:7px;
+                height: 7px;
+                content: "";
+                position: absolute;               
+                pointer-events: none;    
+      
+            }        
+        }
     }
 }
 

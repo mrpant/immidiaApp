@@ -11,7 +11,7 @@
         </div>
     </ion-navbar>
 </ion-header>
-<ion-content class="inner-bg-none">
+<ion-content class="grey-bg">
     <ion-slides pager class="slider" >
         <ion-slide>
             <img [src]="imageUrl+yachtDetails?.banner[0].banner.substring(2)" alt="" />
@@ -148,67 +148,96 @@
             </div>
         </div>
     </div>
-     <div class="box1 static1">
-    <ion-list>
-      <ion-item *ngIf="isQuickFilter == true">
-        <ion-label>
-                    <ion-icon ios="ios-repeat" md="md-repeat"></ion-icon>
+     <div class="box1 static1 form3">    
+
+      <ion-list>
+        <ion-item *ngIf="isQuickFilter == true">
+          <ion-label>
+                      <ion-icon ios="ios-repeat" md="md-repeat"></ion-icon>
+                  </ion-label>
+                  <div class="selectbox" item-content>
+                  <select interface="popover" [(ngModel)]="routeType" placeholder="One Way/Return">
+                      <option value="" selected="true">One Way/Return</option>
+                      <option value="1">One Way</option>
+                      <option value="0">Return</option>
+                  </select>
+                  </div>
+        </ion-item>
+
+        <ion-item *ngIf="isQuickFilter == true">
+            <ion-label>
+                        <ion-icon name="clock"></ion-icon>
+                    </ion-label>
+                    <div class="selectbox" item-content>
+                        <select interface="popover" [(ngModel)]="daysId" placeholder="Duration" (ionChange)="onSelectYachtDaysChange($event)">
+                                <option value="" selected="true">Duration</option>
+                            <option *ngFor="let d of daysArray" [value]="d?.id">{{d?.name}}</option>
+                    </select>
+                    </div>
+          </ion-item>
+
+ <ion-item>
+    <ion-label>
+        <ion-icon name="calendar" style="margin-right: 5px"></ion-icon> </ion-label>
+    <ion-datetime [(ngModel)]="departureDate" (ionChange)="onSelectYachtDepartureDateChange(departureDate)" placeholder="Departure Date" displayFormat="MMM DD YYYY" [min]="departureDate"  max="2050-12-01"></ion-datetime>
+</ion-item>
+<ion-item>
+    <ion-label>
+        <ion-icon name="calendar" style="margin-right: 5px"></ion-icon></ion-label>
+    <ion-datetime [disabled] ="isDisabledArrival" [(ngModel)]="arrivalDate"   placeholder="Arrival Date" displayFormat="MMM DD YYYY" (ionChange)="onSelectYachtArrivalDateChange(arrivalDate);" [min]="departureDate"  max="2050-12-01"></ion-datetime>
+</ion-item>
+
+
+<ion-item *ngIf="isQuickFilter == true">
+    <ion-label>
+                <ion-icon name="pin"></ion-icon>
+            </ion-label>
+            <div class="selectbox" item-content>
+                <select interface="popover" id="departureCity" [(ngModel)]="departureCity" placeholder="Departure Port" (change)="onSelectYachtDepartureCityChange(departureCity);">
+                        <option value="" selected="true">Departure</option>
+                    <option *ngFor="let c of yachtDepartureCity" [value]="c.cityId">{{c.cityName}}</option>
+            </select>
+            </div>
+  </ion-item>
+
+  <ion-item *ngIf="isQuickFilter == true">
+    <ion-label>
+                <ion-icon name="pin"></ion-icon>
+            </ion-label>
+            
+            <div class="selectbox" item-content>
+                <select interface="popover" id="arrivalCity" [(ngModel)]="arrivalCity" placeholder="Arrival Port" (change)="onSelectYachtArrivalCityChange(arrivalCity)">
+                    <option value="" selected="true">Arrival</option>
+                    <option *ngFor="let c of yachtArrivalCity" [value]="c.id">{{c.cityName}}</option>
+            </select>
+            </div>
+  </ion-item>
+
+  <ion-item>   
+            <ion-label>
+                <ion-icon name="clock"></ion-icon>
                 </ion-label>
-                <ion-select interface="popover" [(ngModel)]="routeType" placeholder="One Way/Return">
-                    <ion-option value="1">One Way</ion-option>
-                    <ion-option value="0">Return</ion-option>
-                </ion-select>
-      </ion-item>
-      <ion-item *ngIf="isQuickFilter == true">
-                 <ion-label>
-                    <ion-icon name="clock" style="margin-right: 5px"></ion-icon> </ion-label>
-                    <ion-select interface="popover" [(ngModel)]="daysId" placeholder="Duration" (ionChange)="onSelectYachtDaysChange($event)" >
-                          <ion-option *ngFor="let d of daysArray" [value]="d?.id">{{d?.name}}</ion-option>
-                    </ion-select>
-      </ion-item>
-       <ion-item>
-                <ion-label>
-                    <ion-icon name="calendar" style="margin-right: 5px"></ion-icon> </ion-label>
-                <ion-datetime [(ngModel)]="departureDate" (ionChange)="onSelectYachtDepartureDateChange(departureDate)" placeholder="Departure Date" displayFormat="MMM DD YYYY" [min]="departureDate"  max="2050-12-01"></ion-datetime>
-            </ion-item>
-      <ion-item>
-                <ion-label>
-                    <ion-icon name="calendar" style="margin-right: 5px"></ion-icon></ion-label>
-                <ion-datetime [disabled] ="isDisabledArrival" [(ngModel)]="arrivalDate"   placeholder="Arrival Date" displayFormat="MMM DD YYYY" (ionChange)="onSelectYachtArrivalDateChange(arrivalDate);" [min]="departureDate"  max="2050-12-01"></ion-datetime>
-    </ion-item>
-      <ion-item *ngIf="isQuickFilter == true">
-                  <ion-label>
-                    <ion-icon name="pin"></ion-icon>
-                </ion-label>
-                <ion-select interface="popover" id="departureCity" [(ngModel)]="departureCity" placeholder="Departure Port" (ionChange)="onSelectYachtDepartureCityChange($event);">
-                    <ion-option *ngFor="let c of yachtDepartureCity" [value]="c.cityId">{{c.cityName}}</ion-option>
-                </ion-select>
-      </ion-item>
-      <ion-item *ngIf="isQuickFilter == true">
-        <ion-label>
-                    <ion-icon name="pin"></ion-icon>
-                </ion-label>
-                <ion-select interface="popover" id="arrivalCity" [(ngModel)]="arrivalCity" placeholder="Arrival Port" (ionChange)="onSelectYachtArrivalCityChange($event)">
-                    <ion-option *ngFor="let c of yachtArrivalCity" [value]="c.id">{{c.cityName}}</ion-option>
-                </ion-select>
-      </ion-item>
-      <ion-item >
-        <ion-label>
-          <ion-icon name="clock"></ion-icon> 
+
+            <div class="selectbox" item-content>
+                <select interface="popover" id="departureHour" [(ngModel)]="departureHour" placeholder="Departure" (ionChange)="onSelectYachtDepartureHourChange($event);">
+                        <option value="" selected="true">Departure Hours</option>
+                    <option *ngFor="let d of yachtTime" [value]="d.time">{{d.time}}</option>
+                </select>
+            </div>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+        <ion-icon name="clock"></ion-icon>
         </ion-label>
-        <ion-select interface="popover" id="departureHour" [(ngModel)]="departureHour" placeholder="Departure" (ionChange)="onSelectYachtDepartureHourChange($event);">
-           <ion-option *ngFor="let d of yachtTime" [value]="d.time">{{d.time}}</ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item >
-        <ion-label>
-          <ion-icon name="clock"></ion-icon> 
-        </ion-label>
-        <ion-select interface="popover" id="arrivalHour" [(ngModel)]="arrivalHour" placeholder="Arrival" (ionChange)="onSelectYachtArrivalHourChange($event);">
-        <ion-option *ngFor="let a of yachtTime" [value]="a.time">{{a.time}}</ion-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
+            <div class="selectbox" item-content>
+                <select interface="popover" id="arrivalHour" [(ngModel)]="arrivalHour" placeholder="Arrival" (ionChange)="onSelectYachtArrivalHourChange($event);">
+                        <option value="" selected="true">Arrival Hours</option>
+                    <option *ngFor="let a of yachtTime" [value]="a.time">{{a.time}}</option>
+                </select>
+            </div>
+  </ion-item>
+  </ion-list>
   </div>
     <div class="box-padding">
         <ion-grid no-padding>

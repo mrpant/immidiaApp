@@ -16,7 +16,6 @@ import { CarSearchListPage } from '../car-search-list/car-search-list';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
-import * as moment from 'moment';
 
 /**
  * Generated class for the CarSearchPage page.
@@ -64,13 +63,9 @@ export class CarSearchPage {
   arrDetails :any;
   passenger :any;
   luggage:any;
-  pickup_date:any;
-  pickup_time:any;
+  pickup_data_time:any;
   pickup_comments_one:any;
   hours:any;
-  from:any;
-  to:any;
-  updatedDate:any;
 
 
 
@@ -82,18 +77,7 @@ export class CarSearchPage {
     this.duration = 0.0;
     this.carCountry = this.serviceVar.carCountry;
     this.callAllSubscribe(events);
-    this.pickup_date = new Date().toISOString();
-
-    var d1 = new Date ();
-    this.updatedDate = new Date ( d1 );
-    this.updatedDate.setHours ( d1.getHours() + 3 );
-    this.pickup_time = moment(this.updatedDate).format();
-    console.log("pickuo",this.pickup_time);
-    var now = moment(this.pickup_time);
- /*    var Dtime = now.hour() + ':' + now.minutes() + ':' + now.seconds();
-       Dtime = Dtime + ((now.hour()) >= 12 ? ' PM' : ' AM');
-      console.log("Dtime",Dtime);
- */
+    this.pickup_data_time = new Date().toISOString();
     this.luggage ="1";
     this.passenger = "1";
 
@@ -209,7 +193,6 @@ export class CarSearchPage {
           this.vc.destination = { longitude: place.geometry.location.lng(), latitude: place.geometry.location.lat() }; // its a example aleatory position
           this.vc.destinationPlaceId = place.place_id;
           this.arrDetails = this.vc.origin;
-          console.log("DES==",this.vc.destination);
         }
 
         if (this.vc.directionsDisplay === undefined) {
@@ -291,22 +274,14 @@ export class CarSearchPage {
   submitService() {
 
 
-    if(this.from == null ){
-      this.serviceVar.openAlert("Alert!!","Pick up location Could not be Blank");
-      return false;
-    }
-    if(this.to == null ){
-      this.serviceVar.openAlert("Alert!!","Drop off location Could not be Blank");
-      return false;
-    }
-    if(this.pickup_date==null ){
-      this.serviceVar.openAlert("Alert!!","Date & Time Could not be Blank");
-      return false;
-    }
-    if(this.pickup_time == null ){
-      this.serviceVar.openAlert("Alert!!","Time Could not be Blank");
-      return false;
-    }
+    // if(this.pickup_comments_one == null ){
+    //   this.serviceVar.openAlert("Alert!!","Comments Could not be Blank");
+    //   return false;
+    // }
+    // if(this.pickup_data_time==null ){
+    //   this.serviceVar.openAlert("Alert!!","Date & Time Could not be Blank");
+    //   return false;
+    // }
    
 
    let dataObject = {};
@@ -332,35 +307,20 @@ export class CarSearchPage {
 
     if (!isNaN(time) && this.countryCode != "") {
       this.pageCounter = 1;
-      
       console.log(dataObject);
-/*       let timeTemp  = this.splitString(this.pickup_data_time,10)[1];
+      let timeTemp  = this.splitString(this.pickup_data_time,10)[1];
       let realTime = timeTemp.replace('T','').replace('Z','').split(':');
       let  defaultTime = Math.floor(this.vc.estimatedTimeInSecond/60);
       
       console.log("splict",this.splitString(this.pickup_data_time,10));
      console.log(this.hours_am_pm(realTime[0]+realTime[1]+realTime[2]));
      dataObject['pickup_time'] = this.hours_am_pm(realTime[0]+realTime[1]+realTime[2]);
-     dataObject['pickup_date'] = this.splitString(this.pickup_data_time,10)[0]; */
-
-     var now = moment(this.pickup_time);
-    var Ptime = now.hour() + ':' + now.minutes() + ':' + now.seconds();
-       Ptime = time + ((now.hour()) >= 12 ? ' PM' : ' AM');
-     let  defaultTime = Math.floor(this.vc.estimatedTimeInSecond/60);
-     console.log("Ptime",Ptime);
-    dataObject['pickup_time'] = Ptime;
-    dataObject['pickup_date'] = this.pickup_date; 
-
-    let params = new URLSearchParams();
-    for(let key in dataObject){
-        params.set(key, dataObject[key]) 
-    }
-
+     dataObject['pickup_date'] = this.splitString(this.pickup_data_time,10)[0];
      if(this.checkVal){
      
      
       return new Promise(resolve => {
-        this.http.post(this.serviceVar.API_URL+'access=true&action=web_get_chauffeur_list_by_country_by_hours&hours='+this.hours+'&country_code='+this.countryCode+'&pickup_time='+dataObject['pickup_time']+'&'+params.toString(),{})
+        this.http.post(this.serviceVar.API_URL+'access=true&action=web_get_chauffeur_list_by_country_by_hours&hours='+this.hours+'&country_code='+this.countryCode+'&pickup_time='+dataObject['pickup_time'],JSON.stringify(dataObject))
            .timeout(3000)
           .map(res => res.json())
           .subscribe(data => {
@@ -385,7 +345,7 @@ export class CarSearchPage {
     }else{
 
       return new Promise(resolve => {
-        this.http.post(this.serviceVar.API_URL+'access=true&action=web_get_chauffeur_list_by_country&time='+defaultTime+'&country_code='+this.countryCode,JSON.stringify(dataObject))
+        this.http.post(this.serviceVar.API_URL+'access=true&action=web_get_chauffeur_list_by_country_by_hours&time='+defaultTime+'&country_code='+this.countryCode,JSON.stringify(dataObject))
            .timeout(3000)
           .map(res => res.json())
           .subscribe(data => {

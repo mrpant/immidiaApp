@@ -9,6 +9,7 @@ import { InAppBrowser , InAppBrowserOptions } from '@ionic-native/in-app-browser
 import { BooknowPage } from '../booknow/booknow';
 import {Events} from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
+import { CuffertermPage } from '../cufferterm/cufferterm';
 /**
  * Generated class for the CarSearchBookingPage page.
  *
@@ -150,6 +151,12 @@ console.log("SUbmit_CHAUFFER_ORDER"+JSON.stringify(chauffeurOrderRequest));
       this.serviceVar.loginCurrentPages = CarSearchBookingPage;
     }
 
+  }
+
+  termsAndCondition(){
+    console.log('gsdfgds');
+    let modal = this.modalCtrl.create(CuffertermPage);
+    modal.present();
   }
 
   queryForm() {

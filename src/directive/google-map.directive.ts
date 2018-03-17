@@ -43,15 +43,9 @@ export class DirectionsMapDirective {
               directionsService.route({
                       origin: {placeId : this.originPlaceId },
                       destination: {placeId : this.destinationPlaceId },
-<<<<<<< HEAD
                      // avoidHighways: true,
                      // travelMode: google.maps.DirectionsTravelMode.DRIVING
                       travelMode: 'DRIVING'
-=======
-                      avoidHighways: true,
-                      travelMode: google.maps.DirectionsTravelMode.DRIVING
-                      //travelMode: 'DRIVING'
->>>>>>> d72875b8f5fc2bceddef745256f58aefd529238a
                     }, function(response: any, status: any) {
                                 if (status === 'OK') {
                                   me.directionsDisplay.setDirections(response);
