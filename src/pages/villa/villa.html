@@ -12,42 +12,33 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
-    <div class="box1 form2">
+    <div class="box1">
         <ion-list>
-                <ion-grid>
-                        <ion-row justify-content-start align-items-center class="py-1">  
-                                <ion-col class="pl-0"><ion-icon name="pin"></ion-icon></ion-col> 
-                                <ion-col>                                
-                                    <span class="selectbox">
-                                      <select id="country" [(ngModel)]="country" (change)="onSelectVillaCountryChange(country)" placeholder="Country">
-                                            <option *ngFor="let c of villaCountry" [value]="c?.id">{{c?.countryName}}</option>
-                                      </select>
-                                    </span>
-                                </ion-col>                                           
-                               </ion-row>
-                
-                               <ion-row justify-content-start align-items-center class="py-1">   
-                                     <ion-col class="pl-0"><ion-icon name="pin"></ion-icon></ion-col> 
-                                     <ion-col>                                
-                                         <span class="selectbox">
-                                           <select id="state" [(ngModel)]="state" placeholder="State" (change)="onSelectVillaStateChange(state)">
-                                                <option *ngFor="let s of villaState" [value]="s?.id">{{s?.stateName}}</option>
-                                           </select>
-                                         </span>
-                                     </ion-col>                                           
-                                    </ion-row>
-                
-                                    <ion-row justify-content-start align-items-center class="py-1">   
-                                            <ion-col class="pl-0"><ion-icon name="pin"></ion-icon></ion-col> 
-                                            <ion-col>                                
-                                                <span class="selectbox">
-                                                  <select  id="destinationCity" [(ngModel)]="destinationCity" placeholder="Destination" (change)="onSelectVillaDestinationCityChange(destinationCity)">
-                                                        <option *ngFor="let c of villaCity" [value]="c?.id">{{c?.name}}</option>
-                                                  </select>
-                                                </span>
-                                            </ion-col>                                           
-                                           </ion-row>                                           
-                </ion-grid>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                  <ion-select  interface="popover" id="country" [(ngModel)]="country" (ionChange)="onSelectVillaCountryChange($event)" placeholder="Country">
+                    <ion-option *ngFor="let c of villaCountry" [value]="c.id">{{c.countryName}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                 <ion-select interface="popover" id="state" [(ngModel)]="state" placeholder="State" (ionChange)="onSelectVillaStateChange($event);">
+                   <ion-option *ngFor="let s of villaState" [value]="s.id">{{s.stateName}}</ion-option>
+
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                <ion-select interface="popover" id="destinationCity" [(ngModel)]="destinationCity" placeholder="Destination" (ionChange)="onSelectVillaDestinationCityChange($event)">
+                    <ion-option *ngFor="let c of villaCity" [value]="c.id">{{c.name}}</ion-option>
+                </ion-select>
+            </ion-item>
             <ion-item class="input-group">
                 <ion-label>
                     <ion-icon name="people"></ion-icon>

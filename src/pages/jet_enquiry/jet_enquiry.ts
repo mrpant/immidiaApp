@@ -10,7 +10,11 @@ import { ModalController , ViewController  } from 'ionic-angular';
 import { BooknowPage } from '../booknow/booknow';
 import { DatePipe } from '@angular/common';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+<<<<<<< HEAD
 import { Http , URLSearchParams} from '@angular/http';
+=======
+import { Http } from '@angular/http';
+>>>>>>> d72875b8f5fc2bceddef745256f58aefd529238a
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
 

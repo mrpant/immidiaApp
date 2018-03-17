@@ -23,13 +23,9 @@ page-booknowyacht { }
         .col + .col{
            max-width: calc(100% - 30px);
         }
-        .text-input-md, .text-input-ios, .text-input-wp{
+        .text-input-md{
             margin-top: 0px;
             margin-bottom:0px;
-            border:0px;
-            &::placeholder{
-               color:#fff;
-            }
         }
         .form-group{
             padding-top:2px;
@@ -40,52 +36,18 @@ page-booknowyacht { }
             .col + .col{
                max-width: calc(100% - 80px);
             }
-            ion-label{
+            ion-label, ion-datetime{
                 font-size: 16px;
                 line-height: 20px;
                 font-weight: 400;
-                color: #fff;
+                color: #999;
                 padding:5px 0px;
                 margin:0px;
-            }
-            .datetime-ios{
-                font-size: 16px;
-                line-height: 20px;
-                font-weight: 400;
-                color: #fff;
-                padding:5px 0px;
-                margin:0px;    
-                &.datetime-text{
-                  color:#fff;
-                }      
-            }
-            .datetime-ios .datetime-placeholder{
-                color:#fff;
-            }
-            .datetime-md{
-                font-size: 16px;
-                line-height: 20px;
-                font-weight: 400;
-                color: #fff;
-                padding:5px 0px;
-                margin:0px;          
-            }
-            .datetime-wp{
-                font-size: 16px;
-                line-height: 20px;
-                font-weight: 400;
-                color: #fff;
-                padding:5px 0px;              
-            }
-            .datetime-wp .datetime-text{
-                border:0px;
-                margin:0px;
-                min-height: 2.4rem;
             }
         }
         ion-icon{
             font-size: 19px;
-            color:#fff;
+            color:#999;
         }
         .selectbox{
             position: relative;           
@@ -93,7 +55,7 @@ page-booknowyacht { }
                 font-size: 16px;
                 line-height: 20px;
                 font-weight: 400;
-                color: #fff;          
+                color: #999;          
                 padding: 0px;
                 width:100%;
                 min-width: 100%;
@@ -118,7 +80,11 @@ page-booknowyacht { }
                 right:0px;
                 margin: 0px;
                 padding: 0px;
+<<<<<<< HEAD
                 border-color:#fff;
+=======
+                border-color:#999;
+>>>>>>> d72875b8f5fc2bceddef745256f58aefd529238a
                 border-style:solid;
                 border-width:0px 1px 1px 0px;
                 transform: rotate(45deg);
@@ -129,28 +95,6 @@ page-booknowyacht { }
                 pointer-events: none;    
       
             }        
-        }
-        .item, .item-ios, .item-wp{
-            background-color: transparent;
-            color:#fff;
-        }
-        .item-ios, .item-wp{
-            border-bottom:1px solid #32db64;
-            border-radius: 0px;
-            box-shadow: inset 0 -1px 0 0 #32db64;
-            &.item{
-                border-radius: 0px;
-                border-color: transparent;
-            }
-            .item-inner{
-                border-bottom:0px;
-                border-radius: 0px;
-            }
-            &.item-input.ng-valid.input-has-value:not(.input-has-focus){
-            .text-input{
-                border-color:transparent;
-            }
-        }
         }
     }
 .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child{

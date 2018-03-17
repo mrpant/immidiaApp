@@ -59,6 +59,7 @@ import { CuffertermPage } from '../pages/cufferterm/cufferterm';
 
 
 
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -87,13 +88,19 @@ export class MyApp {
       {isLogin:true ,title : 'First Side' , icon : 'ios-jet' ,md : 'md-jet' , component : FirstslidePage },
       {isLogin:true ,title : 'Chauffeur Service' , icon : 'ios-car-outline' ,md : 'md-car' , component : CarSearchPage },
       {isLogin:this.serviceVar.isLogin , title : 'My Account' , icon : 'ios-contact' ,md : 'md-contact' , component : ProfilePage },
+    {isLogin:true ,title : 'Home' , icon : 'ios-home' ,md : 'md-home' , component : FirstPage },
+    {isLogin:true ,title : 'Hire Private Jet' , icon : 'ios-jet' ,md : 'md-jet' , component : RideDetailsPage },
+    {isLogin:true ,title : 'Chauffeur Service' , icon : 'ios-car-outline' ,md : 'md-car' , component : CarSearchPage },
+      {isLogin:this.serviceVar.isLogin , title : 'My Account' , icon : 'ios-contact' ,md : 'md-contact' , component : ProfilePage },
+
       {isLogin:true , title : 'Book Yacht' ,icon : 'ios-boat' ,md : 'md-boat' , component : BooknowyachtPage },
       {isLogin:true ,title : 'Book Car' ,icon : 'ios-car' ,md : 'md-car' , component : BooknowcarPage },
       {isLogin:true  ,title : 'Book Villa' ,icon : 'ios-home' ,md : 'md-home' , component : BooknowvillaPage },
       {isLogin:true ,title : 'Terms Of Use' ,icon : 'ios-book' ,md : 'md-book' , component : TermsPage },
       {isLogin:true  ,title : 'Assistance' ,icon : 'ios-text' ,md : 'md-text' , component : FaqPage },
       {isLogin:true  ,title : 'Contact Us' ,icon : 'ios-call' ,md : 'md-call' , component : ContactPage },
-      {isLogin:this.serviceVar.isLogin  ,title : 'Logout' ,icon : 'ios-exit' ,md : 'md-exit' , component : FirstPage }
+      {isLogin:this.serviceVar.isLogin  ,title : 'Logout' ,icon : 'ios-exit' ,md : 'md-exit' , component : FirstPage },
+      {isLogin:this.serviceVar.isLogin  ,title : 'Logout' ,icon : 'ios-exit' ,md : 'md-exit' , component : BooknowPage }
     ];
 
       this.initializeApp();
@@ -142,6 +149,7 @@ export class MyApp {
           {isLogin:true ,title : 'Hire Private Jet' , icon : 'ios-jet' ,md : 'md-jet' , component : RideDetailsPage },
           {isLogin:true ,title : 'First Side' , icon : 'ios-jet' ,md : 'md-jet' , component : FirstslidePage },
           {isLogin:true ,title : 'Chauffeur Service' , icon : 'ios-car-outline' ,md : 'md-car' , component : CarSearchPage },
+        {isLogin:true ,title : 'Home' , icon : 'ios-home' ,md : 'md-home' , component : BooknowPage },
           {isLogin:this.serviceVar.isLogin , title : 'My Account' , icon : 'ios-contact' ,md : 'md-contact' , component : ProfilePage },
           {isLogin:true , title : 'Book Yacht' ,icon : 'ios-boat' ,md : 'md-boat' , component : BooknowyachtPage },
           {isLogin:true ,title : 'Book Car' ,icon : 'ios-car' ,md : 'md-car' , component : BooknowcarPage },
@@ -149,7 +157,8 @@ export class MyApp {
           {isLogin:true ,title : 'Terms Of Use' ,icon : 'ios-book' ,md : 'md-book' , component : TermsPage },
           {isLogin:true  ,title : 'Assistance' ,icon : 'ios-text' ,md : 'md-text' , component : FaqPage },
           {isLogin:true  ,title : 'Contact Us' ,icon : 'ios-call' ,md : 'md-call' , component : ContactPage },
-          {isLogin:this.serviceVar.isLogin  ,title : 'Logout' ,icon : 'ios-exit' ,md : 'md-exit' , component : FirstPage }
+          {isLogin:this.serviceVar.isLogin  ,title : 'Logout' ,icon : 'ios-exit' ,md : 'md-exit' , component : FirstPage },
+          {isLogin:this.serviceVar.isLogin  ,title : 'Logout' ,icon : 'ios-exit' ,md : 'md-exit' , component : BooknowPage }
       ];
 
 
@@ -178,6 +187,7 @@ export class MyApp {
           {isLogin:true ,title : 'Hire Private Jet' , icon : 'ios-jet' ,md : 'md-jet' , component : RideDetailsPage },
           {isLogin:true ,title : 'First Side' , icon : 'ios-jet' ,md : 'md-jet' , component : FirstslidePage },
           {isLogin:true ,title : 'Chauffeur Service' , icon : 'ios-car-outline' ,md : 'md-car' , component : CarSearchPage },
+        {isLogin:true ,title : 'Home' , icon : 'ios-home' ,md : 'md-home' , component : BooknowPage },
           {isLogin:this.serviceVar.isLogin , title : 'My Account' , icon : 'ios-contact' ,md : 'md-contact' , component : ProfilePage },
           {isLogin:true , title : 'Book Yacht' ,icon : 'ios-boat' ,md : 'md-boat' , component : BooknowyachtPage },
           {isLogin:true ,title : 'Book Car' ,icon : 'ios-car' ,md : 'md-car' , component : BooknowcarPage },
@@ -185,7 +195,8 @@ export class MyApp {
           {isLogin:true ,title : 'Terms Of Use' ,icon : 'ios-book' ,md : 'md-book' , component : TermsPage },
           {isLogin:true  ,title : 'Assistance' ,icon : 'ios-text' ,md : 'md-text' , component : FaqPage },
           {isLogin:true  ,title : 'Contact Us' ,icon : 'ios-call' ,md : 'md-call' , component : ContactPage },
-          {isLogin:this.serviceVar.isLogin  ,title : 'Logout' ,icon : 'ios-exit' ,md : 'md-exit' , component : FirstPage }
+          {isLogin:this.serviceVar.isLogin  ,title : 'Logout' ,icon : 'ios-exit' ,md : 'md-exit' , component : FirstPage },
+          {isLogin:this.serviceVar.isLogin  ,title : 'Logout' ,icon : 'ios-exit' ,md : 'md-exit' , component : BooknowPage }
       ];
 
 

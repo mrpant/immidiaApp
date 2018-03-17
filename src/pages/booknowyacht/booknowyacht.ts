@@ -163,7 +163,7 @@ export class BooknowyachtPage {
       this.serviceVar.getYachtState(selectedValue);
       this.country = selectedValue; 
       setTimeout(()=>{
-        this.countryName = $('#country option:selected').text();
+        this.countryName = $('#country').text();
      
       },100);
   }
@@ -172,7 +172,7 @@ export class BooknowyachtPage {
    
     this.state = selectedValue;
      setTimeout(()=>{
-        this.stateName = $('#state option:selected').text();     
+        this.stateName = $('#state').text();     
       },100);
      this.serviceVar.getYachtDepartureCity(this.country,this.state,this.days,this.daysId,this.yachtType,this.routeType);
     
@@ -245,7 +245,8 @@ export class BooknowyachtPage {
       }
 
       setTimeout(()=>{
-        this.departureCityName = $('#departureCity option:selected').text();
+        this.departureCityName = $('#departureCity').text();
+            
       },100);
 
 
@@ -255,7 +256,7 @@ export class BooknowyachtPage {
 
    onSelectYachtArrivalCityChange(selectedValue:any){
       setTimeout(()=>{
-         this.arrivalCityName = $('#arrivalCity option:selected').text();        
+         this.arrivalCityName = $('#arrivalCity').text();        
       },100);
    } 
 

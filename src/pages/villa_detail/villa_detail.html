@@ -11,7 +11,7 @@
         </div>
     </ion-navbar>
 </ion-header>
-<ion-content class="grey-bg">
+<ion-content class="inner-bg-none">
     <ion-slides pager class="slider">
          <ion-slide>
                <img [src]="imageUrl+villaDetails?.banner[0].banner.substring(2)" alt="" />
@@ -21,9 +21,6 @@
         </ion-slide>
         <ion-slide>
                 <img [src]="imageUrl+villaDetails?.banner[2].banner.substring(2)" alt="" />
-        </ion-slide>
-        <ion-slide>
-                <img [src]="imageUrl+villaDetails?.banner[3].banner.substring(2)" alt="" />
         </ion-slide>
     </ion-slides>
     <!--close slider-->

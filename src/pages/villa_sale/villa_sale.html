@@ -12,20 +12,17 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
-    <div class="box1 form2" style="top:100px;">
+    <div class="box1" style="top:100px;">
         <ion-list>
-            <ion-grid>
-                    <ion-row justify-content-start align-items-center class="py-1">  
-                            <ion-col class="pl-0"><ion-icon name="pin"></ion-icon></ion-col> 
-                            <ion-col>                                
-                                <span class="selectbox">
-                                  <select id="country" [(ngModel)]="country" placeholder="Country">
-                                        <option *ngFor="let c of villaCountry" [value]="c?.id">{{c?.countryName}}</option>
-                                  </select>
-                                </span>
-                            </ion-col>                                           
-                           </ion-row>
-                           </ion-grid>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                  <ion-select  interface="popover" id="country" [(ngModel)]="country"  placeholder="Country">
+                    <ion-option *ngFor="let c of villaCountry" [value]="c.id">{{c.countryName}}</ion-option>
+                </ion-select>
+            </ion-item>
+           
         </ion-list>
         <button ion-button block color="dark" (click)="submitVillaForm();">See the Selection</button>
     </div>

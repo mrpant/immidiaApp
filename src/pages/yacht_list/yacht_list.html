@@ -11,8 +11,8 @@
         </div>
     </ion-navbar>
 </ion-header>
-<ion-content class="list-bg primary">
-    <div class="list-inner">
+<ion-content class="list-bg">
+    <div class="list-inner"  >
         <h2>{{filterObjectLength}} YACHT(S) AVAILABLE </h2>
         <h3>FROM {{yachtFilterParams.stateName | uppercase}}</h3>
         <div class="list-icon list-icon-updated">
@@ -81,12 +81,12 @@
 
                                 <!-- this is for booking filter -->
                         <ion-col col-6 text-right *ngIf="isQuickFilter != true">
-                            <button class="secondary" ion-button small color="dark" (click)="YachtSubmitMoredetails(filterObject.blockedDate,filterObject.id,filterObject?.price)">Book Now</button>
+                            <button ion-button small color="dark" (click)="YachtSubmitMoredetails(filterObject.blockedDate,filterObject.id,filterObject?.price)">Book Now</button>
                         </ion-col>
 
                           <!-- this is for quick filter -->
                         <ion-col col-6 text-right *ngIf="isQuickFilter == true">
-                            <button class="secondary" ion-button small color="dark" (click)="YachtSubmitWithQuickMoredetails(filterObject.id,filterObject?.price)">Book Now</button>
+                            <button ion-button small color="dark" (click)="YachtSubmitWithQuickMoredetails(filterObject.id,filterObject?.price)">Book Now</button>
                         </ion-col>
                     </ion-row>
                 </ion-grid>

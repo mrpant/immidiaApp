@@ -1,5 +1,5 @@
 .no-background{
-    /*background: #fff !important;*/
+    background: #fff !important;
 }
 .toolbar-title toolbar-title-md{
     margin-left: 15%!important;
@@ -89,43 +89,58 @@
                 font-size: 22px;
                 line-height: 24px;              
             }
-            .text-white{               
-               color:#fff;
-               vertical-align: middle;                                
-            }
         }
         input,.datetime-text{
             font-size: 12px;
-            border:0px;
-            color:#fff;
-            padding: 0 15px;
-            margin:0px;
-            height: auto;
-            background: transparent;
         }
-        .text-input-wp{
-            margin-top: 5px;
-            margin-bottom: 5px;
+        .input_form{
+            width: 100%;
+            border-color: transparent;
+            margin: -10px 0px -10px 0px;
+            background-color: transparent;
         }
-        input::placeholder, .datetime-text::placeholder{
-            color:#fff;
-        }
-         .item-md, .item-ios, .item-wp{
+         .item{
             margin-bottom: 10px;
             padding: 0px;
-            background: transparent;
             .item-inner{
-                border: 1.3px solid #a18f61;
+                border: 1.5px solid #000;
                 border-radius: 7px;
-                box-shadow: none !important;
-                border-bottom-color:#a18f61 !important;
               ion-label{
                   margin-left:12px;
-                  color:#fff;
+                  color:#838383;
+                  article.icon{
+                        position: relative;
+                        display: block;
+                        width: 100%;
+                     input{
+                            padding-left: 20px;
+                        
+                     }
+                     ion-icon{
+                        top: 2px;
+                        position: absolute;
+                     }   
+                   } 
+                  /*  article.icon:before{
+                  
+                    font-family: inherit;
+                    content: "\f1e4";
+                    position: absolute;
+                    left: 0;
+                    top:0;
+                    width: 20px;
+                    height: 36px;
+                    color: grey;
+                    font-size: 1.8rem;
+                    background-color: #fff;
+                    border-bottom-left-radius:7px;
+                    text-align: center;
+                    line-height: 36px;
+                    z-index: 9;
+                   } */
 
               }
             } 
-           
             ion-textarea{
                 height: 10px;
             }    
@@ -148,34 +163,15 @@
                 font-size: 12px;
                 margin-left:0px;
                 line-height: 25px;
-                border:0px;
             }
            
         }
-        .checkbox-md, .checkbox-ios, .checkbox-wp {
+        .checkbox{
             vertical-align: middle;
             padding: 0px; 
             margin:0 10px 0 0;
-            display: inline-block;            
+            display: inline-block;
        }
-       .checkbox-md .checkbox-icon{
-            border-color: #fff;
-            background: transparent;
-            border-width: 1px;
-       }
-       .checkbox-ios .checkbox-icon{
-        border-color: #fff;
-        background: transparent;
-       }
-       .checkbox-wp .checkbox-icon{
-        border-color: #fff;
-        background: transparent;
-        border-width: 1px;
-   }
-       .item-md{
-        background-color: transparent;
-        color:#fff;
-    }
     }
 }
 .pagination{

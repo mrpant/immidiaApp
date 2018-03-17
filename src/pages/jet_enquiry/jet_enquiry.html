@@ -19,14 +19,17 @@
         </div>
     </ion-navbar>
 </ion-header>
-<ion-content class="black-bg">
+<ion-content>
     <div class="box1 static form2 pt-0">
         <ion-grid>
             <ion-list *ngIf="!nextform">
                 <form [formGroup]="jetForm" (ngSubmit)="onSubmit(jetForm)">
                 <ion-row justify-content-start align-items-center class="py-1">
+                        <ion-col>
+                                <span *ngIf="jetForm.controls['jetCityFrom'].hasError('required') && jetForm.controls['jetCityFrom'].touched">*</span>
+                            </ion-col>
                     <ion-col class="pl-0">
-                            <span *ngIf="jetForm.controls['jetCityFrom'].hasError('required') && jetForm.controls['jetCityFrom'].touched">*</span>
+                        
                         <ion-icon name="pin"></ion-icon>
                     </ion-col>
                     <ion-col>
@@ -35,8 +38,10 @@
                 </ion-row>
 
                 <ion-row justify-content-start align-items-center class="py-1">
+                        <ion-col>
+                                <span *ngIf="jetForm.controls['jetCityTo'].hasError('required') && jetForm.controls['jetCityTo'].touched" >*</span>
+                            </ion-col>
                     <ion-col class="pl-0">
-                            <span *ngIf="jetForm.controls['jetCityTo'].hasError('required') && jetForm.controls['jetCityTo'].touched" >*</span>
                         <ion-icon name="pin"></ion-icon>
                     </ion-col>
                     <ion-col>
@@ -45,6 +50,7 @@
                 </ion-row>
 
                 <ion-row justify-content-start align-items-center class="py-1">
+                    
                     <ion-col class="pl-0">
                         <ion-icon name="ios-repeat"></ion-icon>
                     </ion-col>

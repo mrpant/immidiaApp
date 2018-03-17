@@ -12,59 +12,47 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
-    <div class="box1 form2">
+    <div class="box1">
         <ion-list>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                <ion-select  interface="popover" id="country" [(ngModel)]="country" (ionChange)="onSelectCarCountryChange($event)" placeholder="Country">
+                    <ion-option *ngFor="let c of carCountry" [value]="c?.id">{{c?.countryName}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+               <ion-select interface="popover" id="state" [(ngModel)]="state" placeholder="State" (ionChange)="onSelectCarStateChange($event);">
+                   <ion-option *ngFor="let s of carState" [value]="s?.id">{{s?.stateName}}</ion-option>
 
-                <ion-grid>
-                        <ion-row justify-content-start align-items-center class="py-1">  
-                               <ion-col class="pl-0"><ion-icon name="pin"></ion-icon></ion-col> 
-                               <ion-col>                                
-                                   <span class="selectbox">
-                                     <select id="country" [(ngModel)]="country" (change)="onSelectCarCountryChange(country)" placeholder="Country">
-                                            <option *ngFor="let c of carCountry" [value]="c?.id">{{c.countryName}}</option>
-                                        </select>
-                                   </span>
-                               </ion-col>                                           
-                              </ion-row>
-                              <ion-row justify-content-start align-items-center class="py-1">   
-                                    <ion-col class="pl-0"><ion-icon name="pin"></ion-icon></ion-col> 
-                                    <ion-col>                                
-                                        <span class="selectbox">
-                                          <select id="state" [(ngModel)]="state" placeholder="State" (change)="onSelectCarStateChange(state)">
-                                                <option *ngFor="let s of carState" [value]="s?.id">{{s?.stateName}}</option>
-                                            </select>
-                                        </span>
-                                    </ion-col>                                           
-                                   </ion-row>
-
-                                   <ion-row justify-content-start align-items-center class="py-1">   
-                                        <ion-col class="pl-0"><ion-icon name="pin"></ion-icon></ion-col> 
-                                        <ion-col>                                
-                                            <span class="selectbox">
-                                              <select id="departureCity" [(ngModel)]="departureCity" placeholder="Location">
-                                                    <option *ngFor="let c of carCity" [value]="c?.id">{{c?.cityName}}</option>
-                                                </select>
-                                            </span>
-                                        </ion-col>                                           
-                                       </ion-row>
-                                       
-            <ion-item class="input-group" no-padding>
-                    <ion-label>
-                        <ion-icon name="people"></ion-icon>
-                    </ion-label>
-                      <ion-input [(ngModel)]="guest"  type="number" placeholder="Guest"></ion-input>
-                    <ion-note item-end>
-                        <button ion-button clear color="dark" (click)="decrementGuestCounter();">
-                            <ion-icon name="remove"></ion-icon>
-                        </button>
-                        <button ion-button clear color="dark" (click)="incrementGuestCounter();">
-                            <ion-icon name="add"></ion-icon>
-                        </button>
-                    </ion-note>
-                </ion-item>
-                                   
-            </ion-grid>
-
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                <ion-select interface="popover" id="departureCity" [(ngModel)]="departureCity" placeholder="Location">
+                    <ion-option *ngFor="let c of carCity" [value]="c?.id">{{c?.cityName}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item class="input-group">
+                <ion-label>
+                    <ion-icon name="people"></ion-icon>
+                </ion-label>
+                  <ion-input [(ngModel)]="guest"  type="number" placeholder="Guest"></ion-input>
+                <ion-note item-end>
+                    <button ion-button clear color="dark" (click)="decrementGuestCounter();">
+                        <ion-icon name="remove"></ion-icon>
+                    </button>
+                    <button ion-button clear color="dark" (click)="incrementGuestCounter();">
+                        <ion-icon name="add"></ion-icon>
+                    </button>
+                </ion-note>
+            </ion-item>
         </ion-list>
         <button ion-button block color="dark" (click)="submitCarForm();">See the Selection</button>
     </div>

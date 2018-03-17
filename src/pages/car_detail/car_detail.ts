@@ -10,7 +10,10 @@ import { ProfilePage } from '../profile/profile';
 import { ModalController } from 'ionic-angular';
 import { Modal1Page} from '../modal/modal1';
 import { DatePipe } from '@angular/common';
+<<<<<<< HEAD
 import { Car_choicePage } from '../car_choice/car_choice';
+=======
+>>>>>>> d72875b8f5fc2bceddef745256f58aefd529238a
  
 
 @Component({
@@ -233,7 +236,7 @@ export class Car_detailPage {
     this.departureCity  = selectedValue;
 
      setTimeout(()=>{
-        this.departureCityName = $('#departureCity option:selected').text();     
+        this.departureCityName = $('#departureCity').text();     
       },100);
   }
 
@@ -244,7 +247,7 @@ export class Car_detailPage {
       this.arrivalCity  = selectedValue;
 
      setTimeout(()=>{
-        this.arrivalCityName = $('#arrivalCity option:selected').text();     
+        this.arrivalCityName = $('#arrivalCity').text();     
       },100);
   }
 

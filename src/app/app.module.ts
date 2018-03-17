@@ -160,7 +160,8 @@ const cloudSettings: CloudSettings = {
     CarSearchListPage,
     CarSearchBookingPage,
     FirstslidePage,
-    CuffertermPage
+    CuffertermPage,
+    CarSearchBookingPage
   ],
 
   imports: [
@@ -241,7 +242,8 @@ const cloudSettings: CloudSettings = {
     CarSearchListPage,
     CarSearchBookingPage,
     FirstslidePage,
-    CuffertermPage
+    CuffertermPage,
+    CarSearchBookingPage
   ],
   providers: [
     StatusBar,

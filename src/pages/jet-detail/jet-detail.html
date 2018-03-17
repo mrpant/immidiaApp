@@ -39,12 +39,6 @@
     <ion-slide>
         <img src="{{imageUrl+jetDetails.banner[3].banner.replace('../','')}}" />
     </ion-slide>
-    <ion-slide>
-        <img src="{{imageUrl+jetDetails.banner[4].banner.replace('../','')}}" />
-    </ion-slide>
-    <ion-slide>
-        <img src="{{imageUrl+jetDetails.banner[5].banner.replace('../','')}}" />
-    </ion-slide>
   </ion-slides>
   <ion-grid no-padding style="    top: -7px;position: relative;z-index: 999;">
       <ion-row>
@@ -60,17 +54,11 @@
           <ion-col col-3>
               <img src="{{imageUrl+jetDetails.banner[3].banner.replace('../','')}}" (click)="goToSlide(0,3)"/>
           </ion-col>
-          <ion-col col-3>
-              <img src="{{imageUrl+jetDetails.banner[4].banner.replace('../','')}}" (click)="goToSlide(0,4)"/>
-          </ion-col>
-          <ion-col col-3>
-              <img src="{{imageUrl+jetDetails.banner[5].banner.replace('../','')}}" (click)="goToSlide(0,5)"/>
-          </ion-col>
       </ion-row>
   </ion-grid>
 <ion-grid>  
     <div class="table-responsive">
-      <h3 text-uppercase no-margin class="text-white">Specifications</h3>      
+      <h3 text-uppercase no-margin>Specification</h3>      
       <table class="table table-striped">
         <tr>
           <td>
