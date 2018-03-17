@@ -1,0 +1,23 @@
+dependencies: \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/Immidia/Immidia-Prefix.pch \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/Immidia/Plugins/cordova-plugin-file-transfer/CDVFileTransfer.m \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDV.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVAvailability.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVAvailabilityDeprecated.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVAppDelegate.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVViewController.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVInvokedUrlCommand.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVCommandDelegate.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVCommandQueue.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVScreenOrientationDelegate.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVPlugin.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVPluginResult.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/NSMutableArray+QueueAdditions.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVWebViewEngineProtocol.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVURLProtocol.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVWhitelist.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVTimer.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/build/emulator/include/Cordova/CDVUserAgentUtil.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/Immidia/Plugins/cordova-plugin-file-transfer/CDVFileTransfer.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/Immidia/Plugins/cordova-plugin-file/CDVFile.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/Immidia/Plugins/cordova-plugin-file/CDVLocalFilesystem.h

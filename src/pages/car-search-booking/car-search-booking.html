@@ -1,0 +1,123 @@
+<!--
+  Generated template for the CarSearchBookingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title class="center">Car Booking</ion-title>
+    <div class="right-hdr">
+      <span>
+        <a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a>
+      </span>
+      <span>
+        <a href="#">
+          <ion-icon name="person" (click)="presentModal($event)"></ion-icon>
+        </a>
+      </span>
+    </div>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="no-background alt">
+  <ion-grid>
+    <ion-row class="car-info">
+      <ion-col col-6>
+        <div class="content-block">
+          <h3>{{bookingDetails.additionalDetails.name}}</h3>          
+          <ul class="list-block">
+            <li>
+              <a href="#">
+                <ion-icon name="ios-pin"></ion-icon>{{bookingDetails.carDetails.chauffeurDetails.from}}</a>
+            </li>
+            <li class="distance" text-center>
+                <ion-icon name="more"></ion-icon><br/>
+                <ion-icon name="ios-pin"></ion-icon>
+              </li>
+            <li>
+              <a href="#">
+                <ion-icon name="ios-pin"></ion-icon>{{bookingDetails.carDetails.chauffeurDetails.to}}</a>
+            </li>
+          </ul>
+          <ul class="list-inline">
+            <li>
+              <a href="#">
+                <ion-icon name="ios-people"></ion-icon>{{bookingDetails.carDetails.chauffeurDetails.passenger}}</a>
+            </li>
+            <li>
+              <a href="#">
+                <ion-icon name="ios-briefcase"></ion-icon>{{bookingDetails.carDetails.chauffeurDetails.luggage}}</a>
+            </li>
+          </ul>
+        </div>
+      </ion-col>
+      <ion-col col-6 align-self-end>
+          <p class="price" no-margin>
+              <span class="currency">{{bookingDetails.additionalDetails.currency}}</span>{{bookingDetails.additionalDetails.price}}
+            </p>
+        <img src="img/car_list/{{bookingDetails.additionalDetails.image+'.png'}}">
+        <h6 text-center>*Actual Vehicle May Very</h6>
+      </ion-col>
+    </ion-row>
+  </ion-grid>  
+    <div class="contact-us">
+      <header>
+        <h3 text-uppercase text-center no-margin >Contact Information</h3>
+      </header>
+      <form class="form">       
+        <ion-grid>
+            <h3 margin-top>Person Making The Reservation</h3>
+        <ion-item>
+          <ion-input clearInput type="text" placeholder="First Name" name="firstName" [value]="userDetails?.firstName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input clearInput type="text" placeholder="Last Name" name="lastName" [value]="userDetails?.lastname"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input clearInput type="tel" placeholder="Phone" name="contactNumber" [value]="userDetails?.contactNumber"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input clearInput type="email" placeholder="Email" name="mailId" [value]="userDetails?.mailId"></ion-input>
+        </ion-item>
+        <h3 no-margin>Person Travelling</h3>
+        <ion-item class="full-width">
+          <ion-label>
+            <ion-checkbox [(ngModel)]="isCopy" name="isCopy" (ionChange)="copyData($event)"></ion-checkbox>Same As person Making The Reservation
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input clearInput type="text" placeholder="First Name" name="firstName" [value]="userDetailsCopy?.firstName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input clearInput type="text" placeholder="Last Name" name="lastName" [value]="userDetailsCopy?.lastName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input clearInput type="tel" placeholder="Phone"  name="contactNumber" [value]="userDetailsCopy?.contactNumber"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input clearInput type="email" placeholder="Email" name="mailId" [value]="userDetailsCopy?.mailId"></ion-input>
+        </ion-item>
+        <ion-item class="full-width">
+            <ion-label>
+              <ion-checkbox [(ngModel)]="isChecked" name="isCheked"></ion-checkbox>I Agree To The <a ion-item (click)="termsAndCondition()" style="text-decoration:underline">Terms And Conditions</a> Of The Reservation
+            </ion-label>
+          </ion-item>
+        </ion-grid>
+      </form>
+      <ion-grid class="pagination">
+             <ion-row justify-content-center align-items-center>
+                 <ion-col col-6>    
+                   </ion-col>
+                   <ion-col col-6 text-center class="border-left btn-next"  (click)="nextStep()">
+                      <span class="inner-wrap" tappable (tap)="payment()">
+                          <span class="inner">Next Step</span>
+                          <ion-icon name="ios-arrow-forward-outline"></ion-icon></span> 
+                 </ion-col>
+             </ion-row>
+          </ion-grid>
+    </div>
+</ion-content>

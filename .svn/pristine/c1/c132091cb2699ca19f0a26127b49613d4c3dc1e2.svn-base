@@ -1,0 +1,63 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.immidia.luxury"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.immidia.luxury"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.immidia.luxury"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "906436262778449",
+            "APP_NAME": "immidia",
+            "PACKAGE_NAME": "com.immidia.luxury"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.immidia.luxury"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.immidia.luxury"
+        },
+        "cordova-plugin-filepath": {
+            "PACKAGE_NAME": "com.immidia.luxury"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.immidia.luxury"
+        },
+        "cordova-plugin-safariviewcontroller": {
+            "PACKAGE_NAME": "com.immidia.luxury"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.immidia.luxury"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.immidia.luxury"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.immidia.luxury"
+        },
+        "cordova-sms-plugin": {
+            "PACKAGE_NAME": "com.immidia.luxury"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.immidia.luxury"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.immidia.luxury"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.immidia.luxury"
+        }
+    }
+}

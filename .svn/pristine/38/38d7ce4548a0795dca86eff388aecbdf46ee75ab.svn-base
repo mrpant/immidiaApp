@@ -1,0 +1,81 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">Book Car</ion-title>
+        <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="box1 static">
+        <ion-list>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                <ion-select interface="popover" id="country" [(ngModel)]="country" (ionChange)="onSelectCarCountryChange($event)" placeholder="Country">
+                    <ion-option *ngFor="let c of carCountry" [value]="c?.id">{{c.countryName}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+               <ion-select interface="popover" id="state" [(ngModel)]="state" placeholder="State" (ionChange)="onSelectCarStateChange($event)">
+                   <ion-option *ngFor="let s of carState" [value]="s?.id">{{s?.stateName}}</ion-option>
+
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon  name="calendar"  style="margin-right: 5px"></ion-icon></ion-label>
+                <ion-datetime [(ngModel)]="departureDate" placeholder="Departure" displayFormat="MMM DD YYYY" [min]="departureDate"  max="2050-12-01"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="clock"></ion-icon>
+                </ion-label>
+                <ion-select interface="popover" [(ngModel)]="days" placeholder="Hour(s)/Day(s)">
+                     <ion-option *ngFor="let d of carDays" [value]="d?.id">{{d?.hoursdays}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item class="input-group">
+                <ion-label>
+                    <ion-icon name="people"></ion-icon>
+                </ion-label>
+                <ion-input [(ngModel)]="guest"  type="number" placeholder="Guest"></ion-input>
+                <ion-note item-end>
+                    <button ion-button clear color="dark" (click)="decrementGuestCounter();">
+                        <ion-icon name="remove"></ion-icon>
+                    </button>
+                    <button ion-button clear color="dark" (click)="incrementGuestCounter();">
+                        <ion-icon name="add"></ion-icon>
+                    </button>
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="car" style="margin-right: 5px"></ion-icon> 
+                </ion-label>
+                <ion-select interface="popover" [(ngModel)] ="driverType"  placeholder="Type">
+                    <ion-option [value]="1">With Driver</ion-option>
+                    <ion-option [value]="0" >Without Driver</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="car" style="margin-right: 5px"></ion-icon> 
+                </ion-label>
+                <ion-select interface="popover" [(ngModel)] ="classification" placeholder="Car Type">
+                    <ion-option *ngFor="let cls of carClassification" [value]="cls?.id">{{cls?.classificationName}}</ion-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+        <button ion-button block color="dark" (click)="submitCarForm();">Search</button>
+    </div>
+</ion-content>

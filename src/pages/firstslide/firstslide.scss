@@ -1,0 +1,101 @@
+page-firstslide {
+    .mb-30{
+        margin-bottom: 35px;
+    }
+    .font-weight-light{
+        font-weight: 300;
+    }
+  .slides{
+      .logo{
+          position:absolute;         
+          top:20px;
+          left: 50%;
+          transform: translateX(-50%);
+          a{
+            text-decoration: none;
+            &:hover{
+                opacity: 1;
+                text-decoration: none;
+            }
+                           
+          }
+       
+      }
+      .slide-desc{
+          color:#fff;
+          border: 0px;
+          background: transparent;
+          border-radius: 0px;
+          bottom:20px; 
+          p{
+            font-size: 16px;
+            a{
+                color:#fff;
+                text-decoration: none;
+                &:hover{
+                    color:#fff;
+                    text-decoration: none;
+                    opacity: 1;
+                }
+            }
+          }
+          .list{
+              display: inline-block;
+              position: relative;              
+              margin: 0px;
+              &:last-of-type {
+                &:before{
+                    width:0px;
+                }
+              }
+              &:before{
+                position: absolute;
+                right: 0px;
+                top:50%;
+                width:2px;
+                height: 30px;
+                background: #fff;
+                content:'';
+                transform: translateY(-50%);
+              }             
+            .item-block{
+                background: transparent;
+                text-align: center;
+                padding: 0px;
+                border:0px;
+                .item-inner{
+                    padding:0;
+                }
+                .label{
+                    margin: 0px;
+                    a{
+                        color: #fff;
+                        text-decoration: none;
+                        padding: 10px 18px;
+                        display: inline-block;
+                        font-weight: 300;
+                        &:hover{
+                          text-decoration: none;
+                          opacity: 1;
+                        }
+                    }
+                }
+            }   
+          }
+          a.btn-link{
+            font-size: 14px;
+            text-decoration: underline;
+            &:hover{
+                text-decoration: underline;
+            }     
+        }
+      } 
+      .swiper-pagination-bullet{
+          border-color:#fff;
+          background: transparent;
+          &.swiper-pagination-bullet-active{
+              background: #fff !important;
+          }
+      }
+  }
+}

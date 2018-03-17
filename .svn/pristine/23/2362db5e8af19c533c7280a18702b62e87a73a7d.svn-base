@@ -1,0 +1,32 @@
+$popover-md-width: 520px;
+$popover-ios-width: 520px;
+$popover-wp-width: 520px;
+
+page-filter {
+
+  .pop_up {
+    background: #fff;
+    padding: 10px;
+    & button {
+      height: 26px;
+      padding: 6px;
+      float: right;
+    }
+    & p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+    & .range-ios {
+      padding: 0;
+    }
+    .item-ios {
+      padding: 0;
+    }
+    .item-select .select {
+      border: 1px solid #ccc;
+      margin-right: 16px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}

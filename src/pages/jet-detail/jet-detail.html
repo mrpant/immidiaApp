@@ -1,0 +1,156 @@
+<!--
+  Generated template for the JetDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Jet Detail</ion-title>
+    <div class="right-hdr">
+      <span>
+        <a href="#">
+          <ion-icon name="text" (click)="queryForm($event)"></ion-icon>
+        </a>
+      </span>
+      <span>
+        <a href="#">
+          <ion-icon name="person" (click)="presentModal($event)"></ion-icon>
+        </a>
+      </span>
+    </div>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="alt2">
+  <ion-slides>
+    <ion-slide>
+      <img src="{{imageUrl+jetDetails.banner[0].banner.replace('../','')}}" />
+    </ion-slide>
+    <ion-slide>
+      <img src="{{imageUrl+jetDetails.banner[1].banner.replace('../','')}}" />
+    </ion-slide>
+    <ion-slide>
+      <img src="{{imageUrl+jetDetails.banner[2].banner.replace('../','')}}" />
+    </ion-slide>
+    <ion-slide>
+        <img src="{{imageUrl+jetDetails.banner[3].banner.replace('../','')}}" />
+    </ion-slide>
+    <ion-slide>
+        <img src="{{imageUrl+jetDetails.banner[4].banner.replace('../','')}}" />
+    </ion-slide>
+    <ion-slide>
+        <img src="{{imageUrl+jetDetails.banner[5].banner.replace('../','')}}" />
+    </ion-slide>
+  </ion-slides>
+  <ion-grid no-padding style="    top: -7px;position: relative;z-index: 999;">
+      <ion-row>
+          <ion-col col-3>
+              <img src="{{imageUrl+jetDetails.banner[0].banner.replace('../','')}}" (click)="goToSlide(0,0)"/>
+          </ion-col>
+          <ion-col col-3>
+              <img src="{{imageUrl+jetDetails.banner[1].banner.replace('../','')}}" (click)="goToSlide(0,1)"/>
+          </ion-col>
+          <ion-col col-3>
+              <img src="{{imageUrl+jetDetails.banner[2].banner.replace('../','')}}" (click)="goToSlide(0,2)"/>
+          </ion-col>
+          <ion-col col-3>
+              <img src="{{imageUrl+jetDetails.banner[3].banner.replace('../','')}}" (click)="goToSlide(0,3)"/>
+          </ion-col>
+          <ion-col col-3>
+              <img src="{{imageUrl+jetDetails.banner[4].banner.replace('../','')}}" (click)="goToSlide(0,4)"/>
+          </ion-col>
+          <ion-col col-3>
+              <img src="{{imageUrl+jetDetails.banner[5].banner.replace('../','')}}" (click)="goToSlide(0,5)"/>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+<ion-grid>  
+    <div class="table-responsive">
+      <h3 text-uppercase no-margin class="text-white">Specifications</h3>      
+      <table class="table table-striped">
+        <tr>
+          <td>
+            Manufactuer: 
+          </td>
+          <td>
+              {{jetDetails.JET_DETAILS.manufacturer}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Model :
+          </td>
+          <td>
+              {{jetDetails.JET_DETAILS.model}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Classification:
+          </td>
+          <td>
+              {{jetDetails.JET_DETAILS.class}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Seats :
+          </td>
+          <td>
+              {{jetDetails.JET_DETAILS.seats}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Range :
+          </td>
+          <td>
+              {{jetDetails.JET_DETAILS.jetRange}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Average Cost per flying hour :
+          </td>
+          <td>
+              {{jetDetails.JET_DETAILS.avgCost}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Interier Height :
+          </td>
+          <td>
+              {{jetDetails.JET_DETAILS.interiorHeight}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Interier Width :
+          </td>
+          <td>
+              {{jetDetails.JET_DETAILS.interiorWidth}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Luggage Capacity :
+          </td>
+          <td>
+              {{jetDetails.JET_DETAILS.luggageCapacity}}
+          </td>
+        </tr>
+      </table>
+      <div class="center-block">
+          <button class="btn btn-primary" tappable (tap)="goInfo()" >request quote
+          </button>
+        </div>
+    </div>
+    
+
+</ion-grid>
+</ion-content>

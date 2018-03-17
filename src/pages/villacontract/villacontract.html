@@ -1,0 +1,265 @@
+<ion-header class="header">
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+    <ion-title class="center">Villa</ion-title>
+    <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+        </div>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <h2 class="pd-left-rgt0 line font-size20">YACHT CHARTER AGREEMENT</h2>
+  <div class="detail-box mrg-btm20">
+    <p>This agreement is made on {{date | date:'yyyy-MM-dd'}}</p>
+    <p><i> between</i></p>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-5>
+          Name:
+        </ion-col>
+        <ion-col col-7>
+          <strong>{{userDetails.firstName}}&nbsp;{{userDetails.lastName}}</strong>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-5>
+          Passport number:
+        </ion-col>
+        <ion-col col-7>
+          <strong></strong>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-5>
+          Phone:
+        </ion-col>
+        <ion-col col-7>
+          <strong>{{userDetails.contactNumber}}</strong>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <p><i>(hereinafter called “the Tenant(s)”)</i></p>
+    <p>ON THE OTHER HAND</p>
+  </div>
+  <div class="detail-box mrg-btm20">
+    <p><i> and</i></p>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-5>
+          The Service Provider:
+        </ion-col>
+        <ion-col col-7>
+          <strong>{{villaDetails?.userId}}</strong>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-5>
+          Address:
+        </ion-col>
+        <ion-col col-7>
+          {{villaDetails?.address}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-5>
+          Name:
+        </ion-col>
+        <ion-col col-7>
+          <strong>{{villaDetails?.villaName}}</strong>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-5>
+          Located in:
+        </ion-col>
+        <ion-col col-7>
+          <strong>{{villaDetails?.destinationName}}</strong>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <p><i>concerning the short-term rental of the property</i></p>
+  </div>
+  <div class="detail-box mrg-btm20">
+    <p><i>Between the understanding Parties, hereafter called the “Service Provider” and the “Tenant(s)”, the following has been agreed:</i></p>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-5>
+          Number of Guests:
+        </ion-col>
+        <ion-col col-7>
+          <strong>{{villaFilterParams.guest}}</strong>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-5>
+          Rental period begins at 2 pm on:
+        </ion-col>
+        <ion-col col-7>
+          <strong>{{villaFilterParams.checkOut}}</strong> and ends at 10 am on {{villaFilterParams.checkIn}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-5>
+          Rental Amount:
+        </ion-col>
+        <ion-col col-7>
+          <strong>{{getCurrency(villaDetails.currencyId)}} {{villaFilterParams?.villaTotal | number:'1.2-2'}}</strong>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-5>
+          Security deposit:
+        </ion-col>
+        <ion-col col-7>
+          <strong>{{getCurrency(villaDetails.currencyId)}} {{villaDetails?.amountofSecurityDeposit | number:'1.2-2'}} (Will be Collected by service provider at the time of Check In *)</strong>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-5>
+          Local taxes:
+        </ion-col>
+        <ion-col col-7>
+          (where applicable)
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-5>
+          Total Amount:
+        </ion-col>
+        <ion-col col-7>
+          <strong>{{getCurrency(villaDetails.currencyId)}} {{villaFilterParams?.villaTotal | number:'1.2-2'}}</strong>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-5>
+          Address of the property:
+        </ion-col>
+        <ion-col col-7>
+          <strong>{{villaDetails.address}}</strong>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-5>
+          Type of property:
+        </ion-col>
+        <ion-col col-7>
+          <strong>to be exclusively used for furnished holiday home rental.</strong>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="accordion">
+    <div class="acc-item" text-wrap (click)="toggleGroup(0)" [ngClass]="{active: isGroupShown(0)}">
+      <h2 class="acc-title">Our rental terms & conditions <ion-icon color="success" [name]="isGroupShown(0) ? 'arrow-up' : 'arrow-down'"></ion-icon></h2>
+      <div class="acc-content" *ngIf="isGroupShown(0)">
+        <ol>
+          <li>Should the Tenant(s) violate any of the terms of this agreement, the rental period shall be terminated immediately. The Tenant(s) shall vacate the premises at the expiration time and date of this agreement.</li>
+          <li>Smoking is allowed only outside the property.</li>
+          <li>The Tenant(s) shall not sublet the property.</li>
+          <li>The Tenant(s) shall have no more than the allowed number of people reside or sleep in the premises. Every extra person above the permitted number will be charged.</li>
+          <li>The Tenant(s) shall not create noise or disturb or annoy the surrounding property owners. Creating a disturbance of the above nature shall be grounds for immediate termination of this agreement and Tenant(s) shall then immediately vacate the premises. Quiet hour starts at 10 PM. We are not responsible for any complaints from other parties caused by the disturbance.</li>
+          <li>The Tenant(s) must be insured against “Tenant’s risks & liabilities”. The tenant(s) or insurance company cannot get any responsibility from the Landlord or from the service provider.</li>
+          <li>Tenant(s) agrees that fireworks and other hazardous materials shall not be used in or around the property.</li>
+          <li>Tenant(s) shall not use the property for illegal purposes and activities as per the law of the country of residence and will involve the Local Police if the Tenant(s) are found to be doing any of such activities, which will immediately cause termination of this agreement with no refund of rent or deposit.</li>
+          <li>Tenant(s) is/are advised that the property contains electrical appliances and will seek assistance in proper operation of the items. Landlord/Service Providers are not responsible for misuse of any electrical appliances in the apartment and/or damages caused.</li>
+          <li>Cable tv and wireless internet are provided in most of the villas and service level have been chosen by the Landlord. No refund of rent shall be given for outages, content, lack of content, speed, access problem, lack of knowledge of use, or personal preferences with regard to cable tv and/or internet services.</li>
+          <li>The Tenant(s) agrees that the rental period may not be extended without prior agreement of the service provider.</li>
+          <li>The Tenant(s) declares upon his/their honor that he/they will not undertake any professional activity in the holiday home and that the holiday home is being rented to him/them as temporary accommodation only, these being major previsions in the absence of which this rental would not have been granted.</li>
+          <li>The Tenant(s) agrees to accept the rented holiday home in its condition upon entry.</li>
+        </ol>
+        <p>Furniture and household effects must only sustain depreciation from normal use, for which they are designed. Those that are missing or made unusable due to abnormal use, must be paid for or replaced by the Tenant(s) with the consent of the service provider. If necessary, the following amounts of money will be retained: the value of broken or cracked objects, the cost of washing or cleaning stained rugs, blankets, mattresses, bedding, etc. </p>
+        <h6>PERSONAL BELONGINGS</h6>
+        <ol>
+        <li>Personal belongings left behind by Tenant(s) will be held for a period of maximum 7 days and every reasonable effort will be made to contact the Tenant(s) for return.</li>
+<li>We do not take any responsibility of your personal belongings or any missing items.</li>
+<li>If we find any of your personal belongings in our property after your departure, we will try and contact you to get the details as to where to ship the lost items; all the delivery charges will have to be paid by the Tenant(s) with a service fee on collection basis or the item(s) will only be shipped once we receive the full delivery and service fee charges.</li>
+</ol>
+
+       
+        <h6>SECURITY DEPOSIT AND REFUNDS</h6>
+        <ol>
+          <li>There shall be no refund of rent due to shortened stays or ruined expectations due to weather conditions, natural disasters, work, family emergencies and other commitments.</li>
+<li>The Tenant(s) shall maintain the premises in a good, clean, and ready to rent condition, and use the premises only in a careful and lawful manner. The cost of any damage to the property caused by the Tenant(s) or/and any member residing at the property during the rental period will be deducted from the security deposit after the room inspection within 10 to 15 working days after the check-out date. If the security deposit is not sufficient to cover the damage(s), the Tenant(s) and/or other people residing at the property during the rental period will be responsible for paying any additional costs required immediately to the Landlord/Service Provider.</li>
+<li>The cost of Deep Cleaning Fee will be deducted from Security Deposit if the premises are not returned in a good and clean condition without excessive debris in the premises.</li>
+        </ol>
+
+        <h6>CANCELLATION OR NO SHOWS</h6>
+        <ol>
+         <li>Cancellation: Cancellation policy is applicable for bookings made more than 30 days in advance. 70% of the amount collected can be refunded until 30 days’ prior to arrival.</li>
+<li>If the tenant cancels after the check-in time, no refund will be made.</li>
+<li>In case of a no show, no refund will be made.</li>
+        </ol>
+        <h6>CANCELLATION BY Broker/Service provider</h6>
+        <p>On a very rare occasion, and/or in case of an emergency, we may need to cancel or relocate the booking. Whilst we always try to remain the booking unchanged, we must reserve the right to do so; in such circumstances the Tenant(s) will be notified as soon as the changes happen. All efforts will be made to re
+
+locate your booking to an alternative property of the same standard. If the alternate option is not accepted by the Tenant(s), the payment, received by us will be fully refunded back. We regret we cannot pay any expenses, costs or losses incurred by the Tenant(s) as a result of any change or cancellation.</p>
+        <h6>LOST KEYS</h6>
+        <p>Keys, building access cards and a parking transponder handed to the Tenant(s) by us must be handed back to us on the date of the check-out. In case of a loss, charges will be applicable:</p>
+        <p>The booking is deemed to be confirmed ONLY after the payment of the total amount is paid in by the Tenant(s).</p>
+        <p>Please fill in and sign 2 (two) copies of this Agreement. One executed original will be passed back to you.</p>
+        <p>(We) agree to abide by the above conditions and hereby declare that the information provided above is true:</p>
+        <div class="detail-box mrg-btm20">
+          <ion-grid>
+            <ion-row>
+              <ion-col col-5>
+               Signed On:
+              </ion-col>
+              <ion-col col-7>
+               <strong>{{date | date:'yyyy-MM-dd'}}</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-5>
+               Guest Name:
+              </ion-col>
+              <ion-col col-7>
+               <strong>{{userDetails.firstName}}&nbsp;{{userDetails.lastName}}</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-5>
+               Date of Signature:
+              </ion-col>
+              <ion-col col-7>
+               <strong></strong>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="detail-box mrg-btm20">
+          <ion-grid>
+            <ion-row>
+              <ion-col col-5>
+               Signed On:
+              </ion-col>
+              <ion-col col-7>
+               <strong>{{date | date:'yyyy-MM-dd'}}</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-5>
+               Service Provider:
+              </ion-col>
+              <ion-col col-7>
+               <strong>{{villaDetails?.userId}}</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-5>
+               Date of Signature:
+              </ion-col>
+              <ion-col col-7>
+               <strong>{{date | date:'yyyy-MM-dd'}}</strong>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <p>Broker:</p>immdialuxury.com
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,8 @@
+{
+  "name": "immidia",
+  "app_id": "755d8629",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

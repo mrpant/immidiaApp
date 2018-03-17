@@ -1,0 +1,23 @@
+page-car_list {
+    background: #2b3c4e;
+    .card {
+        background: #19253b;
+        box-shadow: none;
+        width: 100%;
+        margin: 0;
+    }
+    .card-content {
+        padding-left: 6px;
+        padding-right: 6px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+    .card-title {
+        color: #fff;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .price {
+        margin-top: 6px;
+    }
+}

@@ -1,0 +1,21 @@
+dependencies: \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/CordovaLib_Prefix.pch \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVIntentAndNavigationFilter/CDVIntentAndNavigationFilter.m \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVIntentAndNavigationFilter/CDVIntentAndNavigationFilter.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVPlugin.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVPluginResult.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVAvailability.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVAvailabilityDeprecated.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/NSMutableArray+QueueAdditions.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVCommandDelegate.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVInvokedUrlCommand.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVWebViewEngineProtocol.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDV.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVAppDelegate.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVViewController.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVCommandQueue.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVScreenOrientationDelegate.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVURLProtocol.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVWhitelist.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVTimer.h \
+  /Users/upendrasingh/Desktop/immidia/platforms/ios/CordovaLib/Classes/Public/CDVUserAgentUtil.h

@@ -1,0 +1,137 @@
+<!--
+  Generated template for the CarSearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="dark">
+        <button ion-button menuToggle >
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title class="center">Car Search</ion-title>
+    <div class="right-hdr">
+      <span>
+        <a href="#">
+          <ion-icon name="text" (click)="queryForm($event)"></ion-icon>
+        </a>
+      </span>
+      <span>
+        <a href="#">
+          <ion-icon name="person" (click)="presentModal($event)"></ion-icon>
+        </a>
+      </span>
+    </div>
+  </ion-navbar>
+
+</ion-header>
+<ion-content class="no-background">
+  <!-- Page Head-->
+  <div class="page-head" padding-top>
+    <ion-grid>
+      <p text-center>
+        Currently Serving : France, United Kingdom, Switzerland, Germany
+      </p>
+    </ion-grid>
+  </div>
+  <!-- /Page Head-->
+  <div class="contact-us">
+    <header>
+      <ion-grid>
+        <ion-row justify-content-center align-items-center>          
+            <ion-col col-6 no-padding>
+                <ion-icon name="ios-people"></ion-icon>
+                <ion-item class="selectbox">
+                    <ion-label>Passengers</ion-label>
+                    <ion-select interface="popover" >
+                      <ion-option>01</ion-option>
+                      <ion-option>02</ion-option>
+                    </ion-select>
+                  </ion-item>
+              </ion-col>
+              <ion-col col-6 no-padding>
+                <ion-icon name="ios-briefcase"></ion-icon>
+                <ion-item class="selectbox">
+                    <ion-label>Luggage 
+                        </ion-label>
+                    <ion-select interface="popover" >
+                      <ion-option>01</ion-option>
+                      <ion-option>02</ion-option>
+                    </ion-select>
+                  </ion-item>
+              </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </header>
+
+    <form class="form">
+      <ion-grid  padding-top>
+          <p  text-center> <ion-icon name="md-plane"></ion-icon>
+            Airport Transfer Available:</p>          
+          <ion-item>
+            <ion-label>
+              <ion-icon name="md-pin"></ion-icon>
+            </ion-label>
+            <ion-input clearInput type="text" placeholder="Search for Pickup location"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>
+              <ion-icon name="md-pin"></ion-icon>
+            </ion-label>
+            <ion-input clearInput type="text" placeholder="Search for Drop location"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label><ion-icon name="calendar" style="margin-right: 5px"></ion-icon></ion-label>
+            <ion-datetime  placeholder="Date/Pickup Time YYYY MM DD HH:mm"  displayFormat="YYYY MM DD HH:mm A"  max="2050-12-01">
+            </ion-datetime>
+        </ion-item>       
+        <ion-item class="full-width" text-center>
+            <ion-label>
+              <ion-checkbox [(ngModel)]="checkVal" [ngModelOptions]="{standalone:true}" (ionChange)="checkvalue($event)" ></ion-checkbox>As Directed/Hourly
+            </ion-label>
+        </ion-item>
+        <ion-item *ngIf="checked">
+            <ion-label>
+              <ion-icon name="md-pin"></ion-icon>
+            </ion-label>
+            <ion-input clearInput type="text" placeholder="Search for Drop location"></ion-input>
+        </ion-item>
+        <ion-item class="no-border"> 
+            <small class="small">Drive Time (Est)
+              </small>
+             <p text-uppercase no-margin><ion-icon name="ios-time-outline"></ion-icon>              
+                TBD
+             </p>
+        </ion-item>
+
+          <ion-item>
+              <ion-label>
+                <ion-icon name="ios-chatboxes-outline"></ion-icon>
+              </ion-label>
+              <ion-textarea  placeholder="Add Pickup Comment"></ion-textarea>
+            </ion-item>
+      </ion-grid>
+    </form>
+    <ion-grid class="pagination">
+        <ion-row justify-content-center align-items-center>
+          <ion-col col-6>    
+            </ion-col>
+            <ion-col col-6 text-center class="border-left btn-next"  (click)="nextStep()">
+            <span class="inner-wrap">
+              <span class="inner">Next Step</span>
+              <ion-icon name="ios-arrow-forward-outline"></ion-icon></span>            
+          </ion-col>
+      </ion-row>
+    </ion-grid>   
+  </div>
+  <sebm-google-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" [styles]="mapCustomStyles">
+    <!-- <sebm-google-map-marker [latitude]="latitude" [longitude]="longitude" [iconUrl]="iconurl">
+            <sebm-google-map-info-window>
+                <strong>InfoWindow content</strong>
+            </sebm-google-map-info-window>
+        </sebm-google-map-marker> -->
+    <sebm-google-map-directions [origin]="origin" [destination]="destination"></sebm-google-map-directions>
+  </sebm-google-map>
+</ion-content>

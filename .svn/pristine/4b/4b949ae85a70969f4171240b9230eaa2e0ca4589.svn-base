@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "E:\\Immidia\\immidia_mobile_version\\immidia\\platforms\\android\\build\\intermediates\\res\\merged\\release\\xml\\config.xml",
+        "source": "E:\\Immidia\\immidia_mobile_version\\immidia\\platforms\\android\\res\\xml\\config.xml"
+    },
+    {
+        "merged": "E:\\Immidia\\immidia_mobile_version\\immidia\\platforms\\android\\build\\intermediates\\res\\merged\\release\\xml\\provider_paths.xml",
+        "source": "E:\\Immidia\\immidia_mobile_version\\immidia\\platforms\\android\\res\\xml\\provider_paths.xml"
+    }
+]

@@ -1,0 +1,99 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "ion-datepicker",
+        "scope": null,
+        "escapedName": "ion-datepicker",
+        "name": "ion-datepicker",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "E:\\Immidia\\immidia_mobile_version\\immidia"
+    ]
+  ],
+  "_from": "ion-datepicker@latest",
+  "_id": "ion-datepicker@2.6.7",
+  "_inCache": true,
+  "_location": "/ion-datepicker",
+  "_nodeVersion": "7.10.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/ion-datepicker-2.6.7.tgz_1505795778971_0.13675856194458902"
+  },
+  "_npmUser": {
+    "name": "misha130",
+    "email": "misha130@gmail.com"
+  },
+  "_npmVersion": "5.4.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "ion-datepicker",
+    "scope": null,
+    "escapedName": "ion-datepicker",
+    "name": "ion-datepicker",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/ion-datepicker/-/ion-datepicker-2.6.7.tgz",
+  "_shasum": "4d64b3b9ab7fe70e90b10f86d75386e2fb9813f9",
+  "_shrinkwrap": null,
+  "_spec": "ion-datepicker",
+  "_where": "E:\\Immidia\\immidia_mobile_version\\immidia",
+  "author": {
+    "name": "Misha Tarnorutksy",
+    "email": "misha130@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/misha130/ion-datepicker/issues"
+  },
+  "dependencies": {},
+  "description": "A date picker for ionic",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-KNNBO3kO3MKePw9uoXGYiPGTLHODy2O2MyaxwVAkESHkFzYNmbzizAMODmXBho5I5wMMPhfDnogRHoYHZl4Osg==",
+    "shasum": "4d64b3b9ab7fe70e90b10f86d75386e2fb9813f9",
+    "tarball": "https://registry.npmjs.org/ion-datepicker/-/ion-datepicker-2.6.7.tgz"
+  },
+  "homepage": "https://github.com/misha130/ion-datepicker#readme",
+  "keywords": [
+    "datepicker-ionic3",
+    "ionic3",
+    "ionic2",
+    "ionic3 datepicker",
+    "datepicker",
+    "datepicker ionic3",
+    "datepicker for ionic3",
+    "datepicker for ionic3 framework"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "misha130",
+      "email": "misha130@gmail.com"
+    }
+  ],
+  "name": "ion-datepicker",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/misha130/ion-datepicker.git"
+  },
+  "scripts": {
+    "build": "npm run ngc && node ./scripts/copy-package",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 -u",
+    "dev": "tsc --watch",
+    "ngc": "ngc",
+    "publishPackage": "npm run build && cd dist && npm publish"
+  },
+  "version": "2.6.7"
+}

@@ -1,0 +1,56 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">PROFILE</ion-title>
+         <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content class="card-background-page">
+    <!-- <ion-segment [(ngModel)]="segment">
+        <ion-segment-button value="travelers">
+            TRAVELERS
+        </ion-segment-button>
+        <ion-segment-button value="documents">
+            DOCUMENTS
+        </ion-segment-button>
+        <ion-segment-button value="settings">
+            SETTINGS
+        </ion-segment-button>
+    </ion-segment> -->
+    <ion-tabs tabsPlacement="top" tabsHighlight="true" tabsLayout="icon-hide" #profileTab>
+        <ion-tab [root]="tab1Root" tabTitle="TRAVELERS"></ion-tab>
+        <ion-tab [root]="tab2Root" tabTitle="DOCUMENTS"></ion-tab>
+        <ion-tab [root]="tab3Root" tabTitle="SETTINGS"></ion-tab>
+    </ion-tabs>
+    <div padding>
+        <!-- <div [ngSwitch]="segment">
+            <div *ngSwitchCase="'travelers'">
+                <h4 class="pd-left-rgt0 font-size18">YOUR PERSONAL INFORMATION</h4>
+                <div class="detail-box">
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col col-4>This column will take 12 columns</ion-col>
+                            <ion-col col-8>This column will take 6 columns</ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </div>
+            </div>
+            <div *ngSwitchCase="'documents'">
+                <h4 class="text-center ">TERMS OF SERVICE</h4>
+                <h5>I. INTRODUCTION</h5>
+                <h5>Future Amendments to the Agreement to Arbitrate</h5>
+            </div>
+            <div *ngSwitchCase="'settings'">
+                <h4 class="text-center ">TERMS OF SERVICE</h4>
+                <h5>I. INTRODUCTION</h5>
+                <h5>Future Amendments to the Agreement to Arbitrate</h5>
+            </div>
+        </div> -->
+    </div>
+</ion-content>

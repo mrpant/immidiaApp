@@ -1,0 +1,71 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">Villa List</ion-title>
+         <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content class="list-bg">
+    <div class="list-inner">
+        <h2>{{filterObjectLength}} VILLA AVAILABLE  </h2>
+        <h3>FROM {{countryName | uppercase}}</h3>
+        <div class="list-icon">
+          <ion-icon name="funnel" (click)="presentPopover($event);"></ion-icon>
+        </div>
+
+        <div  *ngFor="let filterObject  of villaSaleFilterObject;let inx = index">
+
+    
+
+
+        <ion-card  *ngIf="(pricefilter <= filterObject?.dayPriceHighestHighSeason * 1  )" >
+         
+            <ion-slides pager>
+               <ion-slide *ngFor="let filterObjectBanner  of filterObject.banner " >
+                    <img [src]="imageUrl+filterObjectBanner.banner.substring(2)" alt="">   
+             </ion-slide>
+           </ion-slides>
+            <ion-grid no-padding>
+                <ion-row>
+                    <ion-col col-3 *ngFor="let filterObjectBanner  of filterObject.banner ; let i = index">
+                        <img [src]="imageUrl+filterObjectBanner.banner.substring(2)" (click)="goToSlide(inx,i)" />
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-card-content style="background: #2a3c4e !important;">
+                <ion-card-title>
+                     {{filterObject.villaName}}
+                </ion-card-title>
+                <ion-grid no-padding>
+                    <ion-row>
+                        <ion-col col-6 >
+                             <p class="price" >
+                                 <span *ngIf="filterObject.currencyId == 2 ">$</span>
+                                 <span *ngIf="filterObject.currencyId == 1 ">€</span>
+                                 <span *ngIf="filterObject.currencyId == 3 ">AED</span>
+
+                             {{filterObject?.dayPriceHighestHighSeason}}<small></small></p> 
+
+                        </ion-col>
+                      <ion-col col-6 text-right  >
+                            <button ion-button small color="dark" (click)="villaSubmitMoreList(filterObject?.id,filterObject?.dayPriceHighestHighSeason);" >More Details</button>
+                     </ion-col>
+                        
+                    </ion-row>
+                </ion-grid>
+            </ion-card-content>
+        </ion-card>
+        </div>
+        
+    </div>
+
+
+
+
+</ion-content>

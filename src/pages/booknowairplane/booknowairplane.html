@@ -1,0 +1,77 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">Airplane</ion-title>
+        <div class="right-hdr">
+            <span><a href="#"><img src="img/grid-icon.png"  alt=""/></a></span>
+            <span><a href="#"><img src="img/user.png"  alt=""/></a></span>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="box1 static">
+        <ion-list>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                <ion-select interface="popover" [(ngModel)]="country" placeholder="Country">
+                    <ion-option value="nes">USA</ion-option>
+                    <ion-option value="n64">UAE</ion-option>
+                    <ion-option value="ps">France</ion-option>
+                    <ion-option value="genesis">Italy</ion-option>
+                    <ion-option value="saturn">Germany</ion-option>
+                    <ion-option value="snes">Russia</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                <ion-select interface="popover" [(ngModel)]="state" placeholder="State">
+                    <ion-option value="dl">Delhi</ion-option>
+                    <ion-option value="up">Uttar Pradesh</ion-option>
+                    <ion-option value="hp">Himachal Pradesh</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                <ion-select interface="popover" [(ngModel)]="state" placeholder="Destination">
+                    <ion-option value="dl">Delhi</ion-option>
+                    <ion-option value="up">Uttar Pradesh</ion-option>
+                    <ion-option value="hp">Himachal Pradesh</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="calendar" style="margin-right: 10px"></ion-icon>Checkin</ion-label>
+                <ion-datetime placeholder="Date of birth" displayFormat="MMM DD YYYY" [(ngModel)]="event.month"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="calendar" style="margin-right: 10px"></ion-icon>Checkout</ion-label>
+                <ion-datetime placeholder="Date of birth" displayFormat="MMM DD YYYY" [(ngModel)]="event.month"></ion-datetime>
+            </ion-item>
+            <ion-item class="input-group">
+                <ion-label>
+                    <ion-icon name="people"></ion-icon>
+                </ion-label>
+                <ion-input type="number" placeholder="Guest"></ion-input>
+                <ion-note item-end>
+                    <button ion-button clear color="dark">
+                        <ion-icon name="remove"></ion-icon>
+                    </button>
+                    <button ion-button clear color="dark">
+                        <ion-icon name="add"></ion-icon>
+                    </button>
+                </ion-note>
+            </ion-item>
+        </ion-list>
+        <button ion-button block color="dark">Search</button>
+    </div>
+</ion-content>

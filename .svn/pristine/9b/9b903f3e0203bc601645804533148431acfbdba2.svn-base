@@ -1,0 +1,105 @@
+<!--
+  Generated template for the CarSearchListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="dark">
+      <button ion-button menuToggle >
+          <ion-icon name="menu"></ion-icon>
+      </button>
+      <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+      <ion-title class="center">List page</ion-title>
+       <div class="right-hdr">
+          <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+          <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+      </div>
+  </ion-navbar>
+
+</ion-header>
+<ion-content no-padding class="no-background">
+  <ion-grid>
+    <ion-row justify-content-center align-items-center padding-vertical (click)="selectCar('car1')" class="car1 row-car">
+      <ion-col col-6>
+        <div class="content-block">
+            <h4>Class E</h4>
+            <p class="price">
+               <span class="currency">€</span>389.3
+            </p>
+            <ul class="list-inline">
+              <li><a href="#"><ion-icon name="ios-people"></ion-icon>3</a></li>
+              <li><a href="#"><ion-icon name="ios-briefcase"></ion-icon>4</a></li>
+            </ul> 
+        </div>       
+      </ion-col>
+      <ion-col col-6>
+        <img src="img/car_list/car1.png">
+      </ion-col>
+    </ion-row>
+    <hr>
+    <ion-row justify-content-center align-items-center padding-vertical (click)="selectCar('car2')" class="car2 row-car">
+      <ion-col col-6><img src="img/car_list/car2.png"></ion-col>
+      <ion-col col-6>
+          <div class="content-block alt">
+              <h4>Class E</h4>
+              <p class="price">
+                 <span class="currency">€</span>389.3
+              </p>
+              <ul class="list-inline">
+                <li><a href="#"><ion-icon name="ios-people"></ion-icon>3</a></li>
+                <li><a href="#"><ion-icon name="ios-briefcase"></ion-icon>4</a></li>
+              </ul> 
+          </div> 
+      </ion-col>      
+    </ion-row>
+    <hr>
+    <ion-row justify-content-center align-items-center padding-vertical (click)="selectCar('car3')" class="car3 row-car">
+      <ion-col col-6>
+          <div class="content-block">
+              <h4>Class E</h4>
+              <p class="price">
+                 <span class="currency">€</span>389.3
+              </p>
+              <ul class="list-inline">
+                <li><a href="#"><ion-icon name="ios-people"></ion-icon>3</a></li>
+                <li><a href="#"><ion-icon name="ios-briefcase"></ion-icon>4</a></li>
+              </ul> 
+          </div>  
+      </ion-col>
+      <ion-col col-6><img src="img/car_list/car3.png"></ion-col>
+    </ion-row>
+    <hr>
+    <ion-row justify-content-center align-items-center padding-vertical (click)="selectCar('car4')" class="car4 row-car">
+      <ion-col col-6><img src="img/car_list/car4.png"></ion-col>
+      <ion-col col-6>
+          <div class="content-block alt">
+              <h4>Class E</h4>
+              <p class="price">
+                 <span class="currency">€</span>389.3
+              </p>
+              <ul class="list-inline">
+                <li><a href="#"><ion-icon name="ios-people"></ion-icon>3</a></li>
+                <li><a href="#"><ion-icon name="ios-briefcase"></ion-icon>4</a></li>
+              </ul> 
+          </div> 
+      </ion-col>
+    </ion-row>    
+  </ion-grid>
+  <ion-grid class="pagination">
+      <ion-row justify-content-center align-items-center >
+          <ion-col text-center class="btn-prev" col-6 (click)="previosPage()">           
+            <span class="inner-wrap">
+                <ion-icon name="ios-arrow-back-outline"></ion-icon>
+                <span class="inner">Previous Step</span>
+            </span> 
+            </ion-col>
+          <ion-col col-6 text-center class="border-left btn-next"  (click)="nextPage()">
+              <span class="inner-wrap">
+                  <span class="inner">Next Step</span>
+                  <ion-icon name="ios-arrow-forward-outline"></ion-icon></span> 
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,145 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">YACHT</ion-title>
+         <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <h5 class="title">TAKE ADVANTAGE OF OUR LIMOUSINE SERVICES <br>
+    <small>(Free for upto 6 persons & 25 Kms)</small></h5>
+    <div class="accordion bg-accordion">
+        <ion-list no-margin>
+            <ion-item class="chk-box">
+                <ion-label text-uppercase>Limousine Departure</ion-label>
+                <ion-checkbox [(ngModel)]="limoDepChecked" (ionChange)="depChecked(limoDepChecked)" checked></ion-checkbox>
+            </ion-item>
+        </ion-list>
+        <div class="acc-item" text-wrap  [ngClass]="{active: isGroupShown(0)}">
+            <h2 class="acc-title" (click)="toggleGroup(0)">Limousine Pickup <ion-icon color="success" [name]="isGroupShown(0) ? 'arrow-up' : 'arrow-down'"></ion-icon></h2>
+            <div class="acc-content" *ngIf="isGroupShown(0)">
+                <div class="box1 static1">
+                    <ion-list>
+                        <ion-item>
+                            <ion-label>
+                                <ion-icon name="person"></ion-icon>
+                            </ion-label>
+                            <ion-input type="text" placeholder="First Name" [(ngModel)] ="limodepName" ></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>
+                                <ion-icon name="mail"></ion-icon>
+                            </ion-label>
+                            <ion-input type="text" placeholder="Address" [(ngModel)] ="limodepAddress"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>
+                                <ion-icon name="lock"></ion-icon>
+                            </ion-label>
+                          <ion-input type="text" placeholder="Special Request" [(ngModel)] ="limodepReq"></ion-input>
+                        </ion-item>
+                          <ion-item class="input-group">
+                        <ion-label>
+                            <ion-icon name="people"></ion-icon>
+                        </ion-label>
+                        <ion-input   type="number" [(ngModel)]="depPerson" placeholder="depPerson"></ion-input>
+                        <ion-note item-end>
+                            <button ion-button clear color="dark" (click)="decrementDepGuestCounter();">
+                                <ion-icon name="remove"></ion-icon>
+                            </button>
+                            <button ion-button clear color="dark" (click)="incrementDepGuestCounter();">
+                                <ion-icon name="add"></ion-icon>
+                            </button>
+                        </ion-note>
+                    </ion-item>
+                        <ion-item>
+                            <ion-label>
+                                <ion-icon name="watch"></ion-icon>
+                            </ion-label>
+                            <ion-select interface="popover" [(ngModel)]="limodepHour" placeholder="Transfer Hour">
+                                <ion-option value="7:00">7:00</ion-option>
+                                <ion-option value="7:30">7:30</ion-option>
+                                <ion-option value="8:00">8:00</ion-option>
+                                <ion-option value="8:30">8:30</ion-option>
+
+                                
+                            </ion-select>
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </div>
+        </div>
+        <ion-list no-margin>
+            <ion-item class="chk-box">
+                <ion-label text-uppercase>Limousine Arrival</ion-label>
+                <ion-checkbox  [(ngModel)]="limoArrChecked" (ionChange)="arrChecked(limoArrChecked)"></ion-checkbox>
+            </ion-item>
+        </ion-list>
+        <div class="acc-item" text-wrap  [ngClass]="{active: isGroupShown(1)}">
+            <h2 class="acc-title" (click)="toggleGroup(1)">Limousine DropOff <ion-icon color="success" [name]="isGroupShown(1) ? 'arrow-up' : 'arrow-down'"></ion-icon></h2>
+            <div class="acc-content" *ngIf="isGroupShown(1)">
+                <div class="box1 static1">
+                    <ion-list>
+                              <ion-item>
+                            <ion-label>
+                                <ion-icon name="person"></ion-icon>
+                            </ion-label>
+                            <ion-input type="text" placeholder="First Name" [(ngModel)] ="limoarrName" ></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>
+                                <ion-icon name="mail"></ion-icon>
+                            </ion-label>
+                            <ion-input type="text" placeholder="Address" [(ngModel)] ="limoarrAddress"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>
+                                <ion-icon name="lock"></ion-icon>
+                            </ion-label>
+                          <ion-input type="text" placeholder="Special Request" [(ngModel)] ="limoarrReq"></ion-input>
+                        </ion-item>
+                          <ion-item class="input-group">
+                        <ion-label>
+                            <ion-icon name="people"></ion-icon>
+                        </ion-label>
+                        <ion-input   type="number" [(ngModel)]="arrPerson" placeholder="Person"></ion-input>
+                        <ion-note item-end>
+                            <button ion-button clear color="dark" (click)="decrementArrGuestCounter();">
+                                <ion-icon name="remove"></ion-icon>
+                            </button>
+                            <button ion-button clear color="dark" (click)="incrementArrGuestCounter();">
+                                <ion-icon name="add"></ion-icon>
+                            </button>
+                        </ion-note>
+                    </ion-item>
+                    </ion-list>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div margin-top>
+        <ion-grid no-padding>
+            <ion-row>
+                <ion-col>
+                    <button ion-button small block color="dark" class="square" icon-left (click)="goBack()">
+                        <ion-icon name="arrow-back"></ion-icon> Back</button>
+                </ion-col>
+                <ion-col>
+                    <button ion-button small block color="dark" class="square" icon-left>
+                        <ion-icon name="cart"></ion-icon>{{getCurrency(yachtDetails?.currencyId)}} {{yachtFilterParams.price | number:'1.2-2'}}</button>
+                </ion-col>
+                <ion-col>
+                    <button ion-button small block color="dark" class="square" icon-right (click)="submitFormLimo();">Next
+                        <ion-icon name="arrow-forward"></ion-icon>
+                    </button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

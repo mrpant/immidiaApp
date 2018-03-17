@@ -1,0 +1,95 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "@ionic-native/safari-view-controller",
+        "scope": "@ionic-native",
+        "escapedName": "@ionic-native%2fsafari-view-controller",
+        "name": "@ionic-native/safari-view-controller",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "E:\\Immidia\\immidia_mobile_version\\immidia"
+    ]
+  ],
+  "_from": "@ionic-native/safari-view-controller@latest",
+  "_id": "@ionic-native/safari-view-controller@4.1.0",
+  "_inCache": true,
+  "_location": "/@ionic-native/safari-view-controller",
+  "_nodeVersion": "6.11.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/safari-view-controller-4.1.0.tgz_1500614516321_0.88575534732081"
+  },
+  "_npmUser": {
+    "name": "ihadeed",
+    "email": "ibby@zyra.ca"
+  },
+  "_npmVersion": "3.10.10",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "@ionic-native/safari-view-controller",
+    "scope": "@ionic-native",
+    "escapedName": "@ionic-native%2fsafari-view-controller",
+    "name": "@ionic-native/safari-view-controller",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@ionic-native/safari-view-controller/-/safari-view-controller-4.1.0.tgz",
+  "_shasum": "17a91f787a0a5796f1ff81408c9ffd22bc536136",
+  "_shrinkwrap": null,
+  "_spec": "@ionic-native/safari-view-controller",
+  "_where": "E:\\Immidia\\immidia_mobile_version\\immidia",
+  "author": {
+    "name": "ionic"
+  },
+  "bugs": {
+    "url": "https://github.com/ionic-team/ionic-native/issues"
+  },
+  "dependencies": {},
+  "description": "Ionic Native - Native plugins for ionic apps",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "17a91f787a0a5796f1ff81408c9ffd22bc536136",
+    "tarball": "https://registry.npmjs.org/@ionic-native/safari-view-controller/-/safari-view-controller-4.1.0.tgz"
+  },
+  "homepage": "https://github.com/ionic-team/ionic-native#readme",
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "ihadeed",
+      "email": "ibby@zyra.ca"
+    },
+    {
+      "name": "maxlynch",
+      "email": "max@ionic.io"
+    },
+    {
+      "name": "ionicjs",
+      "email": "hi@ionicframework.com"
+    }
+  ],
+  "module": "index.js",
+  "name": "@ionic-native/safari-view-controller",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "@ionic-native/core": "^3.6.0 || >=4.0.0",
+    "@angular/core": "*",
+    "rxjs": "^5.0.1"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionic-team/ionic-native.git"
+  },
+  "scripts": {},
+  "typings": "index.d.ts",
+  "version": "4.1.0"
+}

@@ -1,0 +1,35 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle >
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">Book Now</ion-title>
+         <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content class="card-background-page">
+    <ion-card (click)="goToYacht
+()">
+        <img src="img/yacht-img.jpg" />
+        <div class="card-title">YACHTS</div>
+    </ion-card>
+    <ion-card (click)="goToAirplane
+()">
+        <img src="img/airplane-img.jpg" />
+        <div class="card-title">JETS</div>
+    </ion-card>
+    <ion-card (click)="goToCar
+();">
+        <img src="img/car-img.jpg" />
+        <div class="card-title">CARS</div>
+    </ion-card>
+    <ion-card (click)="goToVilla
+()">
+        <img src="img/villa-img.jpg" />
+        <div class="card-title">VILLAS</div>
+    </ion-card>
+</ion-content>

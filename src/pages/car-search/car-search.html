@@ -1,0 +1,181 @@
+<!--
+  Generated template for the CarSearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="dark">
+        <button ion-button menuToggle >
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title class="center">Car Search</ion-title>
+    <div class="right-hdr">
+      <span>
+        <a href="#">
+          <ion-icon name="text" (click)="queryForm($event)"></ion-icon>
+        </a>
+      </span>
+      <span>
+        <a href="#">
+          <ion-icon name="person" (click)="presentModal($event)"></ion-icon>
+        </a>
+      </span>
+    </div>
+  </ion-navbar>
+
+</ion-header>
+<ion-content class="no-background alt">
+  <!-- Page Head-->
+  <div class="page-head" padding-top>
+    <ion-grid>
+      <p text-center>
+        Currently Serving : France, United Kingdom, Switzerland, Germany
+      </p>
+    </ion-grid>
+  </div>
+  <!-- /Page Head-->
+  <div class="contact-us">
+    <header>
+      <ion-grid>
+        <ion-row justify-content-center align-items-center>     
+
+            <ion-col col-6 no-padding class="form-group">    
+                <ion-row justify-content-start align-items-center>  
+                 <ion-col>
+                    <ion-icon name="ios-people"></ion-icon>    
+                 </ion-col>
+                <ion-col>
+                    <label for="passengers">Passengers</label>             
+                    <span class="selectbox">
+                      <select [(ngModel)]="passenger"  id="passengers" >
+                        <option value="1" selected>01</option>
+                        <option value="2">02</option>
+                        <option value="3">03</option>
+                        <option value="4">04</option>
+                        <option value="5">05</option>
+                      </select>
+                    </span>
+                </ion-col>                                           
+               </ion-row>
+              </ion-col>
+
+              <ion-col col-6 no-padding class="form-group">    
+                  <ion-row justify-content-start align-items-center>  
+                   <ion-col>
+                      <ion-icon name="ios-briefcase"></ion-icon>    
+                   </ion-col>
+                  <ion-col>
+                      <label for="luggage">Luggage</label>             
+                      <span class="selectbox">
+                        <select [(ngModel)]="luggage"  id="luggage" >
+                          <option value="1" selected>01</option>
+                          <option value="2">02</option>   
+                          <option value="3">03</option>
+                          <option value="4">04</option>
+                         <option value="5">05</option>
+                        </select>
+                      </span>
+                  </ion-col>                                           
+                 </ion-row>
+                </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </header>
+
+    <article class="form">
+      <ion-grid  padding-top>
+          <p  text-center> <ion-icon name="md-plane"></ion-icon>
+            Airport Transfer Available:</p>   
+        
+          <ion-item>
+          <!--   <ion-label>
+              <ion-icon name="md-pin"></ion-icon>
+            </ion-label> -->
+           <article class="icon">
+              <ion-icon name="md-pin"></ion-icon>
+            <input tappable placeholder="Search Pick up location" autocorrect="off"  autocapitalize="off" spellcheck="off" type="text" class="input_form"  id="pickupInput"  placeholder="Search for Pickup location" [(ngModel)]="from" >  
+           <!--  <ion-input clearInput type="text" autocorrect="off"  autocapitalize="off" spellcheck="off" #pickupOutput  placeholder="Search for Pickup location"></ion-input> -->
+          </article>
+          </ion-item>
+          <ion-item>
+            <!-- <ion-label>
+              <ion-icon name="md-pin"></ion-icon>
+            </ion-label> -->
+            <article class="icon">
+                <ion-icon name="md-pin"></ion-icon>
+            <input tappable placeholder="Search Drop off location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="input_form"  placeholder="Search for Drop location"  id="pickupOutput" (ionChange)="updateMap($event);" [(ngModel)]="to">       
+          <!--   <ion-input clearInput type="text" autocorrect="off"  autocapitalize="off" spellcheck="off" #pickupOutput  placeholder="Search for Drop location"></ion-input> -->
+        </article>
+        </ion-item>
+          <ion-item>
+            <ion-label><ion-icon name="calendar" style="margin-right: 5px"></ion-icon></ion-label>
+            <ion-datetime [(ngModel)]="pickup_date"  placeholder="Date/Pickup YYYY MM DDD" pickerFormat="YYYY MM DD"  displayFormat="YYYY MM DD"  max="2050-12-01">
+            </ion-datetime>
+        </ion-item> 
+        
+        <ion-item>
+          <ion-label><ion-icon name="calendar" style="margin-right: 5px"></ion-icon></ion-label>
+          <ion-datetime displayFormat="HH:mm"  placeholder="Time/Pickup HH:mm A"  [(ngModel)]="pickup_time"></ion-datetime>
+        </ion-item>
+
+        <ion-item class="full-width" text-center>
+            <ion-label>
+              <ion-checkbox [(ngModel)]="checkVal"  (ionChange)="checkvalue($event)" ></ion-checkbox>As Directed/Hourly
+            </ion-label>
+        </ion-item>
+        <ion-item *ngIf="checked">
+
+              <label for="hours">Hours</label>             
+                <span class="selectbox">
+                  <select [(ngModel)]="hours">
+                      <option value="2 Hrs" selected>2 Hrs</option>
+                      <option value="4 Hrs" >4 Hrs</option>
+                      <option value="6 Hrs" >6 Hrs</option>
+                      <option value="8 Hrs" >8 Hrs</option>
+                      <option value="12 Hrs" >12 Hrs</option>
+                      <option value="24 Hrs" >24 Hrs</option>
+                  </select>
+                </span>
+            
+
+        </ion-item>
+        <ion-item class="no-border"> 
+            <small class="small">Drive Time (Est)
+              </small>
+             <p text-uppercase no-margin><ion-icon name="ios-time-outline"></ion-icon>              
+                {{getTime()}}  {{getDistance()}}
+             </p>
+        </ion-item>
+
+          <ion-item>
+              <ion-label>
+                <ion-icon name="ios-chatboxes-outline"></ion-icon>
+              </ion-label>
+              <ion-textarea [(ngModel)]="pickup_comments_one"  placeholder="Add Pickup Comment"></ion-textarea>
+            </ion-item>
+      </ion-grid>
+    </article>
+    <ion-grid class="pagination">
+        <ion-row justify-content-center align-items-center>
+          <ion-col col-6>    
+            </ion-col>
+            <ion-col col-6 text-center class="border-left btn-next" >
+            <span class="inner-wrap" tappable (tap)="submitService()">
+              <span class="inner">Next Step</span>
+                <ion-icon name="ios-arrow-forward-outline"></ion-icon></span>            
+          </ion-col>
+      </ion-row>
+    </ion-grid>   
+  </div>
+  <sebm-google-map class="map" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" [styles]="mapCustomStyles" style="height:300px !important;">
+    <!-- <sebm-google-map-marker [latitude]="latitude" [longitude]="longitude" [iconUrl]="iconurl">
+            <sebm-google-map-info-window>
+                <strong>InfoWindow content</strong>
+            </sebm-google-map-info-window>
+        </sebm-google-map-marker> -->
+    <sebm-google-map-directions [origin]="origin" [destination]="destination"></sebm-google-map-directions>
+  </sebm-google-map>
+</ion-content>

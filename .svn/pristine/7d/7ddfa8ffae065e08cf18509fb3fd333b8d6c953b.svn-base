@@ -1,0 +1,107 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">YACHT List</ion-title>
+         <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content class="list-bg">
+    <div class="list-inner"  >
+        <h2>{{filterObjectLength}} YACHT(S) AVAILABLE </h2>
+        <h3>FROM {{yachtFilterParams.stateName | uppercase}}</h3>
+        <div class="list-icon list-icon-updated">
+          <ion-icon name="funnel" (click)="presentPopover($event);"></ion-icon>
+        </div>
+
+        <div *ngFor="let filterObject  of yachtBookingFilterObject;let inx = index">
+
+            <ion-card   *ngIf="(pricefilter <= ((isQuickFilter != true) ? (yachtFilterParams?.days * filterObject?.price) : filterObject?.price) * 1  )" >  
+            <!--  <ion-slides>
+                <ion-slide *ngFor="let slide of slidelist">
+                    <img [src]="slide.src" alt="">
+                </ion-slide>
+                
+            </ion-slides> -->
+            <ion-slides pager>
+                <ion-slide *ngFor="let filterObjectBanner  of filterObject.banner" >
+                    <img [src]="imageUrl+filterObjectBanner.banner.substring(2)" alt="">
+                    
+                </ion-slide>
+            </ion-slides>
+            <ion-grid no-padding>
+                <ion-row>
+                    <ion-col col-3 *ngFor="let filterObjectBanner  of filterObject.banner; let i = index">
+                        <img [src]="imageUrl+filterObjectBanner.banner.substring(2)" (click)="goToSlide(inx,i)" />
+
+                    </ion-col>
+                 <!--    <ion-col col-4>
+                        <img [src]="imageUrl+filterObject.banner[1].banner.substring(2)" (click)="goToSlide(1)" />
+                    </ion-col>
+                    <ion-col col-4>
+                        <img [src]="imageUrl+filterObject.banner[2].banner.substring(2)" (click)="goToSlide(2)" />
+                    </ion-col> -->
+                </ion-row>
+            </ion-grid>
+            <ion-card-content>
+                <ion-card-title>
+                   {{filterObject.name}}
+                </ion-card-title>
+                <ion-grid no-padding>
+                    <ion-row>
+                        <ion-col col-6>
+                           
+
+                            <!-- this is for booking filter -->
+                            <p class="price" *ngIf="isQuickFilter != true" >
+                                 <span *ngIf="filterObject.currencyId == 2 ">$</span>
+                                 <span *ngIf="filterObject.currencyId == 1 ">€</span>
+                                 <span *ngIf="filterObject.currencyId == 3 ">AED</span>
+
+                             {{filterObject?.price  | number :'1.2-2' }}<small>{{yachtFilterParams.yachtType != 2 ? '(Inc. Vat)' :  '(Ex. Vat)'}}</small></p> 
+
+
+                            <!-- this is for quick filter -->
+                             <p class="price" *ngIf="isQuickFilter == true" >
+                                 <span *ngIf="filterObject.currencyId == 2 ">$</span>
+                                 <span *ngIf="filterObject.currencyId == 1 ">€</span>
+                                 <span *ngIf="filterObject.currencyId == 3 ">AED</span>
+
+                             {{filterObject?.price | number :'1.2-2' }}<small>{{yachtFilterParams.yachtType != 2 ? '(Inc. Vat)' :  '(Ex. Vat)'}}</small></p> 
+
+
+
+                        </ion-col>
+
+
+                                <!-- this is for booking filter -->
+                        <ion-col col-6 text-right *ngIf="isQuickFilter != true">
+                            <button ion-button small color="dark" (click)="YachtSubmitMoredetails(filterObject.blockedDate,filterObject.id,filterObject?.price)">Book Now</button>
+                        </ion-col>
+
+                          <!-- this is for quick filter -->
+                        <ion-col col-6 text-right *ngIf="isQuickFilter == true">
+                            <button ion-button small color="dark" (click)="YachtSubmitWithQuickMoredetails(filterObject.id,filterObject?.price)">Book Now</button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card-content>
+        </ion-card>
+        </div>
+
+           
+    </div>
+    
+ <ion-infinite-scroll infinite-scroll-loading-text-color="red" >  <!-- (ionInfinite)="doInfinite($event)" -->
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+   </ion-infinite-scroll>
+
+</ion-content>

@@ -1,0 +1,48 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+      <!--   <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">YACHT</ion-title>
+        <div class="right-hdr">
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+         </div>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-slides pager class="slider" >
+        <ion-slide>
+            <img [src]="imageUrl+yachtDetails?.banner[0].banner.substring(2)" alt="" />
+        </ion-slide>
+        <ion-slide>
+            <img [src]="imageUrl+yachtDetails?.banner[1].banner.substring(2)" alt="" />
+        </ion-slide>
+        <ion-slide>
+            <img [src]="imageUrl+yachtDetails?.banner[2].banner.substring(2)" alt="" />
+        </ion-slide>
+    </ion-slides>
+    <!--close slider-->
+    <div padding>
+        <h6 class="font-size16">Thank you for booking with IMMIDIA</h6>
+        <h2 class="pd-left-rgt0 line font-size20">Booking Status</h2>
+        <div class="detail-box">
+            <ion-grid>
+                <ion-row>
+                    <span *ngIf="bookingStaus == 1">
+                    <img src ="img/yes.png" style="height:150px;width:150px;">
+                    </span>
+                    <span *ngIf="bookingStaus == 0" style="height:150px;width:150px">
+                    <img src ="img/no.png" >
+                    </span>
+
+                </ion-row>
+                <ion-row>
+                    <p>Our Guest Service Management team will contact you to verify your booking. Read your Contract here</p>
+                    <p>Stay tuned to live instant luxury experiences through IMMIDIA.</p>
+                </ion-row>
+            </ion-grid>
+        </div>
+    </div>
+</ion-content>
+<span class="home-bg"><img src="img/circle-home-bg.png"  alt=""/> </span>

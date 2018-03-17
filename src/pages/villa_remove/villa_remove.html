@@ -1,0 +1,48 @@
+<ion-header class="header" color="dark">
+  <ion-toolbar>
+    <ion-title>
+      CART ITEMS
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="dismiss()" icon-only clear>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content style="background:rgba(255,255,255,0.75);">
+  <div class="box1" style="background: rgb(244, 244, 244) !important;">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          Name
+        </ion-col>
+        <ion-col col-2>
+          Price
+        </ion-col>
+        <ion-col col-2>
+          Quantity
+        </ion-col>
+        <ion-col col-2>
+          Action
+        </ion-col>
+      </ion-row>
+      <ion-row *ngFor="let cartValue of cartItems;let i = index">
+        <ion-col col-6>
+          {{cartValue.itemName}}
+        </ion-col>
+        <ion-col col-2>
+          {{getCurrency(villaDetails?.currencyId)}} {{cartValue.amount}}
+        </ion-col>
+        <ion-col col-2>
+          {{cartValue.qty}}
+        </ion-col>
+        <ion-col col-2>
+          <button small ion-button color="danger" (click)="removeItem(i);">
+            <ion-icon name="close"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

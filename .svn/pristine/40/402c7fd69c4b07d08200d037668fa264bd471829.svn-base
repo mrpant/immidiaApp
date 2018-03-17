@@ -1,0 +1,225 @@
+<ion-header class="header">
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+    <ion-title class="center">CAR</ion-title>
+    <div class="right-hdr">
+      <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+      <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+    </div>
+  </ion-navbar>
+</ion-header>
+<ion-content class="inner-bg-none">
+  <ion-slides pager class="slider">
+    <ion-slide>
+      <img [src]="imageUrl+carDetails?.banner[0]?.banner.substring(2)" alt="" />
+    </ion-slide>
+    <ion-slide>
+      <img [src]="imageUrl+carDetails?.banner[1]?.banner.substring(2)" alt="" />
+    </ion-slide>
+    <ion-slide>
+      <img [src]="imageUrl+carDetails?.banner[2]?.banner.substring(2)" alt="" />
+    </ion-slide>
+  </ion-slides>
+  <!--close slider-->
+  <div class="inner-cnt">
+    <h1>{{carDetails?.carName}}</h1>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="center">
+          <!-- <ion-icon name="people"></ion-icon> -->
+          <!--   <i class="icon flat-person"></i> -->
+          <ion-icon name="flat-person"></ion-icon>
+          <p>PASSENGERS</p>
+          <span>{{carDetails?.numberOfPassengers}}</span>
+        </ion-col>
+        <ion-col class="center">
+          <!-- <ion-icon class="flat-sleeping"></ion-icon> -->
+          <!-- <i class="icon flat-sleeping"></i> -->
+          <ion-icon name="flat-gps"></ion-icon>
+          <p>GPS</p>
+          <span>{{carDetails?.isGPS == 1 ? 'YES' : 'NO'}}</span>
+        </ion-col>
+        <ion-col class="center">
+          <!-- <ion-icon class="flat-bed"></ion-icon> -->
+          <!-- <i class="icon flat-bed"></i> -->
+          <ion-icon name="flat-fan"></ion-icon>
+          <p>AC</p>
+          <span>{{carDetails?.IsairConditioning == 1 ? "YES" :  "NO"}}</span>
+        </ion-col>
+        <ion-col class="center">
+          <!-- <ion-icon name="speedometer"></ion-icon> -->
+          <!--  <i class="icon flat-speedometer"></i> -->
+          <ion-icon name="flat-fuel"></ion-icon>
+          <p>FUEL</p>
+          <span>{{carDetails?.fuelType}}</span>
+        </ion-col>
+        <ion-col class="center">
+          <!-- <ion-icon class="flat-boat"></ion-icon> -->
+          <!--  <i class="icon flat-boat"></i> -->
+          <ion-icon name="flat-gearshift"></ion-icon>
+          <p>GEARBOX</p>
+          <span>{{carDetails?.GearboxType}}</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- <ion-list class="accordion">
+            <ion-item *ngFor="let d of specs; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+                <ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-up' : 'arrow-down'"></ion-icon>
+                <h2>{{d.title}}</h2>
+                <div *ngIf="isGroupShown(i)">{{d.description}}</div>
+            </ion-item>
+        </ion-list> -->
+    <div class="accordion">
+      <div class="acc-item" text-wrap (click)="toggleGroup(0)" [ngClass]="{active: isGroupShown(0)}">
+        <h2 class="acc-title">Location <ion-icon color="success" [name]="isGroupShown(0) ? 'arrow-up' : 'arrow-down'"></ion-icon></h2>
+        <div class="acc-content" *ngIf="isGroupShown(0)">
+          <ion-grid no-padding>
+            <ion-row>
+              <ion-col>Address</ion-col>
+              <ion-col text-right>{{carDetails?.addressCompany}}</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+      <div class="acc-item" text-wrap (click)="toggleGroup(1)" [ngClass]="{active: isGroupShown(1)}">
+        <h2 class="acc-title">Specification <ion-icon color="success" [name]="isGroupShown(1) ? 'arrow-up' : 'arrow-down'"></ion-icon></h2>
+        <div class="acc-content" *ngIf="isGroupShown(1)">
+          <ion-grid no-padding>
+            <ion-row>
+              <ion-col>Power</ion-col>
+              <ion-col text-right><strong>{{carDetails?.power}}</strong></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Engine Size</ion-col>
+              <ion-col text-right><strong>{{carDetails?.engineSize}}</strong></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Gear Box</ion-col>
+              <ion-col text-right><strong>{{carDetails?.GearboxType}}</strong></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Maximum Speed</ion-col>
+              <ion-col text-right><strong>{{carDetails?.maxSpeed}}</strong></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Color</ion-col>
+              <ion-col text-right><strong>{{carDetails?.colour}}</strong></ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+      <div class="acc-item" text-wrap (click)="toggleGroup(2)" [ngClass]="{active: isGroupShown(2)}">
+        <h2 class="acc-title">Rental Condition <ion-icon color="success" [name]="isGroupShown(2) ? 'arrow-up' : 'arrow-down'"></ion-icon></h2>
+        <div class="acc-content" *ngIf="isGroupShown(2)">
+          <ion-grid no-padding>
+            <ion-row>
+              <ion-col>Deductible</ion-col>
+              <ion-col text-right><strong>{{carDetails?.deductible}}</strong></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Included Km/Miles</ion-col>
+              <ion-col text-right><strong>{{carDetails?.IncludedKMperMilesHighSeason}}</strong></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Minimum Age</ion-col>
+              <ion-col text-right><strong>{{carDetails?.driverAge}}</strong></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Minimum Driving
+                <br /> Experience In Month</ion-col>
+              <ion-col text-right><strong>{{carDetails?.driverExperience}}</strong></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Credit Card for Warranty</ion-col>
+              <ion-col text-right><strong>{{carDetails?.numberOfCreditCardsForWarranty}}</strong></ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box1 static1">
+    <ion-list>
+      <ion-item *ngIf="isQuickFilter == true">
+        <ion-label>
+          <ion-icon name="calendar" style="margin-right: 5px"></ion-icon>
+        </ion-label>
+        <ion-datetime [(ngModel)]="departureDate" placeholder="Departure" displayFormat="MMM DD YYYY"></ion-datetime>
+      </ion-item>
+      <ion-item *ngIf="isQuickFilter == true">
+        <ion-label>
+          <ion-icon name="car"></ion-icon>
+        </ion-label>
+        <ion-select interface="popover" id="days" [(ngModel)]="days" placeholder="Hour(s)/Day(s)" (ionChange)="onSelectCarDaysChange($event);">
+          <ion-option *ngFor="let d of carDays" [value]="d.id">{{d.hoursdays}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <ion-icon name="clock"></ion-icon>
+        </ion-label>
+        <ion-select interface="popover" id="departureHour" [(ngModel)]="departureHour" placeholder="Departure" (ionChange)="onSelectCarDepartureHourChange($event);">
+          <ion-option *ngFor="let d of carTime" [value]="d.time">{{d.time}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <ion-icon name="clock"></ion-icon>
+        </ion-label>
+        <ion-select interface="popover" id="arrivalHour" [(ngModel)]="arrivalHour" placeholder="Arrival" (ionChange)="onSelectCarArrivalHourChange($event);">
+          <ion-option *ngFor="let a of carTime" [value]="a.time">{{a.time}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <ion-icon name="car"></ion-icon>
+        </ion-label>
+        <ion-select interface="popover" id="departureCity" [(ngModel)]="departureCity" placeholder="Departure City" (ionChange)="onSelectDepartureCityChange($event);">
+          <ion-option *ngFor="let c of carCity" [value]="c.id">{{c.cityName}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <ion-icon name="car"></ion-icon>
+        </ion-label>
+        <ion-select interface="popover" id="arrivalCity" [(ngModel)]="arrivalCity" placeholder="Arrival City" (ionChange)="onSelectArrivalCityChange($event);">
+          <ion-option *ngFor="let c of carCity" [value]="c.id">{{c.cityName}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+           <ion-item *ngIf="isQuickFilter == true">
+                <ion-label>
+                    <ion-icon name="car" style="margin-right: 5px"></ion-icon> 
+                </ion-label>
+                <ion-select interface="popover" [(ngModel)] ="driverType"  placeholder="Type">
+                    <ion-option [value]="1">With Driver</ion-option>
+                    <ion-option [value]="0" >Without Driver</ion-option>
+                </ion-select>
+            </ion-item>
+
+
+    </ion-list>
+  </div>
+  <div class="box-padding">
+    <ion-grid no-padding>
+      <ion-row>
+        <ion-col col-12>
+          <button ion-button small block color="dark" class="square" icon-left>
+            <ion-icon name="cart"></ion-icon>{{getCurrency(carDetails?.currencyId)}} {{carUpdatedPrice | number:'1.2-2' }}</button>
+        </ion-col>
+        <ion-col col-6>
+          <button ion-button small block color="dark" class="square" icon-left (click)="goBack();">
+            <ion-icon name="arrow-back"></ion-icon> Back</button>
+        </ion-col>
+        <ion-col col-6>
+          <button ion-button small block color="dark" class="square" icon-right (click)="submitCarForm();">Next
+            <ion-icon name="arrow-forward"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

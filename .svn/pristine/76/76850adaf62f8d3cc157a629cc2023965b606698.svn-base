@@ -1,0 +1,145 @@
+import { Component, EventEmitter, Output } from '@angular/core';
+import { ModalController, ViewController } from 'ionic-angular';
+import moment from 'moment/src/moment';
+
+function __decorate(decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+}
+
+function __metadata(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+}
+
+var DatePicker = DatePicker_1 = (function () {
+    function DatePicker(modalCtrl, viewCtrl) {
+        this.modalCtrl = modalCtrl;
+        this.viewCtrl = viewCtrl;
+        this.onDateSelected = new EventEmitter();
+        this.onCancelled = new EventEmitter();
+        this.daysGroupedByWeek = [];
+        this.currentMoment = moment();
+        this.renderCalender();
+    }
+    DatePicker.prototype.renderCalender = function () {
+        this.daysOfMonth = this.generateDaysOfMonth(this.currentMoment.year(), this.currentMoment.month() + 1, this.currentMoment.date());
+        this.daysGroupedByWeek = this.groupByWeek(this.daysOfMonth);
+        this.setTodayAsDefaultSelectedDate();
+    };
+    DatePicker.prototype.generateDaysOfMonth = function (year, month, day) {
+        var calendarMonth = moment(year + "-" + month + "-" + day, "YYYY-MM-DD");
+        var startOfMonth = calendarMonth.clone().startOf("month").day("sunday");
+        var endOfMonth = calendarMonth.clone().endOf("month").day("saturday");
+        var totalDays = endOfMonth.diff(startOfMonth, "days") + 1;
+        var calendarDays = [];
+        for (var i = 0; i < totalDays; i++) {
+            var immunableStartOfMonth = startOfMonth.clone();
+            var dateItem = {
+                isSelected: false,
+                momentDate: immunableStartOfMonth.add(i, "day"),
+                isEnabled: this.isBelongToThisMonth(immunableStartOfMonth, month)
+            };
+            calendarDays.push(dateItem);
+        }
+        return calendarDays;
+    };
+    DatePicker.prototype.groupByWeek = function (daysOfMonth) {
+        var groupedDaysOfMonth = new Array();
+        daysOfMonth.forEach(function (item, index) {
+            var groupIndex = Math.floor((index / 7));
+            groupedDaysOfMonth[groupIndex] = groupedDaysOfMonth[groupIndex] || [];
+            groupedDaysOfMonth[groupIndex].push(item);
+        });
+        return groupedDaysOfMonth;
+    };
+    DatePicker.prototype.selectDate = function (day) {
+        if (!day.isEnabled)
+            return;
+        if (this.selectedDateItem && this.selectedDateItem.isSelected) {
+            this.selectedDateItem.isSelected = false;
+        }
+        day.isSelected = true;
+        this.selectedDateItem = day;
+        this.currentMoment = day.momentDate.clone();
+    };
+    DatePicker.prototype.setTodayAsDefaultSelectedDate = function () {
+        var today = moment().startOf("day");
+        var foundDates = this.daysOfMonth
+            .filter(function (item) { return today.isSame(item.momentDate.clone().startOf("day")); });
+        if (foundDates && foundDates.length > 0) {
+            this.selectedDateItem = foundDates[0];
+            this.selectedDateItem.isSelected = true;
+        }
+    };
+    DatePicker.prototype.isBelongToThisMonth = function (momentDate, month) {
+        return momentDate.month() + 1 === month;
+    };
+    DatePicker.prototype.setMonthBack = function () {
+        this.currentMoment.subtract(1, "month");
+        this.renderCalender();
+    };
+    DatePicker.prototype.setMonthForward = function () {
+        this.currentMoment.add(1, "month");
+        this.renderCalender();
+    };
+    DatePicker.prototype.setYearBack = function () {
+        this.currentMoment.subtract(1, "year");
+        this.renderCalender();
+    };
+    DatePicker.prototype.setYearForward = function () {
+        this.currentMoment.add(1, "year");
+        this.renderCalender();
+    };
+    DatePicker.prototype.confirmDateSelection = function () {
+        this.viewCtrl.dismiss(this.selectedDateItem.momentDate.toDate());
+    };
+    DatePicker.prototype.cancel = function () {
+        this.viewCtrl.dismiss();
+    };
+    DatePicker.prototype.showCalendar = function () {
+        var _this = this;
+        this.calendarModal = this.modalCtrl.create(DatePicker_1);
+        this.calendarModal.onDidDismiss(function (data) {
+            if (data) {
+                _this.onDateSelected.emit(data);
+            }
+            else {
+                _this.onCancelled.emit();
+            }
+        });
+        this.calendarModal.present();
+    };
+    return DatePicker;
+}());
+__decorate([
+    Output(),
+    __metadata("design:type", typeof (_a = typeof EventEmitter !== "undefined" && EventEmitter) === "function" && _a || Object)
+], DatePicker.prototype, "onDateSelected", void 0);
+__decorate([
+    Output(),
+    __metadata("design:type", typeof (_b = typeof EventEmitter !== "undefined" && EventEmitter) === "function" && _b || Object)
+], DatePicker.prototype, "onCancelled", void 0);
+DatePicker = DatePicker_1 = __decorate([
+    Component({
+        selector: 'date-picker',
+        template: "<div class=\"layout-col horizontal-center\" style=\"background-color:white;height:100%\">\n  <div class=\"layout-col horizontal-center top-banner\">\n    <div class=\"dayofweek padding-5\">{{currentMoment.format('dddd')}}</div>\n    <div class=\"text-center padding-10\">\n      <div class=\"padding-5\">\n        <ion-icon class=\"arrow\" name=\"arrow-back\" (click)=\"setMonthBack()\"></ion-icon>\n        <span class=\"month padding-10\">{{currentMoment.format('MMM')}}</span>\n        <ion-icon class=\"arrow\" name=\"arrow-forward\" (click)=\"setMonthForward()\"></ion-icon>\n      </div>\n      <div class=\"day padding-5\">{{currentMoment.format('D')}}</div>\n      <div class=\"text-center padding-5\">\n        <ion-icon class=\"arrow\" name=\"arrow-back\" (click)=\"setYearBack()\"></ion-icon>\n        <span class=\"year padding-10\">{{currentMoment.format('YYYY')}}</span>\n        <ion-icon class=\"arrow\" name=\"arrow-forward\" (click)=\"setYearForward()\"></ion-icon>\n      </div>\n    </div>\n  </div>\n  <span class=\"month-year\">{{currentMoment.format('MMMM YYYY')}}</span>\n  <div class=\"calendar-item-container\">\n    <div class=\"layout-row day-item-header\" style=\"width:100%;flex-wrap:wrap;text-align:center\">\n    <div>S</div>\n    <div>M</div>\n    <div>T</div>\n    <div>W</div>\n    <div>T</div>\n    <div>F</div>\n    <div>S</div>\n  </div>\n  <div class=\"layout-row\" style=\"width:100%;flex-wrap:wrap;text-align:center\" *ngFor=\"let week of daysGroupedByWeek;\">\n    <div class=\"day-item\" [ngClass]=\"{'selected': day.isSelected, 'disabled': !day.isEnabled}\" *ngFor=\"let day of week;\" (click)=\"selectDate(day)\">{{day.momentDate.date()}}</div>\n  </div>\n  </div>\n  <div class=\"layout-row\" style=\"width:100%;justify-content:Flex-end;margin:10px;\">\n    <button ion-button style=\"color:grey\" clear (click)=\"cancel()\">Cancel</button>\n    <button ion-button clear (click)=\"confirmDateSelection()\">OK</button>\n  </div>\n\n\n</div>",
+        styles: [".layout-row {\n  display: flex;\n  flex-direction: row; }\n\n.layout-col {\n  display: flex;\n  flex-direction: column; }\n\n.horizontal-center {\n  align-items: center; }\n\n.text-center {\n  text-align: center; }\n\n.padding-5 {\n  padding: 5px; }\n\n.padding-10 {\n  padding: 10px; }\n\n.arrow {\n  margin-left: 10px;\n  margin-right: 10px; }\n\n.day-item-header div {\n  padding: 10px;\n  flex: 1;\n  font-weight: bold; }\n\n.day-item {\n  flex: 1;\n  line-height: 36px;\n  min-height: 36px; }\n\n.selected {\n  background-color: #e0edff; }\n\n.disabled {\n  color: #cfcfcf; }\n\n.dayofweek {\n  font-size: 1.5em; }\n\n.day {\n  font-size: 3em; }\n\n.month {\n  font-size: 1.5em; }\n\n.year {\n  font-size: 1.5em; }\n\n.month-year {\n  font-size: 1.3em;\n  padding: 10px; }\n\n.top-banner {\n  background-color: #1e90ff;\n  color: white;\n  width: 100%;\n  padding: 10px;\n  min-height: 200px; }\n\n.calendar-item-container {\n  width: 100%;\n  padding: 5px;\n  min-height: 262px; }\n"]
+    }),
+    __metadata("design:paramtypes", [typeof (_c = typeof ModalController !== "undefined" && ModalController) === "function" && _c || Object, typeof (_d = typeof ViewController !== "undefined" && ViewController) === "function" && _d || Object])
+], DatePicker);
+var DatePicker_1;
+var _a;
+var _b;
+var _c;
+var _d;
+
+var DateItem = (function () {
+    function DateItem() {
+    }
+    return DateItem;
+}());
+
+export { DatePicker, DateItem };
+//# sourceMappingURL=date-picker.esm.js.map

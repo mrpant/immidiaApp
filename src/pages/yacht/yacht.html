@@ -1,0 +1,74 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">YACHT</ion-title>
+         <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="box1 form2">
+        <ion-list>
+
+                <ion-grid>
+                        <ion-row justify-content-start align-items-center class="py-1">  
+                                <ion-col class="pl-0"><ion-icon name="pin"></ion-icon></ion-col> 
+                                <ion-col>                                
+                                   <span class="selectbox">
+                                      <select id="country" [(ngModel)]="country" (change)="onSelectYachtCountryChange(country)" placeholder="Country">
+                                         <option *ngFor="let c of yachtCountry" [value]="c.countryId">{{c.countryName}}</option>
+                                         </select>
+                                    </span> 
+                                  
+                                </ion-col>                                           
+                               </ion-row>                    
+
+                              <ion-row justify-content-start align-items-center class="py-1">   
+                                    <ion-col class="pl-0"><ion-icon name="pin"></ion-icon></ion-col> 
+                                    <ion-col>                                
+                                        <span class="selectbox">
+                                          <select id="state" [(ngModel)]="state" placeholder="State" (change)="onSelectYachtStateChange(state)">
+                                                <option *ngFor="let s of yachtState" [value]="s.stateId">{{s.stateName}}</option>
+                                            </select>
+                                        </span>
+                                    </ion-col>                                           
+                                   </ion-row>
+                                   <ion-item class="input-group" no-padding>
+                                        <ion-label>
+                                            <ion-icon name="people"></ion-icon>
+                                        </ion-label>
+                                        <ion-input type="number" [(ngModel)]="guest" placeholder="Guest"></ion-input>
+                                        <ion-note item-end>
+                                        <button ion-button clear color="dark" (click)="decrementGuestCounter();">
+                                                <ion-icon name="remove"></ion-icon>
+                                        </button>
+                                        <button ion-button clear color="dark" (click)="incrementGuestCounter();">
+                                                <ion-icon name="add"></ion-icon>
+                                        </button>
+                                        </ion-note>                                        
+                                    </ion-item>
+
+                                    <ion-row justify-content-start align-items-center class="py-1">   
+                                            <ion-col class="pl-0">
+                                                <ion-icon name="md-boat"></ion-icon>
+                                            </ion-col> 
+                                            <ion-col>                                
+                                                <span class="selectbox">
+                                                  <select id=" " [(ngModel)]="yachtType" placeholder="Motor" (change)="onSelectYachtStateChange(state)">
+                                                        <option  value ="0">Sail</option>   
+                                                        <option  value ="1">Motor</option>
+                                                         <option value ="2">Super Yacht</option>                                                    </select>
+                                                </span>
+                                            </ion-col>                                           
+                                           </ion-row>
+
+            </ion-grid>       
+        </ion-list>      
+        <button ion-button block color="dark" (click)="submitYachtForm()">See the Selection</button>
+    </div>
+</ion-content>

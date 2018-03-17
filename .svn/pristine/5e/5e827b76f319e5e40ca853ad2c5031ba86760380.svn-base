@@ -1,0 +1,165 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">Book YACHT</ion-title>
+        <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+         </div>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="box1 static form2">
+        <ion-list>       
+            <ion-grid>
+                    <ion-row justify-content-start align-items-center class="py-1">  
+                           <ion-col class="pl-0"><ion-icon name="pin"></ion-icon></ion-col> 
+                           <ion-col>                                
+                               <span class="selectbox">
+                                 <select id="country" [(ngModel)]="country" (change)="onSelectYachtCountryChange(country)" placeholder="Country">
+                                    <option *ngFor="let c of yachtCountry" [value]="c?.countryId">{{c?.countryName}}</option>
+                                 </select>
+                               </span>
+                           </ion-col>                                           
+                          </ion-row>
+
+                          <ion-row justify-content-start align-items-center class="py-1">   
+                                <ion-col class="pl-0"><ion-icon name="pin"></ion-icon></ion-col> 
+                                <ion-col>                                
+                                    <span class="selectbox">
+                                      <select id="state" [(ngModel)]="state" placeholder="State" (change)="onSelectYachtStateChange(state)">
+                                            <option *ngFor="let s of yachtState" [value]="s?.stateId">{{s?.stateName}}</option>
+                                      </select>
+                                    </span>
+                                </ion-col>                                           
+                               </ion-row>
+
+                               <ion-row justify-content-start align-items-center class="py-1">   
+                                    <ion-col class="pl-0"><ion-icon name="flat-boat"></ion-icon></ion-col> 
+                                    <ion-col>                                
+                                        <span class="selectbox">
+                                          <select [(ngModel)]="yachtType" placeholder="Yacht Type" (change)="validateSuperYacht(yachtType);">
+                                            <option value="1">Motor</option>
+                                            <option value="0">Sail</option>
+                                            <option value="2">Super Yacht</option>
+                                          </select>
+                                        </span>
+                                    </ion-col>                                           
+                                   </ion-row>
+
+                                   <ion-row justify-content-start align-items-center class="py-1">   
+                                        <ion-col class="pl-0"><ion-icon name="clock"></ion-icon></ion-col> 
+                                        <ion-col>                                
+                                            <span class="selectbox">
+                                              <select id="days" [(ngModel)]="daysId" placeholder="Duration" (change)="onSelectYachtDaysChange(daysId)">
+                                                    <option *ngFor="let d of daysArray" [value]="d?.id">{{d?.name}}</option>
+                                              </select>
+                                            </span>
+                                        </ion-col>                                           
+                                       </ion-row>
+
+                                           <ion-row justify-content-start align-items-center class="form-group">   
+                                                <ion-col class="pl-0">
+                                                        <ion-label>
+                                                          <ion-icon name="calendar"></ion-icon>&nbsp;&nbsp;&nbsp;Date
+                                                        </ion-label>
+                                                </ion-col> 
+                                                <ion-col> 
+                                                        <ion-datetime [(ngModel)]="departureDate" (ionChange)="onSelectYachtDepartureDateChange(departureDate)" placeholder="Departure Date"   displayFormat="MMM DD YYYY" [min]="departureDate"   max="2050-12-01"></ion-datetime>
+                                                </ion-col>                                           
+                                               </ion-row>
+
+                                               <ion-row justify-content-start align-items-center class="form-group"> 
+                                                    <ion-col class="pl-0">
+                                                            <ion-label>
+                                                              <ion-icon name="calendar"></ion-icon>&nbsp;&nbsp;&nbsp;Date
+                                                            </ion-label>
+                                                    </ion-col> 
+                                                    <ion-col> 
+                                                            <ion-datetime [disabled] ="isDisabledArrival" [(ngModel)]="arrivalDate"   placeholder="Arrival Date" displayFormat="MMM DD YYYY" (change)="onSelectYachtArrivalDateChange(arrivalDate);" [min]="departureDate"  max="2050-12-01"></ion-datetime>
+                                                        </ion-col>                                           
+                                                   </ion-row>
+
+                                                   <ion-row justify-content-start align-items-center class="py-1">   
+                                                        <ion-col class="pl-0"><ion-icon name="ios-repeat"></ion-icon></ion-col> 
+                                                        <ion-col>                                
+                                                            <span class="selectbox">
+                                                              <select name="One Way/Return" id="return" required>
+                                                                <option value="0">One Way</option>
+                                                                <option value="1">Return</option>
+                                                              </select>
+                                                            </span>
+                                                        </ion-col>                                           
+                                                       </ion-row>
+
+                                                       <ion-row justify-content-start align-items-center class="py-1">   
+                                                            <ion-col class="pl-0"><ion-icon name="pin"></ion-icon></ion-col> 
+                                                            <ion-col>                                
+                                                                <span class="selectbox">
+                                                                  <select id="departureCity" [(ngModel)]="departureCity" placeholder="Departure Port" (change)="onSelectYachtDepartureCityChange(departureCity);">
+                                                                        <option *ngFor="let c of yachtDepartureCity" [value]="c?.cityId">{{c?.cityName}}</option>
+                                                                  </select>
+                                                                </span>
+                                                            </ion-col>                                           
+                                                           </ion-row>
+    
+
+                                                           <ion-row justify-content-start align-items-center class="py-1">   
+                                                                <ion-col class="pl-0"><ion-icon name="pin"></ion-icon></ion-col> 
+                                                                <ion-col>                                
+                                                                    <span class="selectbox">
+                                                                      <select id="arrivalCity" [(ngModel)]="arrivalCity" placeholder="Arrival Port" (change)="onSelectYachtArrivalCityChange(arrivalCity)">
+                                                                            <option *ngFor="let c of yachtArrivalCity" [value]="c?.id">{{c?.cityName}}</option>
+                                                                      </select>
+                                                                    </span>
+                                                                </ion-col>                                           
+                                                               </ion-row>
+        
+
+            </ion-grid>        
+                
+
+                       
+            <!-- <ion-item>
+                <ion-label>
+                    <ion-icon name="subway"></ion-icon>
+                </ion-label>
+                <ion-select  placeholder="Arrival Port">
+                    <ion-option>New Delhi</ion-option>
+                    
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="clock" style="margin-right: 5px"></ion-icon> Departure Time</ion-label>
+                <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="clock" style="margin-right: 5px"></ion-icon> Arrival Time</ion-label>
+                <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime>
+            </ion-item> -->
+
+            <ion-item class="input-group">
+                <ion-label>
+                    <ion-icon name="people"></ion-icon>
+                </ion-label>
+                <ion-input [(ngModel)]="guest"  type="number" placeholder="Guest"></ion-input>
+                <ion-note item-end>
+                    <button ion-button clear color="dark" (click)="decrementGuestCounter();">
+                        <ion-icon name="remove"></ion-icon>
+                    </button>
+                    <button ion-button clear color="dark" (click)="incrementGuestCounter();">
+                        <ion-icon name="add"></ion-icon>
+                    </button>
+                </ion-note>
+            </ion-item>
+
+
+        </ion-list>
+        <button ion-button block color="dark" (click)="submitYachtForm();">Search</button>
+    </div>
+</ion-content>

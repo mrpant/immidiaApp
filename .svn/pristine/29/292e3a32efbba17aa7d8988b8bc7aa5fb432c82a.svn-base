@@ -1,0 +1,225 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">Villa</ion-title>
+          <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content class="inner-bg-none">
+    <ion-slides pager class="slider">
+         <ion-slide>
+               <img [src]="imageUrl+villaDetails?.banner[0].banner.substring(2)" alt="" />
+        </ion-slide>
+        <ion-slide>
+               <img [src]="imageUrl+villaDetails?.banner[1].banner.substring(2)" alt="" />
+        </ion-slide>
+        <ion-slide>
+                <img [src]="imageUrl+villaDetails?.banner[2].banner.substring(2)" alt="" />
+        </ion-slide>
+    </ion-slides>
+    <!--close slider-->
+    <div class="inner-cnt">
+        <h1>{{villaDetails?.villaName}}</h1>
+        <ion-grid>
+            <ion-row>
+                <ion-col class="center">
+                   <!--  <i class="icon flat-bed"></i> -->
+                      <ion-icon name="flat-bed"></ion-icon>
+                    <p>TO SLEEP</p>
+                    <span>{{villaDetails?.guestSleeping}}</span>
+                </ion-col>
+                <ion-col col-auto class="center">
+                    <!-- <i class="icon flat-sleeping"></i> -->
+                     <ion-icon name="flat-sleeping"></ion-icon>
+                    <p>BEDROOM</p>
+                    <span>{{villaDetails?.maximumGuests}}</span>
+                </ion-col>
+                <ion-col class="center">
+                    <!-- <ion-icon name="people"></ion-icon> -->
+                    <!-- <i class="icon flat-building"></i> -->
+                     <ion-icon name="flat-building"></ion-icon>
+                    <p>AREA</p>
+                    <span>{{villaDetails?.surfaceArea}}</span>
+                </ion-col>
+                <ion-col class="center">
+                    <!-- <ion-icon name="speedometer"></ion-icon> -->
+                   <!--  <i class="icon flat-house"></i> -->
+                    <ion-icon name="flat-house"></ion-icon>
+                    <p>ROOMS</p>
+                    <span>{{villaDetails?.totalRooms}}</span>
+                </ion-col>
+                <ion-col class="center">
+                    <!-- <ion-icon name="boat"></ion-icon> -->
+                   <!--  <i class="icon flat-shower"></i> -->
+                    <ion-icon name="flat-shower"></ion-icon>
+                    <p>BATHROOM</p>
+                    <span>{{villaDetails?.totalBathRooms}}</span>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <!-- <ion-list class="accordion">
+            <ion-item *ngFor="let d of specs; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+                <ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-up' : 'arrow-down'"></ion-icon>
+                <h2>{{d.title}}</h2>
+                <div *ngIf="isGroupShown(i)">{{d.description}}</div>
+            </ion-item>
+        </ion-list> -->
+        <div class="accordion">
+            <div class="acc-item" text-wrap (click)="toggleGroup(0)" [ngClass]="{active: isGroupShown(0)}">
+                <h2 class="acc-title">Location <ion-icon color="success" [name]="isGroupShown(0) ? 'arrow-up' : 'arrow-down'"></ion-icon></h2>
+                <div class="acc-content" *ngIf="isGroupShown(0)">
+                    <ion-grid no-padding>
+                        <ion-row>
+                            <ion-col>ADDRESS</ion-col>
+                            <ion-col text-right>{{villaDetails?.address}}</ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>SHOW MAP</ion-col>
+                            <ion-col text-right>Show Map</ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </div>
+            </div>
+            <div class="acc-item" text-wrap (click)="toggleGroup(1)" [ngClass]="{active: isGroupShown(1)}">
+                <h2 class="acc-title">Specification <ion-icon color="success" [name]="isGroupShown(1) ? 'arrow-up' : 'arrow-down'"></ion-icon></h2>
+                <div class="acc-content" *ngIf="isGroupShown(1)">
+                    <ion-grid no-padding>
+                        <ion-row>
+                            <ion-col>SITUATION</ion-col>
+                            <ion-col text-right><strong>{{villaDetails?.situation}}</strong></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>HILL VIEW</ion-col>
+                            <ion-col text-right><strong>{{villaDetails?.ishillView == 1 ? 'YES' : 'NO'}}</strong></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>ATTRACTIONS AND DISTANCES</ion-col>
+                            <ion-col text-right><strong>{{villaDetails?.additional}}</strong></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>CLASSICAL INTERIOR DESIGN</ion-col>
+                            <ion-col text-right><strong>{{villaDetails?.isClassicalInteriorDesign ==  1  ? 'YES' : ' NO'}}</strong></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>MODERN INTERIOR DESIGN</ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>FULLY EQUIPPED KITCHEN</ion-col>
+                            <ion-col text-right><strong>{{villaDetails?.isKitchen == 1 ? 'YES' : 'NO' }}</strong></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>BABIES EQUIPMENT</ion-col>
+                            <ion-col text-right><strong>{{villaDetails?.babiesEquipment}}</strong></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>ADDITIONAL BUSINESS EQUIPMENT</ion-col>
+                            <ion-col text-right><strong>{{villaDetails?.additionalBusinessEquipement}}</strong></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>AIR CONDITIONING</ion-col>
+                            <ion-col text-right><strong>{{villaDetails?.isAirConditioning ==1 ? 'YES' : 'NO'}}</strong></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>WI-FI</ion-col>
+                            <ion-col text-right><strong>{{villaDetails?.isWifi ==1 ?  'YES' :'NO'}}</strong></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>AUDIO VISUAL</ion-col>
+                            <ion-col text-right><strong>{{villaDetails?.audioVisual}}</strong></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>FIRE PLACE</ion-col>
+                            <ion-col text-right><strong>{{villaDetails?.firePlace}}</strong></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>SWIMMING-POOL</ion-col>
+                            <ion-col text-right><strong>{{villaDetails?.isSwimmingPool == 1 ? 'YES' : 'NO' }}</strong></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>SAUNA</ion-col>
+                            <ion-col text-right><strong>{{villaDetails?.isSauna == 1 ? 'YES' : 'NO'}}</strong></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>SPECIAL EQUIPMENTS</ion-col>
+                            <ion-col text-right><strong>{{villaDetails?.specialEquipments}}</strong></ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </div>
+            </div>
+          <!--   <div class="acc-item" text-wrap (click)="toggleGroup(2)" [ngClass]="{active: isGroupShown(2)}">
+                <h2 class="acc-title">Accomodation <ion-icon color="success" [name]="isGroupShown(2) ? 'arrow-up' : 'arrow-down'"></ion-icon></h2>
+                <div class="acc-content" *ngIf="isGroupShown(2)">
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col>MINIMUM STAY
+                            </ion-col>
+                            <ion-col text-right><strong>{{villaDetails?.minimumStay==2 ? "1 Week" : "1 Month"}}</strong></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>MAXIMIUM GUESTS
+                            </ion-col>
+                            <ion-col text-right><strong>{{villaDetails?.maximumGuests}}</strong></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>PETS
+                            </ion-col>
+                            <ion-col text-right><strong>{{villadetails?.isPetsAllowed == 1 ? 'YES' : 'NO' }}</strong></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>SOCIAL EVENTS
+                            </ion-col>
+                            <ion-col text-right><strong>{{villaDetails?.isEventsAllowed == 1 ? 'YES' : 'NO' }}</strong></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>SECURITY DEPOSIT
+                            </ion-col>
+                            <ion-col text-right><strong>{{villaDetails?.amountofSecurityDeposit}}  {{getCurrency(villaDetails?.currencyId)}}</strong></ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+<!--  <div class="box1 static1">
+    <ion-list>
+
+                <ion-item>
+                <ion-label>
+                    <ion-icon name="calendar" style="margin-right: 5px"></ion-icon></ion-label>
+                <ion-datetime [(ngModel)]="checkIn" (ionChange)="onSelectVillaCheckInChange(checkIn)" placeholder="Checkin" displayFormat="MMM DD YYYY" [min]="checkIn"  max="2050-12-01"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="calendar" style="margin-right: 5px"></ion-icon></ion-label>
+                <ion-datetime [(ngModel)]="checkOut" placeholder="Checkout" displayFormat="MMM DD YYYY" (ionChange)="onSelectVillaCheckOutChange(checkOut)" [min]="checkOut"  max="2050-12-01"></ion-datetime>
+            </ion-item>
+
+</ion-list>
+</div> -->
+    <div class="box-padding">
+        <ion-grid no-padding>
+            <ion-row>
+                <ion-col col-12>
+                    <button ion-button small block color="dark" class="square" icon-left *ngIf="isQuickFilter != true">
+                        <ion-icon name="cart"></ion-icon >{{getCurrency(villaDetails?.currencyId)}}  {{villaUpdatedPrice | number :'1.2-2'}}</button>
+                </ion-col>
+                <ion-col col-6>
+                    <button ion-button small block color="dark" class="square" icon-left (click)="goBack();">
+                        <ion-icon name="arrow-back"></ion-icon> Back</button>
+                </ion-col>
+                <ion-col col-6>
+                    <button ion-button small block color="dark" class="square" icon-right (click)="submitVillaForm();">Next
+                        <ion-icon name="arrow-forward"></ion-icon>
+                    </button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

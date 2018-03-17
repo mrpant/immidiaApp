@@ -1,0 +1,54 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">Chauffeur</ion-title>
+        <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="box1 static" style="background: rgba(25, 37, 59, 0.42);!important;top:65px;">
+
+
+           <p style=""><strong>Distance : </strong>&nbsp;&nbsp;&nbsp;<strong>{{getDistance()}}</strong> </p>
+            <p><strong>Duration : </strong>&nbsp;&nbsp;&nbsp;<strong>{{getTime()}} </strong> </p>
+
+        <input placeholder="Search Pick up location" autocorrect="off"  autocapitalize="off" spellcheck="off" type="text" class="input_form" #pickupOutput id="pickupInput" [formControl]="destinationInput" >   
+
+        <input placeholder="Search Drop off location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="input_form" #pickupOutput id="pickupOutput"[formControl]="destinationOutput" (ionChange)="updateMap($event);" >       
+           <ion-item>
+                <ion-label>
+                    <ion-icon  name="calendar"  style="margin-right: 5px"></ion-icon></ion-label>
+                <ion-datetime placeholder="Select date" displayFormat="YYYY DD, h:mm A" [(ngModel)]="departureDate" [min]="departureDate"  max="2050-12-01"></ion-datetime>
+            </ion-item>
+            <br>
+
+        
+        <button ion-button block color="dark" (click)="submitService();" >Book Now</button>
+
+       
+
+    </div>
+
+     <!--  <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+        
+      </agm-map> -->
+
+           <!--  <div #map id="map"></div> -->
+
+           <sebm-google-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" [styles]="mapCustomStyles">
+                <!-- <sebm-google-map-marker [latitude]="latitude" [longitude]="longitude" [iconUrl]="iconurl">
+                    <sebm-google-map-info-window>
+                        <strong>InfoWindow content</strong>
+                    </sebm-google-map-info-window>
+                </sebm-google-map-marker> -->
+                <sebm-google-map-directions [origin]="origin" [destination]="destination"></sebm-google-map-directions>
+              </sebm-google-map>
+
+</ion-content>

@@ -1,0 +1,15 @@
+page-villacontract {
+  .detail-box .grid [col-5]{
+  	text-align:left;
+  	
+  }
+  .detail-box{
+  		margin-bottom: 10px;
+  		 background: rgba(25, 37, 59, 0.61);
+  		    color:#fff;
+  		  & p,img{
+  		  padding:0 10px ;
+  		  }
+  	}
+
+}

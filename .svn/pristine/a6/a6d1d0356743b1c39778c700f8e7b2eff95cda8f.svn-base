@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.3.1_1ec0988eb4f637f9eeba7bf4d14cad06801b77a8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-places\4.27.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="0d394688dd7030b83dea8eed3fa483410c24afe0">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-places-4.27.0_4e54562f7b9c8ccb98b2098eb68c0677edc26ade.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\mannu\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0_cb5b8050fd35fa0c63885530603a924620464448.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-messenger\4.27.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="2482bfd874e8b3927f4141105674ad392ff83698">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-messenger-4.27.0_885a3a42b940b00b50b502deb871d78b53272251.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\mannu\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\bolts-applinks-1.4.0_eaa98c3fa3f3a833fc38a90102f2269671698515.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.3.1_99de65207280edd528b40eb768f53e3f8df14a59.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-share\4.27.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="9a0c96cb2e74d3a6e692d920c9e03326e77f6429">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-share-4.27.0_6f36f15339f56d91bedfd241115822b332635459.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\adt-bundle-windows-x86-20140702\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_1b9b1fcd89c7c4a5cc911f43831ddc368c88576a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.3.1_eae481ca0a006ffd2b915a491885f98640e70985.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-core\4.27.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="bc9ea2bc291bbebc83f5b160d115c699bddc4e16">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-core-4.27.0_350838e0f27a898bc1c9bd4f931ac12ce4707f91.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\mannu\.gradle\caches\modules-2\files-2.1\com.google.zxing\core\3.3.0\73c49077166faa4c3c0059c5f583d1d7bd1475fe\core-3.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="73c49077166faa4c3c0059c5f583d1d7bd1475fe">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\core-3.3.0_1e7416f858c4cbfa881f1e853fce26af110cde66.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\org.apache.cordova\CordovaLib\6.2.3\debug\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="7a1530ac850543228ac856fe951d258efe29f918">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\CordovaLib-6.2.3-debug_477d8e0ee3a4e0e30c653c831e6bedffe62332cb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.3.1_2f0f97de036ad8498d993bfadff8e37129c530f9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\org.apache.cordova\CordovaLib\6.2.3\release\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="69c20ef9399dbf427537ee0c9a5ebb29ed5aa6c6">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\release\CordovaLib-6.2.3-release_4d25608aa7f01ee65209d898a4c65a86e9f477e5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-applinks\4.27.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="82ea5a937ab84229fbd2f3fc8cf2a72cbdf0ee0f">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-applinks-4.27.0_ed37eaa88646f9931c453da37ac1e4216759f883.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-common\4.27.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="252896ce41f2a84a2849e29235e66098be7d12ee">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-common-4.27.0_30ad1651b6a3c5fb3246a2388a02d351d3825256.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-login\4.27.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="b8b26b28aae0ba8e2db55ad9fe0ebc770530c5ef">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-login-4.27.0_00508084a7a43c4feb4fc07c3ff426801781e10e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.3.1_4cb3bc2612746f271172eae9b8ee408958b7ac84.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-25.3.1_e2289d3a5c97d100cbfe52eb4e5e3379c5d76b03.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.3.1_16e04497ebb9e77fdf09b00a1614de3ba9dc7543.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.3.1_1c464b445568cdbe9c6255fbdda2eb3d35c77c2b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.3.1_e0a7f72cc0450b8b8af659eee717359e87f89287.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.android.support\customtabs\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="807751a24cf96566fd8675517c94d8463cf364db">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-customtabs-25.3.1_a5956f7a5bd0da81255a2e8a79142a1e1d4ab012.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.3.1_f34489cf18c1d744426ca802d074fa879eba60bb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.27.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="53e8932b1ac8c7dfc35cfeda1f9efbc9822ceaf3">
+        <dex dex="E:\Immidia\immidia_mobile_version\immidia\platforms\android\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-android-sdk-4.27.0_8b4709a438b8a8b11f7b4832970753d603fdc453.jar" />
+    </item>
+
+</items>

@@ -1,0 +1,110 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "angular2-google-place",
+        "scope": null,
+        "escapedName": "angular2-google-place",
+        "name": "angular2-google-place",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "E:\\Immidia\\immidia_mobile_version\\immidia"
+    ]
+  ],
+  "_from": "angular2-google-place@latest",
+  "_id": "angular2-google-place@2.0.2",
+  "_inCache": true,
+  "_location": "/angular2-google-place",
+  "_nodeVersion": "7.7.2",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/angular2-google-place-2.0.2.tgz_1497182949284_0.6896141399629414"
+  },
+  "_npmUser": {
+    "name": "atifsaddique",
+    "email": "atif@aurorasolutions.io"
+  },
+  "_npmVersion": "4.1.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "angular2-google-place",
+    "scope": null,
+    "escapedName": "angular2-google-place",
+    "name": "angular2-google-place",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular2-google-place/-/angular2-google-place-2.0.2.tgz",
+  "_shasum": "41018213f97d7bcde26db6590965768059080730",
+  "_shrinkwrap": null,
+  "_spec": "angular2-google-place",
+  "_where": "E:\\Immidia\\immidia_mobile_version\\immidia",
+  "author": {
+    "name": "Atif Saddique"
+  },
+  "dependencies": {
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/forms": "^4.0.0",
+    "@angular/http": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/router": "^4.0.0",
+    "core-js": "^2.4.1",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  },
+  "description": "google place auto complete search feature for angular 2 with easy integration",
+  "devDependencies": {
+    "@angular/cli": "1.0.0",
+    "@angular/compiler-cli": "^4.0.0",
+    "@types/jasmine": "2.5.38",
+    "@types/node": "~6.0.60",
+    "codelyzer": "~2.0.0",
+    "jasmine-core": "~2.5.2",
+    "jasmine-spec-reporter": "~3.2.0",
+    "karma": "~1.4.1",
+    "karma-chrome-launcher": "~2.0.0",
+    "karma-cli": "~1.0.1",
+    "karma-coverage-istanbul-reporter": "^0.2.0",
+    "karma-jasmine": "~1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "protractor": "~5.1.0",
+    "ts-node": "~2.0.0",
+    "tslint": "~4.5.0",
+    "typescript": "~2.2.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "41018213f97d7bcde26db6590965768059080730",
+    "tarball": "https://registry.npmjs.org/angular2-google-place/-/angular2-google-place-2.0.2.tgz"
+  },
+  "gitHead": "a9fa6c665973c3af3098e8f63de3fd8ff2220034",
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "atifsaddique",
+      "email": "atif@aurorasolutions.io"
+    }
+  ],
+  "name": "angular2-google-place",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "scripts": {
+    "build": "ng build",
+    "e2e": "ng e2e",
+    "lint": "ng lint",
+    "ng": "ng",
+    "start": "ng serve",
+    "test": "ng test"
+  },
+  "version": "2.0.2"
+}

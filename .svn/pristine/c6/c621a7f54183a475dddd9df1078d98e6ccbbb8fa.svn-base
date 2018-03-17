@@ -1,0 +1,64 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">YACHT</ion-title>
+         <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="box1">
+        <ion-list>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                    <ion-select interface="popover" id="country" [(ngModel)]="country" (ionChange)="onSelectYachtCountryChange($event)" placeholder="Country">
+                    <ion-option *ngFor="let c of yachtCountry" [value]="c.countryId">{{c.countryName}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-label>
+                <ion-select interface="popover" id="state" [(ngModel)]="state" placeholder="State" (ionChange)="onSelectYachtStateChange($event);">
+                   <ion-option *ngFor="let s of yachtState" [value]="s.stateId">{{s.stateName}}</ion-option>
+
+                </ion-select>
+            </ion-item>
+          
+            <ion-item class="input-group">
+                <ion-label>
+                    <ion-icon name="people"></ion-icon>
+                </ion-label>
+                <ion-input type="number" [(ngModel)]="guest" placeholder="Guest"></ion-input>
+                <ion-note item-end>
+                <button ion-button clear color="dark" (click)="decrementGuestCounter();">
+                        <ion-icon name="remove"></ion-icon>
+                </button>
+                <button ion-button clear color="dark" (click)="incrementGuestCounter();">
+                        <ion-icon name="add"></ion-icon>
+                </button>
+                </ion-note>
+                
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="flat-boat"></ion-icon>
+                </ion-label>
+                   <ion-select interface="popover" [(ngModel)]="yachtType" >
+                         <ion-option  value ="0">Sail</ion-option>   
+                         <ion-option  value ="1">Motor</ion-option>
+                          <ion-option value ="2">Super Yacht</ion-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+      
+        <button ion-button block color="dark" (click)="submitYachtForm()">See the Selection</button>
+    </div>
+</ion-content>
