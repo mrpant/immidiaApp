@@ -1,0 +1,32 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">VILLA SALE</ion-title>
+        <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="box1 form2" style="top:100px;">
+        <ion-list>
+            <ion-grid>
+                    <ion-row justify-content-start align-items-center class="py-1">  
+                            <ion-col class="pl-0"><ion-icon name="pin"></ion-icon></ion-col> 
+                            <ion-col>                                
+                                <span class="selectbox">
+                                  <select id="country" [(ngModel)]="country" placeholder="Country">
+                                        <option *ngFor="let c of villaCountry" [value]="c?.id">{{c?.countryName}}</option>
+                                  </select>
+                                </span>
+                            </ion-col>                                           
+                           </ion-row>
+                           </ion-grid>
+        </ion-list>
+        <button ion-button block color="dark" (click)="submitVillaForm();">See the Selection</button>
+    </div>
+</ion-content>

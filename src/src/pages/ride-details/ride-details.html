@@ -1,0 +1,38 @@
+<!--
+ Page Name : RideDetail Page.
+ Authour : Maneesh Kumar Tiwari
+ Description : Conatain all html and javascript code related to ride details component or menu.
+-->
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle >
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">Ride Details</ion-title>
+         <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+        </div>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content class="card-background-page">
+    <ion-card class="ride-deatil-card" tappable (tap)="jetcharterPage($event,'Large_Airliner')">
+            <img src="img/banner1.jpg" />
+            <div class="card-title ride-card-title underline">LARGE AIRLINER</div>
+    </ion-card>
+    <ion-card class="ride-deatil-card" tappable (tap)="jetcharterPage($event,'Long_Range_Jets')">
+        <img src="img/banner2.jpg" />
+        <div class="card-title ride-card-title underline">LONG RANGE JET</div>
+    </ion-card>
+    <ion-card class="ride-deatil-card" tappable (tap)="jetcharterPage($event,'Medium_Jets')">
+        <img src="img/banner3.jpg" />
+        <div class="card-title ride-card-title underline">MEDIUM JETS</div>
+    </ion-card>
+    <ion-card class="ride-deatil-card" tappable (tap)="jetcharterPage($event,'Small_Jets')">
+        <img src="img/banner4.jpg" />
+        <div class="card-title ride-card-title underline">SMALL JETS</div>
+    </ion-card>
+  </ion-content>

@@ -1,0 +1,29 @@
+<!-- <ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <figure class="logo"><img src="img/logo.png" alt="" /> </figure>
+        <ion-title class="center">Forgot Password</ion-title>
+    </ion-navbar>
+</ion-header> -->
+<ion-content >
+     <div class="pop_up" >
+       <button ion-button color="dark" (click)="onClose()"> X </button>
+        <p> Select by Price         
+        </p>
+        <ion-list>            
+            <ion-item>
+              <ion-range min="0" max="100000" step="10" [(ngModel)]="filterPrice" (ionChange)="getFilterPrice(filterPrice)" >
+                <ion-icon range-left small name="price">0</ion-icon>
+                <ion-icon range-right name="price">100000</ion-icon>
+              </ion-range>
+            
+            </ion-item>
+            <ion-item>
+              Price Range :  {{filterPrice}}
+            </ion-item>
+                     
+        </ion-list>  
+     </div>
+</ion-content>

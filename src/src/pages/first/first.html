@@ -1,0 +1,63 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">IMMIDIA</ion-title>
+        <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+        </div>
+    </ion-navbar>
+</ion-header>
+<div class="header2">
+    <ul>
+        <li>
+            <a *ngIf="YachtTabSelected == true" id="tab_yacht"  style="border-bottom: solid;" href="#" (click)="goToSlide(0)"><img src="img/yacht-icon.png" alt="" /></a>
+            <a *ngIf="YachtTabSelected == false"   href="#" (click)="goToSlide(0)"><img src="img/yacht-icon.png" alt="" /></a>
+        </li>
+        <li>
+            <a *ngIf="JetTabSelected == true" id="tab_jet"  style="border-bottom: solid;" href="#" (click)="goToSlide(1)"><img src="img/airplane-icon.png" alt="" /> </a>
+            <a *ngIf="JetTabSelected == false" href="#" (click)="goToSlide(1)"><img src="img/airplane-icon.png" alt="" /> </a>
+        </li>
+        <li>
+            <a *ngIf="CarTabSelected == true" id="tab_car" style="border-bottom: solid;"  href="#" (click)="goToSlide(2)"><img src="img/car-icon.png" alt="" /></a>
+             <a *ngIf="CarTabSelected == false" href="#" (click)="goToSlide(2)"><img src="img/car-icon.png" alt="" /></a>
+        </li>
+        <li>
+            <a *ngIf="VillaTabSelected == true" id="tab_villa"  style="border-bottom: solid;" href="#" (click)="goToSlide(3)"><img src="img/hotel-icon.png" alt="" /></a>
+            <a *ngIf="VillaTabSelected == false" href="#" (click)="goToSlide(3)"><img src="img/hotel-icon.png" alt="" /></a>
+        </li>
+    </ul>
+</div>
+<ion-slides #mySlider class="home-slider" pager  (ionSlideDidChange)="slideChanged()">
+    <ion-slide style="background:url(img/yacht-slider.jpg) center no-repeat; background-size: cover;">
+        <div class="box">
+            <button ion-button block color="dark" id="FirstPage" (click)="goToYacht()">browse our fleet</button>
+            <button ion-button block color="dark" (click)="goToYachtDetail()">book now</button>
+        </div>
+    </ion-slide>
+    <ion-slide style="background:url(img/jet-slider.jpg) center no-repeat; background-size: cover;">
+        <div class="box">
+            <button ion-button block color="dark" (click)="goToJet()">browse our fleet</button>
+            <button ion-button block color="dark" id="first" (click)="goToAirplane();">Jet Enquiry</button>
+            
+        </div>
+    </ion-slide>
+    <ion-slide style="background:url(img/car-slider.jpg) center no-repeat; background-size: cover;">
+        <div class="box">
+            <button ion-button block color="dark" (click)="goToCar()">browse our fleet</button>
+            <button ion-button block color="dark" (click)="goToCarDetail()">Rent A Car</button>
+               <button ion-button block color="dark" (click)="goToChauffeurDetail()">Chauffeur service</button>
+        </div>
+    </ion-slide>
+    <ion-slide style="background:url(img/villa-slider.jpg) center no-repeat; background-size: cover;">
+        <div class="box">
+         
+            <button ion-button block color="dark" (click)="goToVilla()">browse our collection</button>
+            <button ion-button block color="dark" (click)="goToVillaDetail()">For Rent</button>
+            <button ion-button block color="dark" (click)="goToVillaSaleDetail()">For Sale</button>
+        </div>
+    </ion-slide>
+</ion-slides>

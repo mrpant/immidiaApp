@@ -1,0 +1,53 @@
+<ion-header class="header">
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <figure class="logo"><img src="img/logo.png" alt="" /> </figure> -->
+        <ion-title class="center">EDIT PROFILE</ion-title>
+         <div class="right-hdr">
+            <span><a href="#"><ion-icon name="text" (click)="queryForm($event)"></ion-icon></a></span>
+            <span><a href="#"><ion-icon name="person" (click)="presentModal($event)"></ion-icon></a></span>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content class="card-background-page">      
+    <div padding >    
+    <h2 class="pd-left-rgt0 line font-size20">Edit Your personal information</h2> 
+        <div class="detail-box">
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-3><img src="{{userDetails?.image}}" alt="" (click)="takePicture();">
+                    <button ion-button block color="dark" (click)="uploadImage();">Upload</button>
+                    </ion-col>
+
+                    <ion-col col-9>
+                    <ion-list>
+                       <ion-item>                        
+                        <ion-input type="text" [(ngModel)]="firstName" placeholder="First Name" [value]=""></ion-input>
+                      </ion-item>
+
+                      <ion-item>                        
+                        <ion-input type="text" [(ngModel)]="lastName" placeholder="Last Name" [value]="userDetails.lastName"></ion-input>
+                      </ion-item>
+
+                       <ion-item>
+                       
+                        <ion-input type="tel" [(ngModel)]="contactNumber" placeholder="Contact No" [value]="userDetails.contactNumber"></ion-input>
+                      </ion-item>
+                      <ion-item>
+                       
+                        <ion-input type="email" [(ngModel)]="email" placeholder="Email" [value]="userDetails.mailId"></ion-input>
+                      </ion-item>
+                      <ion-item>
+                        
+                        <ion-textarea rows="1" [(ngModel)]="address" placeholder="Address" [value]="userDetails.address"></ion-textarea>
+                      </ion-item>
+                    </ion-list>
+                     <button ion-button block color="dark" (click)="submitForm();">Submit</button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+          </div>
+    </div>
+</ion-content>

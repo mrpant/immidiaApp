@@ -1,0 +1,31 @@
+page-ride-details {
+	.card-background-page { background:url(../img/bg-inner.jpg) no-repeat center; background-size: cover;
+		.card { position: relative;}
+		.card-title { font-size: 16px; text-transform: uppercase; text-align: center; color: #fff;  text-shadow: 1px 1px 1px #000; position: absolute; top: 10%; left: 15px; right: 15px; transform: translateY(-50%); -moz-transform: translateY(-50%); -webkit-transform: translateY(-50%);}
+    }
+    .ride-deatil-card{
+        margin:0px!important;
+        width: 100%!important;
+        img{
+            height:160px;
+        }
+    }
+    .ride-card-title{
+        font-family: "Times New Roman", Times, serif!important;
+        font-size: 1.7rem !important;
+    }
+    .underline{
+        position: relative;
+    }
+    .underline::before{
+        position: absolute;
+        left: 50%;        
+        top: 50%;        
+        content: '';        
+        background-color: #a18f61;        
+        width: 100px;        
+        height: 2px;        
+        transform: translate(-50%,-50%);        
+        margin-top: 15px;
+    }
+}

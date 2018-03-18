@@ -1,0 +1,43 @@
+page-jet-charter {
+    .card-background-page { background:url(../img/bg-inner.jpg) no-repeat center; background-size: cover;
+		.card { position: relative;}
+        .card-title { font-weight: 500;font-size: 16px!important; text-transform: uppercase; text-align: center; 
+             color: #fff;  text-shadow: 1px 1px 1px #000;
+              position: absolute; bottom: 30px; left: 15px; right: 15px; 
+            }
+    }
+    .header .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{
+        position: relative!important;
+    }
+    .toolbar-title toolbar-title-md{
+        width: 69%!important;
+    }
+    .ride-deatil-card{
+        margin:0px!important;
+        width: 100%!important;
+		img{
+			height: 160px;
+		}
+    }
+    .ride-card-title{
+        font-family: "Times New Roman", Times, serif!important;
+        font-size: 1.7rem !important;
+    }
+    .underline{
+        position: relative;
+    }
+    .underline::before{
+        position: absolute;
+        left: 50%;        
+        top: 50%;        
+        content: '';        
+        background-color: #a18f61;        
+        width: 100px;        
+        height: 2px;        
+        transform: translate(-50%,-50%);        
+        margin-top: 20px;
+    }
+    .card-title small{
+        font-weight: 500!important;
+    }
+}

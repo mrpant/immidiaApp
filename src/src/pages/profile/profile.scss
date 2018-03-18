@@ -1,0 +1,32 @@
+page-profile {
+    .tabs .tabbar { background: rgba(255,255,255,0.25);
+        .tab-button { color: #fff;
+            &[aria-selected=true] { background: rgba(25,37,59,0.6);}
+        }
+    }
+    .segment-md .segment-button {
+        background: rgba(101, 158, 218, 0.61);
+        color: #fff;
+        font-size: 1.4rem;
+        opacity: 1;
+        border-left: 1px solid #19253b;
+    }
+    h4 {
+        color: #fff;
+    }
+    .card-title {
+        font-size: 30px;
+        text-transform: uppercase;
+        text-align: center;
+        width: 100%;
+        color: #fff;
+        text-shadow: 1px 1px 1px #000;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+    }
+}
